@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
 
+import { CustomFlowbiteTheme, Flowbite } from "flowbite-react";
+
+import { AuthContextProvider } from "@/firebase/firebase-provider";
+import { NextUIProvider } from "@/Providers/NextUIProvider";
+import ReactQueryPvorider from "@/Providers/react-query-provider";
+import ReduxProvider from "@/Providers/redux-provider";
+
+
+const NextProgress = dynamic(() => import('@/components/next-progress'), {
+  ssr: false,
+});
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,9 +26,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const customTheme: CustomFlowbiteTheme = {
+
+  };
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NextProgress />
+        <ReduxProvider>
+          <Flowbite theme={{ theme: customTheme }}>
+            <AuthContextProvider>
+              <NextUIProvider>
+                <ReactQueryPvorider>
+                  {children}
+                </ReactQueryPvorider>
+
+              </NextUIProvider>
+            </AuthContextProvider>
+          </Flowbite>
+        </ReduxProvider>
+
+
+      </body>
     </html>
   );
 }

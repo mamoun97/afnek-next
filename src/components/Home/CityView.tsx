@@ -1,0 +1,19 @@
+import Link from "next/link";
+
+
+
+export default function CityView({ data }: { data: City }) {
+    return (<Link href={"/hotels-filter"}>
+        <div className="m-2 grow cursor-pointer">
+            <div className="pt-[80%]  bg-center bg-cover bg-no-repeat rounded-xl"
+                style={{ backgroundImage: "url(" + data.image + ")" }}>
+
+            </div>
+
+            <p className="  mt-3 text-sm font-bold">{data.name}</p>
+            <p className="font-semibold text-gray-400 text-sm">{data.price} DZD</p>
+
+        </div>
+    </Link>
+    )
+}
