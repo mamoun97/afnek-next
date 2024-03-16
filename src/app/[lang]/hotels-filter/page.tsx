@@ -10,7 +10,7 @@ import { HotelListLoading } from "@/components/Loading";
 
 export default function HotelsFilter() {
 
-    const {data:hotels,isLoading} = HotelApi.useReadAll("limit=5&page=1")
+    const {data:hotels,isLoading} = HotelApi.useReadAll("?limit=5&page=1")
     
     return (
         <div>
