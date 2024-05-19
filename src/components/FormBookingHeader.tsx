@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, TextInput } from 'flowbite-react'
+import {  TextInput } from 'flowbite-react'
 import { IoBed } from "react-icons/io5";
 import { IoIosPerson } from "react-icons/io";
 import Datepicker, { DateValueType } from 'react-tailwindcss-datepicker';
@@ -9,6 +9,7 @@ import OptionInput from './Global/OptionInput';
 import { AppDispatch, RootState } from '@/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '@/store/filterSlice';
+import { Button } from '@nextui-org/react';
 
 export default function FormBookingHeader() {
     const filter = useSelector<RootState>(state => state.filter) as Filter

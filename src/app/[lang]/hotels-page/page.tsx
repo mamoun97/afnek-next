@@ -56,7 +56,7 @@ export default function HotelPage() {
             
             <Header isHome={false} showForm={true} />
             <Container className="mt-8">
-                {(activeStep==0||activeStep==1)&&<HotelPage1 isChoseRoom={activeStep==1} stepsComponent={<StepsComponent/>}/>}
+                {/* {(activeStep==0||activeStep==1)&&<HotelPage1  isChoseRoom={activeStep==1} stepsComponent={<StepsComponent/>}/>} */}
                 {activeStep==2&&<Details1 stepsComponent={<StepsComponent/>}/>}
                 {activeStep==3&&<Payment stepsComponent={<StepsComponent/>}/>}
                 {activeStep==4&&<EnjoyYourTrip stepsComponent={<StepsComponent/>}/>}

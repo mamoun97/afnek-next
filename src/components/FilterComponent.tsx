@@ -1,47 +1,57 @@
 "use client"
-import styled from "styled-components"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { IoIosArrowDown } from "react-icons/io";
 import { Checkbox, Radio, RangeSlider, Rating } from "flowbite-react";
 import { Slider } from "@nextui-org/react";
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "@/store/filterSlice";
-const DivC = styled.div`
+import { FilterApi } from "@/api/filter";
 
-.children{
-    overflow: hidden;
-    transition: padding .1s;
+type FilterType = {
+    amenity: number[],
+    tag: number[],
+    nearby: number[],
+    rating: number[]
 }
-.open{
-    animation: fadeIn .5s;
-    max-height: 500px;
+type PropsType = {
+    filter: PaginationFilter,
+    setFilter: (e: PaginationFilter) => void
 }
-@keyframes fadeIn {
-  from {
-    max-height: 0;
-  }
-  to {
-    max-height: 500px;
-  }
-}
-.close{
-    animation: fadeOut .5s;
-    max-height: 0;
-}
-@keyframes fadeOut {
-  from {
-    max-height: 500px;
-  }
-  to {
-    max-height: 0;
-  }
-}
-`
-
-export default function FilterComponent() {
+export default function FilterComponent(props: PropsType) {
     const filter = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
+    const { data: amenity } = FilterApi.useReadAllAminty();
+    const { data: tag } = FilterApi.useReadAllTages();
+    const { data: nearby } = FilterApi.useReadAllNearby();
+    const [data, setData] = useState<FilterType>({
+        amenity: [],
+        tag: [],
+        nearby: [],
+        rating: []
+    })
+    useEffect(() => {
+        props.setFilter({
+            ...props.filter,
+            filter:[
+                ...data.amenity.length?[{
+                    field:"amenity",
+                    operation:"in",
+                    value:data.amenity
+                }]:[],
+                ...data.tag.length?[{
+                    field:"tag",
+                    operation:"in",
+                    value:data.tag
+                }]:[],
+                ...data.nearby?[{
+                    field:"nearby",
+                    operation:"in",
+                    value:data.nearby
+                }]:[],
+            ]
+        })
+    }, [data])
     return (
         <div className="border border-gray-300 rounded-xl  flex flex-col ">
             <div className="p-3 ps-4 pe-4 text-lg font-semibold flex mb-3 items-center">
@@ -50,7 +60,6 @@ export default function FilterComponent() {
                 <span className=" text-blue-600 text-sm font-bold cursor-pointer">CLEAR ALL</span>
 
             </div>
-
             <FilterItem text="Prix">
                 <div className="flex items-center text-sm mt-2 mb-2" >
                     <span>{filter.min_price} DA</span>
@@ -58,9 +67,7 @@ export default function FilterComponent() {
                     <span>{filter.max_price} DA</span>
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
-                    {/* <RangeSlider className="w-full" /> */}
                     <Slider
-                        // label=""
                         step={50}
                         minValue={1000}
                         size="sm"
@@ -76,7 +83,6 @@ export default function FilterComponent() {
                                 max_price: e[1]
                             }))
                         }}
-                        // formatOptions={{ style: "currency", currency: "DZD" }}
                         className="w-full"
                     />
                 </div>
@@ -103,127 +109,124 @@ export default function FilterComponent() {
                     Descending price
                 </div>
             </FilterItem>
-            {
-                items.map((el, k) => {
-                    return <React.Fragment key={k}>
-                        <div className="border-t border-gray-300"></div>
-                        <FilterItem text={el.title} >
+            <div className="border-t border-gray-300"></div>
+            <FilterItem text={"Rating"} >
+                {
+                    [5, 4, 3, 2, 1].map((its, index) => {
+                        return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
+                            <Checkbox
+                                className="rounded-sm" />
+                            <div className="me-2"></div>
+                            <Rating size={"xs"}>
+                                {
+                                    [1, 2, 3, 4, 5].map(r => {
+                                        return <Rating.Star filled={r <= its ?? 5} />
+                                    })
+                                }
+                            </Rating>
 
-                            {
-                                el.items.map((its, index) => {
-                                    return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
-                                        <Checkbox
+                        </div>
+                    })
+                }
+            </FilterItem>
+            {nearby && <React.Fragment>
+                <div className="border-t border-gray-300"></div>
+                <FilterItem text={"Nearby filter"} >
 
-                                            // checked={}
-                                            // onChange={(_: any) => {
-                                            //     dispatch(changeFilter({
-                                            //         ...filter,
-                                            //         rating: its?.value ?? 1
-                                            //     }))
-                                            // }}
-                                            className="rounded-sm" />
-                                        <div className="me-2"></div>
-                                        {
-                                            el.type == "rating"&&typeof its=="number" ? <Rating size={"xs"}>
-                                                {
-                                                    [1,2,3,4,5].map(r=>{
-                                                        return <Rating.Star filled={r<=its??5}  />
-                                                    })
-                                                }
-                                            </Rating> :
-                                                its
-                                        }
+                    {
+                        nearby.data.map((its, index) => {
+                            return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
+                                <Checkbox
+                                    checked={!!data.nearby.find(el => el == its.id)}
+                                    onChange={() => setData({
+                                        ...data,
+                                        nearby: !!data.nearby.find(el => el == its.id) ? data.nearby.filter(el => el != its.id) :
+                                            [...data.nearby, its.id]
+                                    })}
+                                    className="rounded-sm" />
+                                <div className="me-2"></div>
+                                {its.name_en}
 
-                                    </div>
-                                })
-                            }
+                            </div>
+                        })
+                    }
 
-                        </FilterItem>
-                    </React.Fragment>
-                })
-            }
+                </FilterItem>
+            </React.Fragment>}
+            {tag && <React.Fragment>
+                <div className="border-t border-gray-300"></div>
+                <FilterItem text={"Complementary & hospitality"} >
+
+                    {
+                        tag.data.map((its, index) => {
+                            return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
+                                <Checkbox
+                                    className="rounded-sm"
+                                    checked={!!data.tag.find(el => el == its.id)}
+                                    onChange={() => setData({
+                                        ...data,
+                                        tag: !!data.tag.find(el => el == its.id) ? data.tag.filter(el => el != its.id) :
+                                            [...data.tag, its.id]
+                                    })}
+                                />
+                                <div className="me-2"></div>
+                                {its.name_en}
+
+                            </div>
+                        })
+                    }
+
+                </FilterItem>
+            </React.Fragment>}
+            {amenity && <React.Fragment>
+                <div className="border-t border-gray-300"></div>
+                <FilterItem text={"Equipment"} >
+
+                    {
+                        amenity.data.map((its, index) => {
+                            return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
+                                <Checkbox
+                                    checked={!!data.amenity.find(el => el == its.id)}
+                                    onChange={() => setData({
+                                        ...data,
+                                        amenity: !!data.amenity.find(el => el == its.id) ? data.amenity.filter(el => el != its.id) :
+                                            [...data.amenity, its.id]
+                                    })}
+                                    className="rounded-sm" />
+                                <div className="me-2"></div>
+                                {its.name_en}
+
+                            </div>
+                        })
+                    }
+
+                </FilterItem>
+            </React.Fragment>}
 
 
-        </div>
+        </div >
     )
 }
 
 
 
-function FilterItem(props: any) {
+function FilterItem({ text, children }: { text: string, children: React.ReactNode }) {
     const [isOpen, setIsOpen] = useState(true);
 
-    return <DivC >
+    return < >
         <div >
             <div onClick={() => setIsOpen(!isOpen)} className="p-3 ps-4 pe-4 text-sm font-semibold cursor-pointer flex items-center hover:bg-gray-100">
-                {props.text}
+                {text}
                 <div className="grow"></div>
                 <IoIosArrowDown className={"transition " + (isOpen ? "rotate-[-180deg]" : "")} />
             </div>
-            <div className={`ps-4 pe-4  children ${isOpen ? '  pb-2 open' : 'close'}`}>
-                {props.children}
+            <div className={`ps-4 pe-4   overflow-hidden transition-padding duration-100 ${isOpen ? '  pb-2  animate-fadeIn max-h-[500px]' : 'animate-fadeOut max-h-0'}`}>
+                {children}
             </div>
         </div>
-    </DivC>
+    </>
 }
 
 
-type ItemsF = {
-    title: string,
-    type?: string,
-    items: Array<number | string>
-}[]
 
 
-const items: ItemsF = [
-    {
-        title: "Property Assessment",
-        type: "rating",
-        items: [5, 4, 3, 2, 1]
-    },
-    {
-        title: "Nearby filter",
-        items: [
-            "City center (urban)",
-            "Beach",
-            "Sahara",
-            "Mountain",
-            "Airport",
-            "Thermal station",
-            "Transport (Metro & Train)"
-        ]
-    },
-    {
-        title: "Complementary & hospitality",
-        items: [
-            "Breakfast",
-            "Lunch",
-            "Dinner"
-        ]
-    },
-    {
-        title: "Equipment",
-        items: [
-            "Free WIFI",
-            "Power Backup",
-            "Garden/backyard",
-            "Spa",
-            "Pool",
-            "Gymnasium",
-            "Laundry service",
-            "Coffee",
-            "Accepted animals",
-            "On-site restaurant",
-            "Payment by card"
-
-        ]
-    },
-    {
-        title: "Popular search",
-        items: [
-            "Couples",
-            "Free cancellation policy",
-            "Pay at the hote",
-        ]
-    }
-]

@@ -5,18 +5,20 @@ import { MdCheck } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
 import { IoImage } from "react-icons/io5";
+import {ApiConfig} from "@/api/config";
 export default function CardHotel({ data }: { data: HotelFull }) {
+    
     return (
         <div className="border border-gray-300 rounded-xl p-4 max-md:p-2 flex max-md:flex-col max-md:items-center">
 
             <div className="w-1/4 max-md:min-w-[320px] max-sm:min-w-full max-sm:w-full max-w-xs">
                 <div className="relative pt-[100%] bg-cover overflow-hidden bg-no-repeat bg-center rounded-lg" style={{
-                    backgroundImage: "url(" + data.image + ")"
+                    backgroundImage: "url(" +ApiConfig.rootImagesUrl+ data.image + ")"
                 }}>
-                    <div className="absolute bg-gray-100 text-gray-400 top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center">
+                    {!data.image&&<div className="absolute bg-gray-100 text-gray-400 top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center">
                         <IoImage className="text-2xl"/>
                         <h1 className="text-xl ">no image</h1>
-                    </div>
+                    </div>}
                     <div className="absolute top-2 right-2 text-2xl text-gray-200 cursor-pointer">
                         <IoMdHeartEmpty />
                     </div>
@@ -103,7 +105,11 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                     <div className="grow max-sm:hidden"></div>
                     <Button color="blue" outline size={"sm"} className="text-blue-600 shadow-none border-none max-sm:col-span-1">Check room availability</Button>
                     <div className="me-2 max-sm:hidden"></div>
-                    <Link href="/hotels-page" className="max-sm:col-span-1">
+                    <Link href={
+                        "/hotels-page/"+data.id
+                        // "/hotel/"+data.id
+
+                    } className="max-sm:col-span-1">
                         <Button color="blue" size={"sm"} className="w-full">Continue</Button>
                     </Link>
 

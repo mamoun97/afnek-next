@@ -5,12 +5,35 @@ const url = "https://api-hotel.afnek.com";
 export const ApiConfig = {
     rootUrl: url,
     rootImagesUrl: "https://hotel-dev-dz.s3.amazonaws.com/",
-    version: "1.0.0"
+    version: "1.0.0",
+
+    awsUrl: "https://hotel-dev-dz.s3.amazonaws.com/",
+    otpVerification: '/otp_verification',
+    setNewPassword: '/set_new_password',
+    forgetPassword: '/forget_password',
+    signIn: '/auth/SignIn',
+    identities: '/auth/Identities',
+    getUser: '/user/',
+    userProfile: '/user/client/profile',
+    awsEndPoint: '/aws/upload',
+    hotelEndPoint: '/hotel',
+    //favoris
+    favHotelEndPoint: '/favorite/hotel',
+    //booking
+    bookingEndPoint: '/booking',
+
+    //filter
+    amenityEndPoint: '/amenity',
+    tagesEndPoint: '/tag',
+    nerbyndPoint: '/nearby',
+
+    settingsEndPoint: '/setting',
+    displaySettingsEndPoint: '/display',
 };
 const http = () => {
-    let a= axios.create({
+    let a = axios.create({
         baseURL: ApiConfig.rootUrl,
-        
+
         headers: {
             cache: "no-cache",
             "Content-type": "application/json",
@@ -18,7 +41,7 @@ const http = () => {
             "Authorization": "Bearer " + localStorage.getItem("token") ?? ""
         }
     })
-    
+
     a.interceptors.response.use(
         (response) => response,
         (error) => {
@@ -42,7 +65,7 @@ const http = () => {
 }
 
 const httpUpload = () => {
-    let a= axios.create({
+    let a = axios.create({
         baseURL: ApiConfig.rootUrl,
         headers: {
             cache: "no-cache",
@@ -71,8 +94,14 @@ const httpUpload = () => {
     )
     return a
 }
+const swrOptions = {
 
+    dedupingInterval: 50000,
+    refreshWhenHidden: false,
+    revalidateOnFocus: false,
 
-export { http, httpUpload };
+}
+
+export { http, httpUpload, swrOptions };
 
 export default ApiConfig;

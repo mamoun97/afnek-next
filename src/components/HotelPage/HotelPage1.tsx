@@ -19,17 +19,20 @@ import { MdOutlineClear } from "react-icons/md";
 import { useEffect, useState } from "react";
 export default function HotelPage1({
     stepsComponent,
-    isChoseRoom = false
+    isChoseRoom = false,
+    data
 }: {
     stepsComponent: any,
-    isChoseRoom?: boolean
+    isChoseRoom?: boolean,
+    data:HotelFull
 }) {
+    console.log(data)
     const [count,setCount]=useState(0)
     useEffect(()=>{
         setCount(count+1)
     },[isChoseRoom])
     const content =<>
-            <HotelPageHeaderComponent />
+            <HotelPageHeaderComponent data={data}/>
             {stepsComponent}
             <div className="mb-6 grid grid-cols-5 max-[820px]:grid-cols-4 max-sm:grid-cols-2 gap-2 p-2 bg-gray-100 rounded-md">
 

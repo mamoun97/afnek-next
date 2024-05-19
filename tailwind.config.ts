@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import {nextui} from "@nextui-org/react";
+import { nextui } from "@nextui-org/react";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,6 +14,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionProperty: {
+        'padding': 'padding',
+      },
+      keyframes: {
+        fadeIn: {
+          "from": { maxHeight: "0" },
+          "to": { maxHeight: "500px" }
+        },
+        fadeOut: {
+          "from": { maxHeight: "500px" },
+          "to": { maxHeight: "0" }
+        }
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -23,6 +36,10 @@ const config: Config = {
         cyan: {
           500: "#000"
         }
+      },
+      animation: {
+        fadeIn: 'fadeIn .5s',
+        fadeOut: "fadeOut .5s",
       }
 
     },

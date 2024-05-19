@@ -5,12 +5,12 @@ import SwiperF from '../Swiper'
 import Container from '../Container'
 
 const data: Array<City> = [
-    { name: "Alger", price: 4397, image: images.c1.src },
-    { name: "Annaba", price: 4500, image: images.c2.src },
-    { name: "Béjaia", price: 4588, image: images.c3.src },
-    { name: "Constontine", price: 6040, image: images.c4.src },
-    { name: "Oran", price: 7240, image: images.c5.src },
-    { name: "Boumerdes", price: 3140, image: images.c6.src },
+    {code:16, name: "Alger", price: 4397, image: images.c1.src },
+    {code:23, name: "Annaba", price: 4500, image: images.c2.src },
+    {code:6, name: "Béjaia", price: 4588, image: images.c3.src },
+    {code:25, name: "Constontine", price: 6040, image: images.c4.src },
+    {code:31, name: "Oran", price: 7240, image: images.c5.src },
+    {code:35, name: "Boumerdes", price: 3140, image: images.c6.src },
 ]
 
 export default function TopCitySection() {

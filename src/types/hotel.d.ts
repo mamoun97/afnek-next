@@ -41,20 +41,7 @@ type RoomTypeResponse = {
     count: number,
     data: RoomType[]
 }
-type Amenity = {
-    name_en: string,
-    icon: string,
-    created_at: string,
-    updated_at: string,
-    name_ar: string | null,
-    name_fr: string | null,
-    delete_at: string | null,
-    id: number
-}
-type AmenityResponse = {
-    count: number,
-    data: Amenity[]
-}
+
 interface Hotel {
     name_en: string,
     address: string,
@@ -62,13 +49,17 @@ interface Hotel {
     id_commune: number,
     id_wilaya: number,
     amenity_ids: number[],
-    gallery_list: string[],
     policies: {
         ar: string,
         fr: string,
         en: string
     },
     id_user: number
+}
+type HotelImage={
+    id: number,
+    path: string,
+    id_hotel: number
 }
 interface HotelFull extends Hotel {
     id: number,
@@ -80,6 +71,7 @@ interface HotelFull extends Hotel {
     cover?: string | null,
     freeCancellation?: boolean,
     isActive?: boolean,
+    gallery_hotel?:HotelImage[]|null,
     rating?: number,
     cancelPolicy?: any,
     commission?: any,

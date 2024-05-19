@@ -7,7 +7,7 @@ import { CustomFlowbiteTheme, Flowbite } from "flowbite-react";
 
 import { AuthContextProvider } from "@/firebase/firebase-provider";
 import { NextUIProvider } from "@/Providers/NextUIProvider";
-import ReactQueryPvorider from "@/Providers/react-query-provider";
+// import ReactQueryPvorider from "@/Providers/react-query-provider";
 import ReduxProvider from "@/Providers/redux-provider";
 
 
@@ -36,12 +36,14 @@ export default function RootLayout({
         <ReduxProvider>
           <Flowbite theme={{ theme: customTheme }}>
             <AuthContextProvider>
-              <NextUIProvider>
-                <ReactQueryPvorider>
-                  {children}
-                </ReactQueryPvorider>
+              {/* <ReactQueryPvorider> */}
+                <NextUIProvider>
 
-              </NextUIProvider>
+                  {children}
+
+
+                </NextUIProvider>
+              {/* </ReactQueryPvorider> */}
             </AuthContextProvider>
           </Flowbite>
         </ReduxProvider>
