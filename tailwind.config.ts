@@ -25,6 +25,11 @@ const config: Config = {
         fadeOut: {
           "from": { maxHeight: "500px" },
           "to": { maxHeight: "0" }
+        },
+        blinker: {
+          "from": { opacity: "1" },
+          "50%": { opacity: ".2" },
+          "top": { opacity: "1" },
         }
       },
       backgroundImage: {
@@ -40,6 +45,7 @@ const config: Config = {
       animation: {
         fadeIn: 'fadeIn .5s',
         fadeOut: "fadeOut .5s",
+        blinker:"1s ease 0s infinite normal none running blinker"
       }
 
     },

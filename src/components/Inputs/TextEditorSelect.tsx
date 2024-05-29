@@ -8,14 +8,16 @@ export default function TextEditorSelect({
     value,
     onChange,
     className,
-    propsInput
+    propsInput,
+    children,
 }: {
     label: string,
+    children?:React.ReactNode,
     placeholder: string,
     value: any,
     className?: string,
     propsInput?:SelectProps
-    onChange: React.ChangeEventHandler
+    onChange: any
 }) {
     return (
         <div className={className}>
@@ -27,7 +29,7 @@ export default function TextEditorSelect({
             
              {...{ value, placeholder, onChange ,propsInput}}
                >
-                {/* <option value={404}>{placeholder}</option> */}
+                {children}
             </Select>
         </div>
     )

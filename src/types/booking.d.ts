@@ -13,6 +13,7 @@ type Booking = {
         addons: {
             name: string,
             price: number
-        }[]
+        }[],
+        data:RoomTypeHotel
     }[]
 }

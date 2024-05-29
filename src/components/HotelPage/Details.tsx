@@ -4,32 +4,41 @@ import TextEditorSelect from "../Inputs/TextEditorSelect"
 import TextEditor from "../Inputs/TextEditor"
 import HotelCartInfo from "../HotelCartInfo"
 import { AiFillPlusCircle } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "@/store"
+import { changeBooking } from "@/store/bookingSlice"
 export default function Details1({
   stepsComponent
 }: {
   stepsComponent: any
 }) {
+  
   return (
+
     <div>
       {stepsComponent}
       <div className="grid grid-cols-7 max-md:grid-cols-1 gap-3">
         <div className="col-span-5  max-md:col-span-1">
-          <div className="bg-white rounded-md p-4 py-7">
+          <div className="bg-white rounded-md p-4 py-7 text-center">
             <h1 className=" text-lg font-bold">Enter Your Details</h1>
             <p className="">We will use these details to share your booking information</p>
             <Collapse childClassName="bg-white" className="mt-6" title={<>
-              <Radio name="typed" />
-              <div className="me-2"></div>
-              Yes, I'm the main guest
+              <div className="flex w-full">
+                <Radio name="typed" />
+                <div className="me-2"></div>
+                Yes, I'm the main guest
+              </div>
             </>}>
               <div className=" py-4">
                 <Person />
               </div>
             </Collapse>
             <Collapse childClassName="bg-white" title={<>
-              <Radio name="typed" />
-              <div className="me-2"></div>
-              Yes, I'm the main guest
+              <div className="flex w-full">
+                <Radio name="typed" />
+                <div className="me-2"></div>
+                I'm booking for sameone
+              </div>
             </>} className="mt-4">
               <div className=" py-4">
                 <Person />
@@ -61,6 +70,8 @@ export default function Details1({
   )
 }
 function Person() {
+  const booking = useSelector<RootState>(state => state.booking) as Booking
+  const dispatch: AppDispatch = useDispatch()
   return <div className="grid grid-cols-10 max-md:grid-cols-1 gap-3">
     <TextEditorSelect
       label="Title"
@@ -72,30 +83,50 @@ function Person() {
     <TextEditor
       label="First name"
       placeholder="first name"
-      value=""
+      value={booking.client_first_name}
       className="col-span-4 max-md:col-span-1"
-      onChange={() => { }}
+      onChange={(e:any) => { 
+        dispatch(changeBooking({
+          ...booking,
+          client_first_name:e.target.value
+        }))
+      }}
     />
     <TextEditor
       label="Last name"
       placeholder="last name"
-      value=""
+      value={booking.client_last_name}
       className="col-span-4 max-md:col-span-1"
-      onChange={() => { }}
+      onChange={(e:any) => { 
+        dispatch(changeBooking({
+          ...booking,
+          client_last_name:e.target.value
+        }))
+      }}
     />
     <TextEditor
       label="Email Address"
       placeholder="email"
-      value=""
+      value={booking.client_email}
       className="col-span-5 max-md:col-span-1"
-      onChange={() => { }}
+      onChange={(e:any) => { 
+        dispatch(changeBooking({
+          ...booking,
+          client_email:e.target.value
+        }))
+      }}
     />
     <TextEditor
       label="Phone number"
       placeholder="email"
-      value=""
+      value={booking.client_phone}
       className="col-span-5 max-md:col-span-1"
-      onChange={() => { }}
+      onChange={(e:any) => { 
+        dispatch(changeBooking({
+          ...booking,
+          client_phone:e.target.value
+        }))
+      }}
     />
   </div>
 }

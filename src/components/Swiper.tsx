@@ -9,23 +9,23 @@ import 'swiper/css/navigation';
 
 
 const cl=`
-[&_.swiper-button-prev]:w-[46px]
-[&_.swiper-button-prev]:h-[46px]
-[&_.swiper-button-prev]:bg-[#0008]
+[&_.swiper-button-prev]:w-[38px]
+[&_.swiper-button-prev]:h-[38px]
+[&_.swiper-button-prev]:bg-[#0002]
 [&_.swiper-button-prev]:rounded-[50%]
 [&_.swiper-button-prev]:text-white  
 
-[&_.swiper-button-next]:w-[46px]
-[&_.swiper-button-next]:h-[46px]
-[&_.swiper-button-next]:bg-[#0008]
+[&_.swiper-button-next]:w-[38px]
+[&_.swiper-button-next]:h-[38px]
+[&_.swiper-button-next]:bg-[#0002]
 [&_.swiper-button-next]:rounded-[50%]
 [&_.swiper-button-next]:text-white  
 
-[&_.swiper-button-prev:after]:text-[22px]
-[&_.swiper-button-next:after]:text-[22px]
+[&_.swiper-button-prev:after]:text-[16px]
+[&_.swiper-button-next:after]:text-[16px]
 
-[&_.swiper-button-prev:hover]:bg[#000A]
-[&_.swiper-button-next:hover]:bg[#000A]
+[&_.swiper-button-prev:hover]:bg[#0004]
+[&_.swiper-button-next:hover]:bg[#0004]
 
 [&_.swiper-button-prev.swiper-button-disabled]:opacity-[0]
 [&_.swiper-button-next.swiper-button-disabled]:opacity-[0]
