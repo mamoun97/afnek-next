@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import toast from "react-hot-toast"
 import { useState } from "react";
+import alertError from "@/utils/alertError";
 export default function Payment({
   stepsComponent
 }: {
@@ -26,7 +27,7 @@ export default function Payment({
 
     }).catch((err: any) => {
       setLoading(false)
-      toast.error((err.response ? err.response.data.message : err.message) || "something went wrong")
+      alertError(err)
     })
   }
   return (

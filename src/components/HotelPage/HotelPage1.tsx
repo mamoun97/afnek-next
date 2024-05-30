@@ -1,28 +1,16 @@
-import { Badge, Button, Datepicker, TextInput } from "flowbite-react";
-
-
-import { MdPerson, MdStar } from "react-icons/md";
-
-import { IoIosWifi, IoMdStar, IoIosBed, IoIosCalendar } from "react-icons/io";
-import { HiOutlineHome } from "react-icons/hi";
-import { FaCarAlt, FaBed, FaConciergeBell, FaSwimmingPool } from "react-icons/fa";
-import { GiCarKey } from "react-icons/gi";
-import { MdCleaningServices } from "react-icons/md";
-
+import {  Button, Datepicker, TextInput } from "flowbite-react";
+import { MdPerson } from "react-icons/md";
+import {  IoIosCalendar } from "react-icons/io";
 import HotelPageHeaderComponent from "./HotelPageHeaderComponent";
-import TextEditorSelect from "../Inputs/TextEditorSelect";
 import Taps from "../Taps";
-import ImageH from "../ImageH";
-import images from "../../assets";
 import Collapse from "../Collapse";
 import { MdOutlineClear } from "react-icons/md";
 import { useEffect, useState } from "react";
-import GalleryRoom from "../GalleryRoom";
-import ApiConfig from "@/api/config";
 import RoomCards from "../RoomCards";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { changeBooking } from "@/store/bookingSlice";
+import moment from "moment"
 export default function HotelPage1({
     stepsComponent,
     isChoseRoom = false,
@@ -32,7 +20,8 @@ export default function HotelPage1({
     isChoseRoom?: boolean,
     data: HotelFull
 }) {
-
+    
+    const filter=useSelector<RootState>(state=>state.filter)as Filter
     const [count, setCount] = useState(0)
     useEffect(() => {
         setCount(count + 1)
@@ -59,7 +48,7 @@ export default function HotelPage1({
             <div className="col-span-2 flex gap-2 flex-col max-md:col-span-1">
                 {
                     data.room_type_hotel?.map((el, k) => {
-                        return <Collapse title={el.room_type_globale.name_en} key={k}>
+                        return <Collapse defaultOpen={true} title={el.room_type_globale.name_en} key={k}>
                             <RoomCards data={el} hotel={data} />
                         </Collapse>
                     })
@@ -103,8 +92,8 @@ export default function HotelPage1({
                 {
                     !isChoseRoom ? <div className="bg-red-50 p-3 rounded-md">
                         <p className="text-red-500">Please select your room type to continue</p>
-                        <p className="text-sm mt-2">Mon 30 Oct  -  Fri 3 Nov</p>
-                        <p className="text-sm mt-2">2 adults · 0 children · 1 room</p>
+                        <p className="text-sm mt-2">{moment(filter.date_start).format("ddd D MMM")}  -  {moment(filter.date_end).format("ddd D MMM")}</p>
+                        <p className="text-sm mt-2">{filter.adult} adults · {filter.children} children · {filter.room} room</p>
                     </div>
                         :
                         <Cart />}
@@ -117,6 +106,7 @@ export default function HotelPage1({
 }
 
 function Cart({ className = "" }: { className?: string }) {
+    const filter=useSelector<RootState>(state=>state.filter)as Filter
     const booking = useSelector<RootState>(state => state.booking) as Booking
     const dispatch: AppDispatch = useDispatch()
     return <>
@@ -133,19 +123,19 @@ function Cart({ className = "" }: { className?: string }) {
                     <IoIosCalendar className="text-xl" />
                 </div>
                 <div className="me-3"></div>
-                <span className="text-sm">Mon 30 Oct  -  Fri 3 Nov</span>
+                <span className="text-sm">{moment(filter.date_start).format("ddd D MMM")}  -  {moment(filter.date_end).format("ddd D MMM")}</span>
             </div>
             <div className="flex items-center py-1">
                 <div className="text-2xl">
                     <MdPerson className="text-xl" />
                 </div>
                 <div className="me-3"></div>
-                <span className="text-sm">2 adults · 0 children · 1 room</span>
+                <span className="text-sm">{filter.adult} adults · {filter.children} children · {filter.room} room</span>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
                 {
                     booking.room_booking.map((el, k) => {
-                        return <div className="relative" key={k}>
+                        return <div className="relative " key={k}>
 
                             <div className="border border-gray-200 rounded-md  mt-2 relative overflow-hidden">
 

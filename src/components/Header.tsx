@@ -67,7 +67,7 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                             </Link>
 
                             <div className="me-3"></div>
-                            <Link href="/login">
+                            <Link href="/auth/login">
                                 <Button color="light" className="text-[#003b95] max-md:hidden">
                                     Sign In / Register
                                 </Button>

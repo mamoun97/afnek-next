@@ -3,7 +3,7 @@ import ApiConfig, { http } from "./config";
 
 
 
-const getUserInfo = async (): Promise<any> => {
+const getUserInfo = async (): Promise<User> => {
     const { data } = await http().get(ApiConfig.userProfile);
     return data
 }

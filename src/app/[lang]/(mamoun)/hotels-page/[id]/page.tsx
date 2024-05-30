@@ -43,7 +43,7 @@ const steps = [
 export default function HotelPage({
     params: { id }
 }: {
-    params: { id: number }
+    params: { id: string }
 }) {
     const booking = useSelector<RootState>(state => state.booking) as Booking
     const filter = useSelector<RootState>(state => state.filter) as Filter
@@ -55,15 +55,23 @@ export default function HotelPage({
             client_last_name: "",
             client_email: "",
             client_phone: "",
-            id_hotel: id,
+            id_hotel: parseInt(id) ,
             from: filter.date_start,
             to: filter.date_end,
             room_booking: []
         }))
     }
 
-    const [activeStep, setActiveStep] = useState(0)
-    const { data: hotelInfo, isLoading } = HotelApi.useRead(id, "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale")
+    const [activeStep, setActiveStep] = useState(1)
+    const { data: hotelInfo, isLoading } = HotelApi.useRead(
+        parseInt(id),
+        "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale",
+        {
+            onSuccess: (res: HotelFull) => {
+                console.log(res)
+            }
+        })
+
     const StepsComponent = () => {
         return <div className="mt-6 mb-6 ">
             <Steps

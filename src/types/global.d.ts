@@ -13,9 +13,7 @@ interface PaginationFilter {
     filter?: { field: string; operation: string; value: string | string[]|number|number[] }[];
     relations?: string[];
 }
-type UserAuth = {
 
-}
 
 type RatingNumber = 1 | 2 | 3 | 4 | 5
 type Filter = {

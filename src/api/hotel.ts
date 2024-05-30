@@ -20,9 +20,9 @@ const read = async (id: number, filter: string = ""): Promise<HotelFull> => {
     console.log(data)
     return data
 }
-const useRead = (id: number, filter: string) => {
+const useRead = (id: number, filter: string,op:any={}) => {
     const data = useSWR(["hotel", id], () => read(id, filter), {
-        ...swrOptions, ...{},
+        ...swrOptions, ...{},...op
     })
 
     return data

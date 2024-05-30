@@ -9,28 +9,36 @@ import Container from '@/components/Container';
 import Image from 'next/image';
 import images from '@/assets';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { UserAuth } from '@/firebase/firebase-provider';
 import { useRouter } from 'next/navigation';
 
 
 export default function Login() {
-  const { googleSignIn,user } = UserAuth();
+  const { googleSignIn, user, isLoading,signWithEmailAndPassword } = UserAuth();
+  const [email, setEmail] = useState("")
   const { push } = useRouter();
-  const handleGoogleSignIn =  async() => {
+  const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
       push("/")
     } catch (error) {
       console.log(error);
     }
-    
-    
-
   };
-  useEffect(()=>{
-    
-  },[user])
+  const handleSignWithEmailAndPassword = async (email:string,password:string) => {
+    try {
+      await signWithEmailAndPassword(email,password);
+     
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  const handelSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault()
+    handleSignWithEmailAndPassword(email, "123456789")
+  }
   return (
     <Body>
       <Header />
@@ -45,18 +53,27 @@ export default function Login() {
               <p className=' text-gray-500 mt-2'>
                 let's start with your contact details
               </p>
-              <form className="flex flex-col gap-4 mt-4">
+              <form className="flex flex-col gap-4 mt-4" onSubmit={handelSubmit}>
                 <div>
                   <div className="mb-2 block">
                     <Label htmlFor="email1" value="E-mail address" />
                   </div>
-                  <TextInput icon={IoIosMail} id="email1" type="email" placeholder="Enter emil address" required />
+                  <TextInput icon={IoIosMail}
+                    value={email}
+                    id="email1" type="email"
+                    onChange={(e) => {
+                      setEmail(e.target.value)
+                    }}
+                    placeholder="Enter emil address" required />
                 </div>
 
 
-                <Link href="/welcome-hotel" className='w-full'>
+                {/* <Link href="/welcome-hotel" className='w-full'>
                   <Button type="submit" color='blue' className='w-full' >Continue with email address</Button>
-                </Link>
+                </Link> */}
+
+                <Button isProcessing={isLoading} type="submit" color='blue' className='w-full' >Continue with email address</Button>
+
               </form>
               <div className="flex items-center mt-5 mb-5">
                 <div className="grow border-y border-gray-200"></div>
@@ -65,9 +82,9 @@ export default function Login() {
                 <div className="me-2"></div>
                 <div className="grow border-y border-gray-200"></div>
               </div>
-              
-              <Button type="submit" onClick={ handleGoogleSignIn}
-               color='light' className='w-full'>
+
+              <Button type="submit" onClick={handleGoogleSignIn}
+                color='light' className='w-full'>
                 <FcGoogle className="text-xl me-2" /> Sign in with Google
               </Button>
 

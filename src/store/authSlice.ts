@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { loadData, saveData } from "./localStorage";
 
 
-type UserAuthS= UserAuth|null
+type UserAuthS= User|null
 
 const initialState:UserAuthS=loadData("user")
 

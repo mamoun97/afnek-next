@@ -112,7 +112,7 @@ export default function RoomCards({ hotel, data }: {
                                                         booking.room_booking.map(item => {
                                                             return {
                                                                 ...item,
-                                                                number_of_room: el.id == item.id_room ? e : item.number_of_room,
+                                                                number_of_room: Number(el.id == item.id_room ? e : item.number_of_room),
                                                                 data:data
                                                             }
                                                         })
@@ -122,7 +122,7 @@ export default function RoomCards({ hotel, data }: {
                                                                 addons: [],
                                                                 id_room: el.id,
                                                                 price: el.price,
-                                                                number_of_room: e,
+                                                                number_of_room: Number(e),
                                                                 data:data
                                                             }
                                                         ]
