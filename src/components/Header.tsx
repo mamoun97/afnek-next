@@ -11,6 +11,7 @@ import Image from "next/image";
 import { UserAuth } from "@/firebase/firebase-provider";
 import { IoIosArrowDown } from "react-icons/io";
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, User } from "@nextui-org/react";
+import ApiConfig from "@/api/config";
 
 
 export default function Header({ showForm = false, isHome = false }: { showForm?: Boolean, isHome?: Boolean }) {
@@ -41,12 +42,12 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                                 <DropdownTrigger>
                                     <div className="flex items-center gap-1 cursor-pointer">
                                         <User
-                                            name={user.displayName}
+                                            name={user.first_name+" "+user.last_name}
                                             description={
                                                 <span className="text-white">{user.email}</span>
                                             }
                                             avatarProps={{
-                                                src: user.photoURL ?? ""
+                                                src: ApiConfig.awsUrl+ user.image ?? ""
                                             }}
                                         />
                                         <IoIosArrowDown/>
