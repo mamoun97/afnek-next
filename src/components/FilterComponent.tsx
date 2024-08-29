@@ -57,7 +57,7 @@ export default function FilterComponent(props: PropsType) {
             <div className="p-3 ps-4 pe-4 text-lg font-semibold flex mb-3 items-center">
                 <span>Filter by</span>
                 <div className="grow"></div>
-                <span className=" text-blue-600 text-sm font-bold cursor-pointer">CLEAR ALL</span>
+                <span className=" text-primary text-sm font-bold cursor-pointer">CLEAR ALL</span>
 
             </div>
             <FilterItem text="Prix">

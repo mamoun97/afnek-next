@@ -35,7 +35,7 @@ const http = () => {
         baseURL: ApiConfig.rootUrl,
 
         headers: {
-            cache: "no-cache",
+            // cache: "no-cache",
             "Content-type": "application/json",
             // cache: "no-cache",
             "Authorization": "Bearer " + localStorage.getItem("token") ?? ""
@@ -96,7 +96,7 @@ const httpUpload = () => {
 }
 const swrOptions = {
 
-    dedupingInterval: 50000,
+    dedupingInterval: 50,
     refreshWhenHidden: false,
     revalidateOnFocus: false,
 

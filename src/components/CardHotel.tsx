@@ -1,11 +1,13 @@
-import { Badge, Button, Rating } from "flowbite-react";
-import images from "../assets";
+import { Badge, Rating } from "flowbite-react";
+
 
 import { MdCheck } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
 import { IoImage } from "react-icons/io5";
 import {ApiConfig} from "@/api/config";
+import { routes } from "@/data/routes";
+import { Button } from "@nextui-org/react";
 export default function CardHotel({ data }: { data: HotelFull }) {
     
     return (
@@ -30,7 +32,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                 <div className="flex max-sm:flex-col max-sm:mb-4 max-sm:items-center">
                     <div className="flex flex-col">
                         <div className="flex items-center max-sm:justify-center">
-                            <h1 className="text-lg font-bold text-blue-600">{data.name_fr}</h1>
+                            <h1 className="text-lg font-bold text-primary">{data.name_fr}</h1>
                             <div className="me-2"></div>
                             <Rating size={"xs"}>
                                 {
@@ -44,7 +46,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
 
                         </div>
                         <div className="flex items-center text-sm">
-                            <Link href={"#"} className="text-blue-600 underline">Show on map</Link>
+                            <Link href={"#"} className="text-primary underline">Show on map</Link>
                             <div className="me-2"></div>
                             4.5 km from centre
                         </div>
@@ -103,14 +105,10 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                         Total number of available rooms: 16
                     </span>
                     <div className="grow max-sm:hidden"></div>
-                    <Button color="blue" outline size={"sm"} className="text-blue-600 shadow-none border-none max-sm:col-span-1">Check room availability</Button>
+                    <Button color="primary" variant="bordered" size={"sm"}>Check room availability</Button>
                     <div className="me-2 max-sm:hidden"></div>
-                    <Link href={
-                        "/hotels-page/"+data.id
-                        // "/hotel/"+data.id
-
-                    } className="max-sm:col-span-1">
-                        <Button color="blue" size={"sm"} className="w-full">Continue</Button>
+                    <Link href={routes.hotel(data.id)} className="max-sm:col-span-1">
+                        <Button color="primary" size={"sm"} className="w-full">Continue</Button>
                     </Link>
 
                 </div>

@@ -12,12 +12,12 @@ import { UserAuth } from "@/firebase/firebase-provider";
 import { IoIosArrowDown } from "react-icons/io";
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, User } from "@nextui-org/react";
 import ApiConfig from "@/api/config";
-
+ 
 
 export default function Header({ showForm = false, isHome = false }: { showForm?: Boolean, isHome?: Boolean }) {
     const { user, logOut } = UserAuth();
     return (
-        <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-[#003b95] ps-6 pe-6 text-white"}>
+        <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary ps-6 pe-6 text-white"}>
 
 
             <Container>
@@ -62,14 +62,14 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
 
                         </> : <>
                             <Link href="/welcome-agency" >
-                                <Button color="light" className="text-[#003b95]  max-md:hidden">
+                                <Button color="light" className="text-primary  max-md:hidden">
                                     Become A Partner
                                 </Button>
                             </Link>
 
                             <div className="me-3"></div>
                             <Link href="/auth/login">
-                                <Button color="light" className="text-[#003b95] max-md:hidden">
+                                <Button color="light" className="text-primary max-md:hidden">
                                     Sign In / Register
                                 </Button>
                             </Link>

@@ -38,9 +38,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
+        primary:"#65023b",
         cyan: {
-          500: "#000"
-        }
+          500: "#65023b"
+        },
+        // blue:{
+        //   500:"#65023b"
+        // }
+
+        
       },
       animation: {
         fadeIn: 'fadeIn .5s',

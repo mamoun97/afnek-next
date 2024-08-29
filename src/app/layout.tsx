@@ -28,7 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const customTheme: CustomFlowbiteTheme = {
-
+    button: {
+      base:"bg-primary-500 hover:bg-primary-600",
+      color: {
+        primary: "bg-primary-500 hover:bg-primary-600",
+      },
+    },
   };
   return (
     <html lang="en">

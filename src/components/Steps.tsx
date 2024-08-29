@@ -24,7 +24,7 @@ export default function Steps({
                         return <React.Fragment key={k}>
                             <li className="">
 
-                                <div className={"relative flex cursor-pointer items-center justify-center w-14 rounded-full h-14 text-xl max-md:w-10 max-md:h-10 max-md:text-base " + (isActive ? "text-white bg-blue-600" : "text-gray-900 bg-gray-200")}
+                                <div className={"relative flex cursor-pointer items-center justify-center w-14 rounded-full h-14 text-xl max-md:w-10 max-md:h-10 max-md:text-base " + (isActive ? "text-white bg-primary" : "text-gray-900 bg-gray-200")}
                                     onClick={el.onClick}>
                                     {isActive && isNumber ? <MdCheck /> : el.icon}
                                     <div className="max-md:hidden mt-3 text-center text-black text-sm whitespace-nowrap absolute top-full left-1/2 translate-x-[-50%]">
@@ -33,7 +33,7 @@ export default function Steps({
                                 </div>
                             </li>
                             {
-                                k < steps.length - 1 && <div className={"grow border-2 w-full " + (k < activeStep ? "border-blue-200" : "border-gray-200")}></div>
+                                k < steps.length - 1 && <div className={"grow border-2 w-full " + (k < activeStep ? "border-primary/70" : "border-gray-200")}></div>
                             }
                         </React.Fragment>
                     })

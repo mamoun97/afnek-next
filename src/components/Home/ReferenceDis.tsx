@@ -17,7 +17,7 @@ export default function ReferenceDis() {
                             <h1 className='text-2xl text-white font-bold mb-2'>
                                 Discover Algeria deep inside
                             </h1>
-                            <Button color="blue">Explore</Button>
+                            <Button color="blue" >Explore</Button>
                         </div>
                     </div>
                     <W/>
@@ -41,7 +41,7 @@ function W() {
         <p className='text-sm mb-3'>
             The turise cities in algeria
         </p>
-        <Button color="blue" outline className='text-blue-500 min-w-[33%] text-center' size={"xs"}>
+        <Button  outline color="blue" className=' min-w-[33%] text-center' size={"xs"}>
             Explore <IoArrowForward className="me-2"/>
         </Button>
     </div>

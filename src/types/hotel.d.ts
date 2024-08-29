@@ -60,11 +60,11 @@ interface Hotel {
     policies: TextTraduction,
     id_user: number
 }
-type HotelImage ={
+interface HotelImage {
     id: number,
     path: string,
     id_hotel: number
-}[]
+}
 
 interface HotelFull extends Hotel {
     id: number,
@@ -76,18 +76,7 @@ interface HotelFull extends Hotel {
     cover?: string | null,
     freeCancellation?: boolean,
     isActive?: boolean,
-    gallery_hotel: [
-        {
-            "id": 1,
-            "path": "hotel/1710513141500.jpeg",
-            "id_type_room": 1
-        },
-        {
-            "id": 2,
-            "path": "hotel/1710513142234.jpeg",
-            "id_type_room": 1
-        }
-    ],
+    gallery_hotel: HotelImage[],
     rating?: number,
     cancelPolicy?: TextTraduction,
     commission?: any,

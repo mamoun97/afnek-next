@@ -1,6 +1,6 @@
 
 "use client"
-import { Button, Label, TextInput } from 'flowbite-react'
+import { Label, TextInput } from 'flowbite-react'
 import { IoIosMail } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import Body from '@/components/Body';
@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { UserAuth } from '@/firebase/firebase-provider';
 import { useRouter } from 'next/navigation';
+import { Button } from '@nextui-org/react';
 
 
 export default function Login() {
@@ -72,7 +73,7 @@ export default function Login() {
                   <Button type="submit" color='blue' className='w-full' >Continue with email address</Button>
                 </Link> */}
 
-                <Button isProcessing={isLoading} type="submit" color='blue' className='w-full' >Continue with email address</Button>
+                <Button isLoading={isLoading} type="submit" color='primary' className='w-full' >Continue with email address</Button>
 
               </form>
               <div className="flex items-center mt-5 mb-5">
@@ -84,7 +85,7 @@ export default function Login() {
               </div>
 
               <Button type="submit" onClick={handleGoogleSignIn}
-                color='light' className='w-full'>
+                color='default' className='w-full'>
                 <FcGoogle className="text-xl me-2" /> Sign in with Google
               </Button>
 

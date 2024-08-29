@@ -1,5 +1,6 @@
 
 "use client"
+import { AxiosResponse } from "axios";
 import ApiConfig, { http, swrOptions } from "./config";
 import useSWR from "swr";
 const readAll = async (filter: string): Promise<HotelResponse> => {
@@ -17,13 +18,15 @@ const useReadAll = (filter: string) => {
 }
 const read = async (id: number, filter: string = ""): Promise<HotelFull> => {
     const { data } = await http().get(ApiConfig.hotelEndPoint + "/" + id + filter);
+
     console.log(data)
     return data
 }
 const useRead = (id: number, filter: string,op:any={}) => {
-    const data = useSWR(["hotel", id], () => read(id, filter), {
+    const data = useSWR(["hotel", id], async() =>  await read(id, filter), {
         ...swrOptions, ...{},...op
     })
+    console.log(data?.data)
 
     return data
 }

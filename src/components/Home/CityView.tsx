@@ -1,9 +1,10 @@
+import { routes } from "@/data/routes";
 import Link from "next/link";
 
 
 
 export default function CityView({ data }: { data: City }) {
-    return (<Link href={"/hotels-filter/"+data.code}>
+    return (<Link href={routes.search.id(data.code)}>
         <div className="m-2 grow cursor-pointer">
             <div className="pt-[80%]  bg-center bg-cover bg-no-repeat rounded-xl"
                 style={{ backgroundImage: "url(" + data.image + ")" }}>

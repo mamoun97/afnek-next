@@ -24,13 +24,13 @@ export default function Section3() {
                             desc="Select your ideal room in the hotel you prefer"
                             logo={images.location_tick}
                         />
-                        <div className="me-2 ms-2 border-2 max-h-0 border-blue-700 grow max-md:min-h-[60px] max-md:border-0"></div>
+                        <div className="me-2 ms-2 border-2 max-h-0 border-primary grow max-md:min-h-[60px] max-md:border-0"></div>
                         <Item
                             title="Book"
                             desc="Select your ideal room in the hotel you prefer"
                             logo={images.calendar_tick}
                         />
-                        <div className="me-2 ms-2 border-2 max-h-0 border-blue-700 grow max-md:min-h-[60px] max-md:border-0"></div>
+                        <div className="me-2 ms-2 border-2 max-h-0 border-primary grow max-md:min-h-[60px] max-md:border-0"></div>
                         <Item
                             title="Save"
                             desc="Select your ideal room in the hotel you prefer"
@@ -47,7 +47,7 @@ type p = {
 }
 function Item(props: p) {
 
-    return <div className='relative w-[60px] h-[60px]  min-h-[60px]  flex justify-center items-center rounded-full bg-[#08F] '>
+    return <div className='relative w-[60px] h-[60px]  min-h-[60px]  flex justify-center items-center rounded-full bg-primary'>
         <Image src={props.logo} className='w-[40px] h-[40px]' alt="" />
         
         <div className="absolute left-[50%] max-md:left-[100%] top-[140%] max-md:top-[50%] translate-x-[-50%] max-md:translate-x-[0%] max-md:translate-y-[-50%] min-w-[200px] ">
