@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 const c = "w-full inline-block p-4 border-b-2 rounded-t-lg font-normal max-md:p-1 max-md:py-3 whitespace-nowrap"
-const ac = " text-blue-600  border-blue-600 active dark:text-blue-500 dark:border-blue-500 "
-const nc = " border-transparent  hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 "
+const ac = " text-primary cursor-pointer  border-primary active dark:text-blue-500 dark:border-blue-500 "
+const nc = " border-transparent cursor-pointer  hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 "
 export default function Taps({
   items,
   className = ""

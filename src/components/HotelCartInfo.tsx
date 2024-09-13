@@ -41,7 +41,7 @@ export default function HotelCartInfo({
                     Hôtel des Beaux Arts
                 </h1>
                 <div className="flex text-[13px] mt-2">
-                    <IoLocationSharp className="text-2xl text-blue-600" />
+                    <IoLocationSharp className="text-2xl text-primary" />
                     <div className="me-2"></div>
                     <span>169, Rue Colonel Karim Belkacem, Alger centre, Alger, Algérie</span>
 
@@ -61,7 +61,7 @@ export default function HotelCartInfo({
                         <div className="me-2"></div>
                         1 Person
                         <div className="grow"></div>
-                        <span className="text-blue-600 text-sm font-bold">27,732 DZD</span>
+                        <span className="text-primary text-sm font-bold">27,732 DZD</span>
                     </div>
 
                 </div>

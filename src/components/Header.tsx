@@ -1,6 +1,5 @@
 "use client"
-import { Button } from "flowbite-react";
-
+import { Avatar, Button, Dropdown } from "rizzui";
 
 import images from "../assets";
 
@@ -10,12 +9,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { UserAuth } from "@/firebase/firebase-provider";
 import { IoIosArrowDown } from "react-icons/io";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, User } from "@nextui-org/react";
+
 import ApiConfig from "@/api/config";
- 
+import { useRouter } from "next/navigation";
+
 
 export default function Header({ showForm = false, isHome = false }: { showForm?: Boolean, isHome?: Boolean }) {
     const { user, logOut } = UserAuth();
+    const router = useRouter()
     return (
         <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary ps-6 pe-6 text-white"}>
 
@@ -38,38 +39,43 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                     <div className="me-3"></div>
                     {
                         user ? <>
-                            <Dropdown type={"listbox"}>
-                                <DropdownTrigger>
+                            <Dropdown >
+                                <Dropdown.Trigger>
                                     <div className="flex items-center gap-1 cursor-pointer">
-                                        <User
-                                            name={user.first_name+" "+user.last_name}
-                                            description={
-                                                <span className="text-white">{user.email}</span>
-                                            }
-                                            avatarProps={{
-                                                src: ApiConfig.awsUrl+ user.image ?? ""
-                                            }}
-                                        />
-                                        <IoIosArrowDown/>
-                                    </div>
-                                </DropdownTrigger>
-                                <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="new" onClick={() => logOut()}>Logout</DropdownItem>
+                                        <Avatar
 
-                                </DropdownMenu>
+                                            src={ApiConfig.awsUrl + user.image ?? ""}
+                                            name={user.first_name + " " + user.last_name}
+                                            className="ring-2 ring-primary ring-offset-background ring-offset-2"
+                                        />
+                                        <div className="text-sm flex flex-col items-start">
+                                            <h1 className="font-bold">{user.first_name + " " + user.last_name}</h1>
+                                            <p>{user.email}</p>
+                                        </div>
+
+                                        <IoIosArrowDown />
+                                    </div>
+                                </Dropdown.Trigger>
+                                <Dropdown.Menu aria-label="Static Actions">
+                                    <Dropdown.Item key="new" onClick={() => logOut()}>Logout</Dropdown.Item>
+                                    <Dropdown.Item key="new">
+                                        <Link className="h-full w-full text-start" href={"/welcome-hotel"}>
+                                            Ajouter un hôtel</Link>
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
                             </Dropdown>
 
 
                         </> : <>
                             <Link href="/welcome-agency" >
-                                <Button color="light" className="text-primary  max-md:hidden">
+                                <Button color="secondary" variant="solid" className="  max-md:hidden">
                                     Become A Partner
                                 </Button>
                             </Link>
 
                             <div className="me-3"></div>
                             <Link href="/auth/login">
-                                <Button color="light" className="text-primary max-md:hidden">
+                                <Button color="secondary" variant="solid" className=" max-md:hidden">
                                     Sign In / Register
                                 </Button>
                             </Link>

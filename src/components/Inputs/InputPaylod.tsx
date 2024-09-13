@@ -1,4 +1,3 @@
-import { Label } from 'flowbite-react'
 
 export default function InputPaylod({
     label,
@@ -12,7 +11,9 @@ export default function InputPaylod({
     return (
         <div className={className}>
             <div className="mb-2 block">
-                <Label value={label} />
+                <span className='rizzui-input-label block text-sm mb-1.5 font-medium'>
+                    {label}
+                </span>
             </div>
             {children}
             

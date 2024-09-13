@@ -1,4 +1,3 @@
-import { Badge, Rating } from "flowbite-react";
 
 
 import { MdCheck } from "react-icons/md";
@@ -7,7 +6,8 @@ import Link from "next/link";
 import { IoImage } from "react-icons/io5";
 import {ApiConfig} from "@/api/config";
 import { routes } from "@/data/routes";
-import { Button } from "@nextui-org/react";
+import { Badge, Button } from "rizzui";
+import Rating from "./rizzui/Rating";
 export default function CardHotel({ data }: { data: HotelFull }) {
     
     return (
@@ -34,7 +34,8 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                         <div className="flex items-center max-sm:justify-center">
                             <h1 className="text-lg font-bold text-primary">{data.name_fr}</h1>
                             <div className="me-2"></div>
-                            <Rating size={"xs"}>
+                            <Rating size={"sm"} totalStars={data?.rating ?? 0}/>
+                            {/* <Rating size={"xs"}>
                                 {
                                     [1, 2, 3, 4, 5].map((el, k) => {
                                         return <Rating.Star key={k} filled={(data?.rating ?? 0) >= el} />
@@ -42,7 +43,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                                 }
 
 
-                            </Rating>
+                            </Rating> */}
 
                         </div>
                         <div className="flex items-center text-sm">
@@ -59,7 +60,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                                 <span className="font-normal text-xs">247 Reviews</span>
                             </div>
                             <div className="me-2"></div>
-                            <Badge size="sm" className="h-8 w-8 bg-primary text-white leading-8 text-center">
+                            <Badge size="md" color="primary" className="h-8 w-8 rounded-md  leading-8 text-center">
                                 4.3
                             </Badge>
                         </div>
@@ -105,7 +106,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                         Total number of available rooms: 16
                     </span>
                     <div className="grow max-sm:hidden"></div>
-                    <Button color="primary" variant="bordered" size={"sm"}>Check room availability</Button>
+                    <Button color="primary" variant="outline" size={"sm"}>Check room availability</Button>
                     <div className="me-2 max-sm:hidden"></div>
                     <Link href={routes.hotel(data.id)} className="max-sm:col-span-1">
                         <Button color="primary" size={"sm"} className="w-full">Continue</Button>

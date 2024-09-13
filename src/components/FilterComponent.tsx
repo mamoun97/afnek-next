@@ -1,12 +1,15 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { IoIosArrowDown } from "react-icons/io";
-import { Checkbox, Radio, RangeSlider, Rating } from "flowbite-react";
-import { Slider } from "@nextui-org/react";
+// import { Checkbox, Radio, RangeSlider, Rating } from "flowbite-react";
+// import { Slider } from "@nextui-org/react";
 import { AppDispatch, RootState } from "@/store";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "@/store/filterSlice";
 import { FilterApi } from "@/api/filter";
+import { Checkbox, cn, Radio } from "rizzui";
+import Rating from "./rizzui/Rating";
+import RangeSlider from "./rizzui/RangeSlider";
 
 type FilterType = {
     amenity: number[],
@@ -60,6 +63,8 @@ export default function FilterComponent(props: PropsType) {
                 <span className=" text-primary text-sm font-bold cursor-pointer">CLEAR ALL</span>
 
             </div>
+
+            {/* <App/> */}
             <FilterItem text="Prix">
                 <div className="flex items-center text-sm mt-2 mb-2" >
                     <span>{filter.min_price} DA</span>
@@ -67,15 +72,12 @@ export default function FilterComponent(props: PropsType) {
                     <span>{filter.max_price} DA</span>
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
-                    <Slider
+                    <RangeSlider
+                    range
                         step={50}
-                        minValue={1000}
-                        size="sm"
-
-                        maxValue={30000}
-                        defaultValue={filter?.min_price && filter?.max_price ? [
-                            filter.min_price, filter.max_price
-                        ] : [4780, 21145]}
+                        min={1000}
+                        max={30000}
+                        value={ [filter?.min_price??4780, filter?.max_price??21145]}
                         onChange={(e: any) => {
                             dispatch(changeFilter({
                                 ...filter,
@@ -98,7 +100,7 @@ export default function FilterComponent(props: PropsType) {
                     Ascending price
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
-                    <Radio checked={filter.price_order == "DESC"} name="desk"
+                    <Radio size="sm" checked={filter.price_order == "DESC"} name="desk"
                         onChange={(_: any) => {
                             dispatch(changeFilter({
                                 ...filter,
@@ -115,15 +117,10 @@ export default function FilterComponent(props: PropsType) {
                     [5, 4, 3, 2, 1].map((its, index) => {
                         return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                             <Checkbox
+                                size="sm"
                                 className="rounded-sm" />
                             <div className="me-2"></div>
-                            <Rating size={"xs"}>
-                                {
-                                    [1, 2, 3, 4, 5].map(r => {
-                                        return <Rating.Star filled={r <= its ?? 5} />
-                                    })
-                                }
-                            </Rating>
+                            <Rating readonly initialRating={its}   />
 
                         </div>
                     })
@@ -137,6 +134,7 @@ export default function FilterComponent(props: PropsType) {
                         nearby.data.map((its, index) => {
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
+                                size="sm"
                                     checked={!!data.nearby.find(el => el == its.id)}
                                     onChange={() => setData({
                                         ...data,
@@ -162,6 +160,7 @@ export default function FilterComponent(props: PropsType) {
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     className="rounded-sm"
+                                    size="sm"
                                     checked={!!data.tag.find(el => el == its.id)}
                                     onChange={() => setData({
                                         ...data,
@@ -186,6 +185,7 @@ export default function FilterComponent(props: PropsType) {
                         amenity.data.map((its, index) => {
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
+                                size="sm"
                                     checked={!!data.amenity.find(el => el == its.id)}
                                     onChange={() => setData({
                                         ...data,

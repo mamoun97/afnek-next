@@ -6,10 +6,11 @@ import Header from "@/components/Header";
 
 import { useState, useEffect } from "react"
 
-import { Button } from "flowbite-react";
+
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import RegisterAgencyForm from "@/components/RegisterAgency/RegisterAgencyForm";
 import ReadPolic from "@/components/RegisterAgency/ReadPolic";
+import { Button } from "rizzui";
 
 const pages = [
     <RegisterAgencyForm />,
@@ -31,7 +32,7 @@ export default function RegisterAgency() {
 
                     <div className="flex mt-8">
 
-                        <Button color="gray"
+                        <Button color="secondary"
                             onClick={() => {
                                 if (page == 1)
                                     setPage(0)
@@ -46,13 +47,13 @@ export default function RegisterAgency() {
                         <div className="me-2 grow"></div>
 
                         {
-                            page == 0 ? <Button className="bg-blue-700  hover:bg-blue-600"
+                            page == 0 ? <Button 
                                 onClick={() => {
                                     setPage(1)
                                 }}>
                                 <span className="max-md:hidden">Next</span>
                                 <MdArrowForwardIos className="ms-2" /></Button> :
-                                <Button className="bg-blue-700  hover:bg-blue-600"
+                                <Button 
                                     onClick={() => {
 
                                     }}>

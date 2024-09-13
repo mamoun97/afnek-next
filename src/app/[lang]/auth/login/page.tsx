@@ -1,6 +1,5 @@
 
 "use client"
-import { Label, TextInput } from 'flowbite-react'
 import { IoIosMail } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import Body from '@/components/Body';
@@ -12,12 +11,12 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { UserAuth } from '@/firebase/firebase-provider';
 import { useRouter } from 'next/navigation';
-import { Button } from '@nextui-org/react';
+import { Button, Input } from "rizzui";
 
 
 export default function Login() {
   const { googleSignIn, user, isLoading,signWithEmailAndPassword } = UserAuth();
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("bilalfali60@gmail.com")
   const { push } = useRouter();
   const handleGoogleSignIn = async () => {
     try {
@@ -56,16 +55,17 @@ export default function Login() {
               </p>
               <form className="flex flex-col gap-4 mt-4" onSubmit={handelSubmit}>
                 <div>
-                  <div className="mb-2 block">
-                    <Label htmlFor="email1" value="E-mail address" />
-                  </div>
-                  <TextInput icon={IoIosMail}
+                  
+                  <Input 
+                  prefix={<IoIosMail className="w-4 h-4"/>}
                     value={email}
                     id="email1" type="email"
                     onChange={(e) => {
                       setEmail(e.target.value)
                     }}
-                    placeholder="Enter emil address" required />
+                    placeholder="Enter emil address" 
+                    label="E-mail address"
+                    required />
                 </div>
 
 
@@ -85,7 +85,7 @@ export default function Login() {
               </div>
 
               <Button type="submit" onClick={handleGoogleSignIn}
-                color='default' className='w-full'>
+                color='secondary' className='w-full text-foreground'>
                 <FcGoogle className="text-xl me-2" /> Sign in with Google
               </Button>
 

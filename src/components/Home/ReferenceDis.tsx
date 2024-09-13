@@ -1,9 +1,10 @@
 
 
-import { Button } from "flowbite-react";
+
 import { IoArrowForward } from "react-icons/io5";
 import images from "../../assets";
 import Container from "../Container";
+import { Button } from "rizzui";
 export default function ReferenceDis() {
     return (
         <div>
@@ -17,7 +18,7 @@ export default function ReferenceDis() {
                             <h1 className='text-2xl text-white font-bold mb-2'>
                                 Discover Algeria deep inside
                             </h1>
-                            <Button color="blue" >Explore</Button>
+                            <Button color="secondary" >Explore</Button>
                         </div>
                     </div>
                     <W/>
@@ -41,7 +42,7 @@ function W() {
         <p className='text-sm mb-3'>
             The turise cities in algeria
         </p>
-        <Button  outline color="blue" className=' min-w-[33%] text-center' size={"xs"}>
+        <Button   color="primary" className=' min-w-[33%] text-center' variant="outline" size={"sm"}>
             Explore <IoArrowForward className="me-2"/>
         </Button>
     </div>

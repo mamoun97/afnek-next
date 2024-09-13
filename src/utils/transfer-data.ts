@@ -82,7 +82,7 @@ export default function transferDataGet(data?: PaginationFilter) {
             return el + ":" + val
         }).filter(el => el != "").join("&")
 
-        console.log(s)
+        // console.log(s)
     } catch (err:any) {
         console.log(err.message)
     }

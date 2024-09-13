@@ -1,5 +1,5 @@
 import HotelApi from '@/api/hotel';
-import { useQuery } from 'react-query';
+
 
 const useGetProduct = (filter:string="") => {
   // const queryKey = ['hotel/',filter];

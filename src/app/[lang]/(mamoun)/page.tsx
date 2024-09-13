@@ -15,16 +15,17 @@ export default function Page({ params: { lang } }: {
     return <>
 
     <div>
+      <div className=" relative z-30">
       <HeaderHome />
-      {/* <Container>
-        <CardHotel />
-      </Container> */}
+      </div>
+      <div className="relative z-0">
       <TopCitySection />
       <ReferenceDis />
       <Section3 />
       <Section4 />
       <DownloadApp />
       <Footer />
+      </div>
     </div>
 
     </>

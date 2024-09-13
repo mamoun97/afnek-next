@@ -1,4 +1,3 @@
-import { Label } from 'flowbite-react'
 import React from 'react'
 import TipTap from '../Tiptap';
 
@@ -21,7 +20,9 @@ export default function TextRich({
     return (
         <div className={className}>
             <div className="mb-2 block">
-                <Label value={label} />
+                <span className='rizzui-input-label block text-sm mb-1.5 font-medium' >
+                    {label}
+                </span>
             </div>
             
             <TipTap

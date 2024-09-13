@@ -11,8 +11,8 @@ export default function CityView({ data }: { data: City }) {
 
             </div>
 
-            <p className="  mt-3 text-sm font-bold">{data.name}</p>
-            <p className="font-semibold text-gray-400 text-sm">{data.price} DZD</p>
+            <p className="  mt-3 text-sm font-semibold tracking-wide">{data.name}</p>
+            <p className="font-medium text-primary text-sm">{data.price} DZD</p>
 
         </div>
     </Link>

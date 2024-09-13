@@ -1,71 +1,79 @@
 "use client"
 
-import {  TextInput } from 'flowbite-react'
 import { IoBed } from "react-icons/io5";
 import { IoIosPerson } from "react-icons/io";
-import Datepicker, { DateValueType } from 'react-tailwindcss-datepicker';
-
 import OptionInput from './Global/OptionInput';
 import { AppDispatch, RootState } from '@/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '@/store/filterSlice';
-import { Button } from '@nextui-org/react';
-
+import { Button, Input } from "rizzui";
+import DatePicker from "./rizzui/DatePicker";
 export default function FormBookingHeader() {
     const filter = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
-   
 
-    const handleValueChange = (value: DateValueType, e?: HTMLInputElement | null | undefined) => {
+
+    const handleRangeChange = (dates: [Date | null, Date | null]) => {
+        const [start, end] = dates;
         dispatch(changeFilter(
             {
                 ...filter,
-                date_start:value?.startDate??"",
-                date_end:value?.endDate??""
+                date_start: start ?? "",
+                date_end: end ?? ""
             }
         ))
-    }
-    return <div className="flex p-1 mt-8  w-full bg-white rounded-lg max-md:flex-col">
-        <TextInput
+    };
+    return <div className="flex p-1 mt-8  w-full bg-white rounded-[10px] text-foreground  max-md:flex-col">
+        <Input
             placeholder="Chose where you want to stay"
-            onChange={(e)=>{
+            onChange={(e) => {
                 dispatch(changeFilter(
                     {
                         ...filter,
-                        address:e.target.value
+                        address: e.target.value
                     }
                 ))
             }}
             value={filter.address}
-            type="email" icon={IoBed} required className="grow w-full" />
+            type="email"
+            prefix={<IoBed className="h-4 w-4 " />}
+            required className="grow w-full" />
         <div className="me-2 mt-1"></div>
-        {/* <Datepicker  className="grow " /> */}
-        <Datepicker
-            value={
-                filter?.date_start&&filter?.date_end?{
-                    startDate:filter.date_start,
-                    endDate:filter.date_end
-                }:null
-            }
 
-            // asSingle
-            popoverDirection={'down'}
-            inputClassName={""}
-            containerClassName={"relative w-full   !shadow-none text-gray-700 grow"}
-            onChange={handleValueChange}
-            showShortcuts={true}
-        />
+        <div className="grow w-full grid grid-cols-1">
+            <DatePicker
+                calendarClassName="w-full bg-black"
+                selected={filter.date_start}
+                onChange={handleRangeChange}
+                startDate={filter.date_start}
+                endDate={filter.date_end}
+                monthsShown={2}
+                placeholderText="Select Date in a Range"
+                selectsRange
+                inputProps={{
+                    clearable: true,
+                    onClear: () => {
+                        dispatch(changeFilter(
+                            {
+                                ...filter,
+                                date_start: null,
+                                date_end: null
+                            }
+                        ))
+                    },
+
+                    className: " w-full ",
+                }}
+            />
+        </div>
 
         <div className="me-2 mt-1"></div>
         <OptionInput
-            // placeholder="2 Adult . 0 children . 1 room"
-
-            type="text" icon={IoIosPerson} required className="grow"
+            type="text"
+            prefix={<IoIosPerson className="h-4 w-4 " />}
+            required className="grow"
         />
-        {/* <TextInput
-            placeholder="2 Adult . 0 children . 1 room"
 
-            type="text" icon={IoIosPerson} required className="grow" /> */}
 
         <div className="me-2 mt-1"></div>
         <Button color="primary">

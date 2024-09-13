@@ -1,23 +1,15 @@
 
 "use client"
 import { FC, useState } from "react";
-
-import { TextInput, TextInputProps } from "flowbite-react";
-import { Button, Popover, PopoverContent, PopoverTrigger } from "@nextui-org/react";
 import { MdRemove } from "react-icons/md";
 import { AiOutlinePlus } from "react-icons/ai";
 import useClickOutside from "@/hooks/click-out-side";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { changeFilter } from "@/store/filterSlice";
+import { ActionIcon,  Input, InputProps } from "rizzui";
 
-interface InputProps extends TextInputProps {
 
-}
-// interface OptionInputProps {
-//     inputProps: InputProps
-//     containerProps: DivHTMLAttributes
-// }
 
 const OptionInput: FC<InputProps> = (props) => {
     const filter = useSelector<RootState>(state => state.filter) as Filter
@@ -29,12 +21,15 @@ const OptionInput: FC<InputProps> = (props) => {
             setOpen(false)
         }
     });
-    return <div className="grow w-full relative" ref={clickOutsideRef}>
-        <TextInput {...props}
+    return <div className="grow w-full relative z-40" ref={clickOutsideRef}>
+        <Input 
+        {...props}
             placeholder={"2 Adult . 0 children . 1 room"}
             value={filter.adult+" Adult . "+filter.children+" children . "+filter.room+" room"}
-            readOnly
-            onFocus={() => setOpen(true)} />
+            
+            // onF
+            onFocus={() => setOpen(true)} 
+            />
         {open && <div className="animate-appearance-in absolute gap-2 top-[110%] left-0 right-0 bg-white text-gray-700 shadow-large rounded-lg p-5 flex flex-col">
             <div className="flex items-center">
                 <span className="grow text-sm capitalize font-semibold">Adult</span>
@@ -103,13 +98,13 @@ function CustomButton({ value, onAdd,
         onAdd: () => void,
         onRemove: () => void
     }) {
-    return <div className="flex items-center gap-1 border  rounded-lg">
-        <Button onClick={onRemove} size="sm" isIconOnly variant="light" className="rounded-lg">
+    return <div className="flex items-center gap-1 border p-1  rounded-[10px]">
+        <ActionIcon onClick={onRemove} size="sm"  variant="outline" className="rounded-lg">
             <MdRemove />
-        </Button>
+        </ActionIcon>
         <span className="min-w-[40px] text-center">{value}</span>
-        <Button onClick={onAdd} size="sm" isIconOnly variant="light" className="rounded-lg">
+        <ActionIcon onClick={onAdd} size="sm"  variant="outline" className="rounded-lg">
             <AiOutlinePlus />
-        </Button>
+        </ActionIcon>
     </div>
 }

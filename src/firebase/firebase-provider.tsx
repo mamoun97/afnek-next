@@ -92,7 +92,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setIsLoading(false)
-      if (!!currentUser.accessToken)
+      if (!!currentUser?.accessToken)
         getToken(currentUser.accessToken ?? "")
     });
 

@@ -2,11 +2,13 @@
 "use client"
 import { IoIosArrowForward, IoMdHeartEmpty } from "react-icons/io";
 import { IoLocationSharp } from "react-icons/io5";
-import { Button, Rating } from "flowbite-react";
+
 
 import ImageH from "../ImageH";
 import Link from "next/link";
 import ApiConfig from "@/api/config";
+import Rating from "../rizzui/Rating";
+import { Button } from "rizzui";
 
 
 const imageClass = [
@@ -23,7 +25,7 @@ export default function HotelPageHeaderComponent({
 }: {
     data: HotelFull
 }) {
-    
+
     return (
         <>
             <div className=" flex ">
@@ -40,19 +42,12 @@ export default function HotelPageHeaderComponent({
                 </div>
             </div>
             <div className="flex items-center mt-5">
-                <Rating size={"xs"}>
-                    {
-                        [1, 2, 3, 4, 5].map((el, k) => {
-                            return <Rating.Star key={k} filled={(data?.rating ?? 0) >= el} />
-                        })
-                    }
+                <Rating size={"sm"} initialRating={data?.rating ?? 0} />
 
-
-                </Rating>
                 <div className="grow"></div>
-                <IoMdHeartEmpty className="text-2xl text-blue-600 cursor-pointer" />
+                <IoMdHeartEmpty className="text-2xl text-primary cursor-pointer" />
                 <div className="me-2"></div>
-                <Button color="blue" outline size={"sm"} className="text-blue-600 shadow-none border-none max-sm:col-span-1">Check room availability</Button>
+                <Button color="primary" variant="outline" size={"sm"} >Check room availability</Button>
             </div>
             <h1 className="text-2xl font-bold mt-4">
                 {data.name_en}
@@ -65,10 +60,10 @@ export default function HotelPageHeaderComponent({
                 <Link href="#" className="text-blue-600 underline ">Show on map</Link>
             </div>
             <div className="grid grid-cols-5 grid-rows-8 min-h-[400px] gap-2 mt-4 max-sm:flex flex-col mamoun">
-            
+
                 {
                     data.gallery_hotel?.splice(0, 7).map((el, k) => {
-                        
+
                         return <ImageH key={k}
                             src={ApiConfig.awsUrl + el.path} className={imageClass[k]} />
                     })

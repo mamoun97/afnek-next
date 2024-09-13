@@ -2,7 +2,6 @@
 import HotelCartInfo from "../HotelCartInfo"
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { IoIosLock } from "react-icons/io";
-import { Button, Checkbox, Radio, TextInput } from "flowbite-react";
 import images from "../../assets";
 import Image from "next/image";
 import { BookingApi } from "@/api/booking";
@@ -11,6 +10,7 @@ import { AppDispatch, RootState } from "@/store";
 import toast from "react-hot-toast"
 import { useState } from "react";
 import alertError from "@/utils/alertError";
+import { Button, Checkbox, Input, Radio } from "rizzui";
 export default function Payment({
   stepsComponent
 }: {
@@ -86,7 +86,7 @@ export default function Payment({
               <div className="me-3"></div>
               Select if you have a promotional code
             </div>
-            <TextInput
+            <Input
 
               className="max-w-[220px] mt-2"
               placeholder="Enter promotional code" />
@@ -94,7 +94,7 @@ export default function Payment({
               By clicking on book now, I accept the booking conditions & the general conditions
               of use and services of Afnek
             </p>
-            <Button className="mt-4 w-full" color="blue" onClick={() => {
+            <Button className="mt-4 w-full"  onClick={() => {
               createBooking()
             }}>
               {loading && <svg aria-hidden="true" className="mx-2 inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

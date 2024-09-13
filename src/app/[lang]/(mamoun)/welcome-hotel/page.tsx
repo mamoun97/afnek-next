@@ -4,9 +4,10 @@ import Body from "@/components/Body";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Button } from "flowbite-react";
+
 import Link from "next/link";
 import { MdArrowForwardIos, MdCheck } from "react-icons/md";
+import { Button } from "rizzui";
 
 
 const list = [
@@ -38,7 +39,7 @@ export default function BeforeRegisterHotel() {
 
                     <div className="flex  justify-center mt-12 mb-8">
                         <Link href="/register-hotel">
-                            <Button className="bg-blue-700  hover:bg-blue-600 min-w-[180px]">
+                            <Button className=" min-w-[180px]">
                                 <span >Get Started</span>
                                 <MdArrowForwardIos className="ms-2" />
                             </Button>

@@ -1,11 +1,11 @@
 import React from "react"
-import { Button } from "flowbite-react";
 import { MdArrowForwardIos, MdCheck } from "react-icons/md";
 import Body from "@/components/Body";
 import Header from "@/components/Header";
 import Container from "@/components/Container";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { Button } from "rizzui";
 
 
 const steps = [
@@ -50,7 +50,7 @@ export default function BeforeRegisterAgency() {
                                             desc={el.name}
                                             logo={el.icon}
                                         />
-                                        {k != 2 && <div className="me-2 ms-2 border-2 max-h-0 border-blue-700 grow max-md:min-h-[60px] max-md:border-0"></div>}
+                                        {k != 2 && <div className="me-2 ms-2 border-2 max-h-0 border-primary/70 grow max-md:min-h-[60px] max-md:border-0"></div>}
 
                                     </React.Fragment>
                                 })
@@ -68,7 +68,7 @@ export default function BeforeRegisterAgency() {
 
                     <div className="flex  justify-center mt-12 mb-8">
                         <Link href="/register-agency">
-                            <Button className="bg-blue-700  hover:bg-blue-600 min-w-[180px]">
+                            <Button className=" min-w-[180px]" color="primary">
                                 <span >Get Started</span>
                                 <MdArrowForwardIos className="ms-2" />
                             </Button>
@@ -85,7 +85,7 @@ export default function BeforeRegisterAgency() {
 
 function Item(props: any) {
 
-    return <div className='relative w-[60px] h-[60px] min-h-[60px] flex justify-center items-center rounded-full bg-blue-700 '>
+    return <div className='relative w-[60px] h-[60px] min-h-[60px] flex justify-center items-center rounded-full bg-primary '>
         <div className="text-xl text-white font-bold">{props.logo}</div>
 
         <div className="max-w-[140px] absolute left-[50%] max-md:left-[100%] top-[140%] max-md:top-[50%] translate-x-[-50%] max-md:translate-x-[0%] max-md:translate-y-[-50%] min-w-[200px] ">

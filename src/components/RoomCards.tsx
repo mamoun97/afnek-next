@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import GalleryRoom from './GalleryRoom'
 import ApiConfig from '@/api/config'
-import TextEditorSelect from './Inputs/TextEditorSelect'
+
 import { IoIosBed } from 'react-icons/io'
 import { FaBed } from 'react-icons/fa'
-import { Badge } from 'flowbite-react'
+
 import { MdPerson, MdStar } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store'
 import { changeBooking } from '@/store/bookingSlice'
+import { Badge, Select } from 'rizzui'
 
 
 const MAX = 6
@@ -64,7 +65,8 @@ export default function RoomCards({ hotel, data }: {
                                 <div className="me-1"></div>
                                 {el.noPerson} Person
                                 <div className="me-1"></div>
-                                <Badge color="blue" size={"xs"} className="bg-blue-600 py-[3px] text-white" icon={MdStar}>
+                                <Badge color="primary" size={"sm"}  className='flex gap-1 items-center'>
+                                    <MdStar/>
                                     Recommended
                                 </Badge>
                             </div>
@@ -88,23 +90,26 @@ export default function RoomCards({ hotel, data }: {
                                     {
                                         booking.room_booking.find(item => el.id == item.id_room)?.number_of_room ? <p className="text-green-500 ">
                                             Bedrooms
-                                        </p> : <p className="text-blue-500 animate-blinker">
+                                        </p> : <p className="text-primary/80 animate-blinker">
                                             Choose a room
                                         </p>
                                     }
-                                    <TextEditorSelect
+
+                                    <Select
                                         label=""
-                                        propsInput={{
-                                            color: "success",
-                                            size: 1,
-                                            className: "border-green-500"
-                                        }}
+                                        options={
+                                            Array.from({ length: data.numberOfRooms + 1 }, (_, i) => i).map(el => {
+                                                return {label:el+"",value:el}
+                                            })
+                                        }
                                         placeholder="-- bedrooms --"
                                         value={booking.room_booking.find(item => el.id == item.id_room)?.number_of_room ?? 0}
 
                                         className="p-0 shadow-green-500 scale-90"
+                                        
                                         onChange={(ii: any) => {
-                                            let e = ii.target.value
+                                            
+                                            let e = ii.value
                                             dispatch(changeBooking({
                                                 ...booking,
                                                 room_booking: e == 0 ? booking.room_booking.filter(item => el.id != item.id_room) :
@@ -129,13 +134,9 @@ export default function RoomCards({ hotel, data }: {
                                             }))
                                         }}
 
-                                    >
-                                        {
-                                            Array.from({ length: data.numberOfRooms + 1 }, (_, i) => i).map(el => {
-                                                return <option value={el} key={"op" + el}>{el}</option>
-                                            })
-                                        }
-                                    </TextEditorSelect>
+                                    />
+                                        
+                                    
                                 </div>
                                 <div className="grow"></div>
                                 <div className="flex flex-col items-end">

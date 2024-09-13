@@ -1,90 +1,97 @@
 
-import { Button, Checkbox, Radio, Select } from "flowbite-react";
-import InputPaylod from "../Inputs/InputPaylod";
-import TextEditor from "../Inputs/TextEditor";
-import TextEditorSelect from "../Inputs/TextEditorSelect";
+// import { Button, Checkbox, Radio, Select } from "flowbite-react";
+// import InputPaylod from "../Inputs/InputPaylod";
+// import TextEditor from "../Inputs/TextEditor";
+// import TextEditorSelect from "../Inputs/TextEditorSelect";
+import { Button, Checkbox, Input, Radio, Select } from "rizzui";
 import TextRich from "../Inputs/TextRich";
 import { FaFile } from "react-icons/fa";
+import InputPaylod from "../Inputs/InputPaylod";
 
 export default function BasicInformation() {
   return (
     <div>
-      <h1 className="text-blue-700  font-bold text-xl">
+      <h1 className="text-primary  font-bold text-xl">
         Basic Information
       </h1>
       <form>
         <div className="grid grid-cols-10 max-md:grid-cols-5  gap-4 pt-3 ">
-          <TextEditor
+          <Input
             label="Enter the property name"
             placeholder="Enter the property name"
             value=""
             className="col-span-6 max-md:col-span-5"
             onChange={() => { }}
           />
-          <TextEditorSelect
+          <Select
+            options={[]}
             label="Star rating"
             placeholder="Enter the regitred agency id"
             value=""
             className="col-span-4 max-md:col-span-5"
             onChange={() => { }}
           />
-          <TextEditor
+          <Input
             label="Address"
             placeholder="Enter Address"
             value=""
             className="col-span-10 max-md:col-span-5"
             onChange={() => { }}
           />
-          <TextEditorSelect
+          <Select
+            options={[]}
             label="City"
             placeholder="Select city"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditor
+          <Input
             label="Zip code"
             placeholder="Enter zip code"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditor
+          <Input
             label="Latitude"
             placeholder="Enter latitude"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditor
+          <Input
             label="Longitude"
             placeholder="Enter longitude"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditorSelect
+          <Select
+            options={[]}
             label="Hotel nearby"
             placeholder="-- Select hotel nearby --"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditor
+          <Input
             label="Total number of rooms available"
             placeholder="Enter number"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditorSelect
+          <Select
+            options={[]}
             label="Pobular search"
             placeholder="-- Select Pobular search --"
             value=""
             className="col-span-5"
             onChange={() => { }}
           />
-          <TextEditorSelect
+          <Select
+            options={[]}
             label="Complimentary & hospitality"
             placeholder="-- Select Pobular search --"
             value=""
@@ -124,10 +131,18 @@ export default function BasicInformation() {
                 <div className="me-3"></div>
                 <div>
                   Free cancellation before
-                  <Select required className="scale-90 inline-block p-0 ms-2 me-2 min-w-[60px]" size={1}>
-                    <option>24h</option>
-                    <option>12h</option>
-                  </Select>
+                  <Select className="scale-90 inline-block p-0 ms-2 me-2 max-w-[80px]"
+                    size="sm"
+                    options={[
+                      {
+                        label: "24h",
+                        value: "24h"
+                      },
+                      {
+                        label: "12h",
+                        value: "12h"
+                      }
+                    ]} />
                   of AFNEK standard check-in time, the amount will be refunded with the service fee applied.
                 </div>
               </div>
@@ -138,7 +153,7 @@ export default function BasicInformation() {
                   Non-refundable - No refunds will be made at any time of cancellation after successful booking
                 </div>
               </div>
-              <Button className="bg-blue-100 hover:bg-blue-200 text-blue-600 mt-3">
+              <Button color="primary" variant="flat" className="mt-2" >
                 <FaFile className="text-xl me-2" />
                 Read the cancellation policies
               </Button>

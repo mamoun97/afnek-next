@@ -3,7 +3,7 @@ import UploadImage from "../Inputs/UploadImage";
 export default function PhotoGallery() {
   return (
     <div>
-      <h1 className="text-blue-700  font-bold text-xl">
+      <h1 className="text-primary  font-bold text-xl">
         Photo gallery
       </h1>
       <form>

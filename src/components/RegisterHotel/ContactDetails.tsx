@@ -1,11 +1,8 @@
 "use client"
-import { Button, Checkbox } from "flowbite-react";
 import { useState } from "react"
 import InputPaylod from "../Inputs/InputPaylod";
-import TextEditor from "../Inputs/TextEditor";
-import TextEditorSelect from "../Inputs/TextEditorSelect";
-
 import { IoMdPersonAdd } from "react-icons/io";
+import { Button, Checkbox, Input, Select } from "rizzui";
 export default function ContactDetails() {
   const [data, setData] = useState([
     {
@@ -14,7 +11,7 @@ export default function ContactDetails() {
   ])
   return (
     <div>
-      <h1 className="text-blue-700  font-bold text-xl">
+      <h1 className="text-primary  font-bold text-xl">
         Contact details
       </h1>
       <form>
@@ -27,14 +24,14 @@ export default function ContactDetails() {
                 We send notifications, emails regarding reservations and other important information only to these primary contact details.
               </p>
               <div className="grid grid-cols-2 max-md:grid-cols-1  gap-4 pt-3 ">
-                <TextEditor
+                <Input
                   label="Main mobile number"
                   placeholder="Enter number"
                   value=""
                   className="col-span-1"
                   onChange={() => { }}
                 />
-                <TextEditor
+                <Input
                   label="Main email address"
                   placeholder="Enter email"
                   value=""
@@ -52,7 +49,7 @@ export default function ContactDetails() {
           }
 
           <div className="mt-6 flex justify-center ">
-            <Button color="gray" onClick={()=>setData([...data,{id:1}])}>
+            <Button color="secondary"  onClick={()=>setData([...data,{id:1}])}>
               <IoMdPersonAdd className="text-xl me-2"/>
               Add another contact person
             </Button>
@@ -77,51 +74,53 @@ function ContactPerson({ data }: { data: any }) {
         not be the same as the main details.
       </p>
       <div className="grid grid-cols-11 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4 max-md:gap-2 pt-3 ">
-        <TextEditorSelect
+        <Select
           label="Title"
           placeholder="-- title --"
           value=""
+          options={[]}
           className="col-span-2 max-md:col-span-1"
           onChange={() => { }}
         />
-        <TextEditor
+        <Input
           label="First name"
           placeholder="first name"
           value=""
           className="col-span-3 max-md:col-span-1"
           onChange={() => { }}
         />
-        <TextEditor
+        <Input
           label="Last name"
           placeholder="last name"
           value=""
           className="col-span-3 max-md:col-span-1"
           onChange={() => { }}
         />
-        <TextEditorSelect
+        <Select
           label="Select designation"
           placeholder="-- Select designation --"
           value=""
+          options={[]}
           className="col-span-3 max-md:col-span-1"
           onChange={() => { }}
         />
       </div>
       <div className="grid grid-cols-6 max-md:grid-cols-2 gap-4 max-md:gap-2 pt-3 ">
-        <TextEditor
+        <Input
           label="Main mobile number (1)"
           placeholder="Enter number"
           value=""
           className="col-span-2 "
           onChange={() => { }}
         />
-        <TextEditor
+        <Input
           label="Main mobile number (2)"
           placeholder="Enter number"
           value=""
           className="col-span-2"
           onChange={() => { }}
         />
-        <TextEditor
+        <Input
           label="Main email address"
           placeholder="enter email"
           value=""
@@ -150,7 +149,7 @@ function ItemCheck({
   checked:boolean,
   onChange:any,
 }) {
-  return <div className={"py-2 px-4 bg-white flex items-center rounded-lg border-2 "+(checked?"border-blue-600":"border-gray-200")}>
+  return <div className={"py-2 px-4 bg-white flex items-center rounded-lg border-2 "+(checked?"border-primary":"border-gray-200")}>
     <Checkbox defaultChecked checked={checked} onChange={onChange} />
     <div className="me-2"></div>
     <span>{text}</span>

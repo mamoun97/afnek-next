@@ -17,8 +17,8 @@ import Steps from "@/components/Steps";
 import Container from "@/components/Container";
 import Header from "@/components/Header";
 import Body from "@/components/Body";
-import { Button } from "flowbite-react";
 import Footer from "@/components/Footer";
+import { Button } from "rizzui";
 const steps = [
     {
         icon: <IoMdInformationCircle />,
@@ -77,14 +77,14 @@ export default function Page() {
                     {pages[activeStep]}
                     <div className="bg-white rounded-md mt-8 px-7 py-4">
                         <div className="flex mt-8">
-                            <Button color="gray"
+                            <Button color="secondary"
                                 onClick={() => {
                                     setActiveStep(activeStep > 0 ? activeStep - 1 : activeStep)
                                 }}> <MdArrowBackIosNew className="me-2" />
                                 <span className="max-md:hidden">Back</span>
                             </Button>
                             <div className="me-2"></div>
-                            <Button className="bg-black hover:bg-[#000D]">
+                            <Button >
                                 <FaSave className="me-2" />
                                 <span className="max-md:hidden">Save</span>
 
@@ -92,13 +92,13 @@ export default function Page() {
                             <div className="me-2 grow"></div>
 
                             {
-                                activeStep != 5 ? <Button className="bg-blue-700  hover:bg-blue-600"
+                                activeStep != 5 ? <Button 
                                     onClick={() => {
                                         setActiveStep(activeStep < steps.length - 1 ? activeStep + 1 : activeStep)
                                     }}>
                                     <span className="max-md:hidden">Next</span>
                                     <MdArrowForwardIos className="ms-2" /></Button> :
-                                    <Button className="bg-blue-700  hover:bg-blue-600"
+                                    <Button 
                                         onClick={() => {
 
                                         }}>

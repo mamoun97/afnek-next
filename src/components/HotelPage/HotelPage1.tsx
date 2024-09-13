@@ -1,6 +1,6 @@
-import {  Button, Datepicker, TextInput } from "flowbite-react";
+
 import { MdPerson } from "react-icons/md";
-import {  IoIosCalendar } from "react-icons/io";
+import { IoIosCalendar, IoIosPerson } from "react-icons/io";
 import HotelPageHeaderComponent from "./HotelPageHeaderComponent";
 import Taps from "../Taps";
 import Collapse from "../Collapse";
@@ -11,6 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { changeBooking } from "@/store/bookingSlice";
 import moment from "moment"
+import DatePicker from "../rizzui/DatePicker";
+import OptionInput from "../Global/OptionInput";
+import { Button } from "rizzui";
 export default function HotelPage1({
     stepsComponent,
     isChoseRoom = false,
@@ -20,8 +23,8 @@ export default function HotelPage1({
     isChoseRoom?: boolean,
     data: HotelFull
 }) {
-    
-    const filter=useSelector<RootState>(state=>state.filter)as Filter
+
+    const filter = useSelector<RootState>(state => state.filter) as Filter
     const [count, setCount] = useState(0)
     useEffect(() => {
         setCount(count + 1)
@@ -31,13 +34,17 @@ export default function HotelPage1({
         {stepsComponent}
         <div className="mb-6 grid grid-cols-5 max-[820px]:grid-cols-4 max-sm:grid-cols-2 gap-2 p-2 bg-gray-100 rounded-md">
 
-            <Datepicker className="col-span-2" />
-            <TextInput
-                icon={MdPerson}
-
-                className="col-span-2"
-                placeholder="2 adults · 0 children · 1 room" />
-            <Button color="blue" className="col-span-1 max-[820px]:col-span-4 max-sm:col-span-2">
+            <div className="col-span-2 grid">
+                <DatePicker label="" placeholder="" onChange={() => { }} />
+            </div>
+            <div className="col-span-2">
+                <OptionInput
+                    type="text"
+                    prefix={<IoIosPerson className="h-4 w-4 " />}
+                    required
+                />
+            </div>
+            <Button color="primary" className="col-span-1 max-[820px]:col-span-4 max-sm:col-span-2">
                 Check availability
             </Button>
         </div>
@@ -106,11 +113,11 @@ export default function HotelPage1({
 }
 
 function Cart({ className = "" }: { className?: string }) {
-    const filter=useSelector<RootState>(state=>state.filter)as Filter
+    const filter = useSelector<RootState>(state => state.filter) as Filter
     const booking = useSelector<RootState>(state => state.booking) as Booking
     const dispatch: AppDispatch = useDispatch()
     return <>
-        <div className={"bg-white p-3 sticky top-1 rounded-md border-2 border-blue-600  " + className}>
+        <div className={"bg-white p-3 sticky top-1 rounded-md border-2 border-primary/70  " + className}>
 
             <h1 className="text-lg font-bold mt-4">
                 30,227 DZD
@@ -145,9 +152,9 @@ function Cart({ className = "" }: { className?: string }) {
                                 <div className="p-3 flex items-center">
                                     <MdPerson className="text-xl" />
                                     <div className="me-2"></div>
-                                    {el.data.room.find(i=>i.id==el.id_room)?.noPerson} Person
+                                    {el.data.room.find(i => i.id == el.id_room)?.noPerson} Person
                                     <div className="grow"></div>
-                                    <span className="text-blue-600 text-sm font-bold">{el.price} DZD</span>
+                                    <span className="text-primary/80 text-sm font-bold">{el.price} DZD</span>
                                 </div>
 
                             </div>
@@ -157,7 +164,7 @@ function Cart({ className = "" }: { className?: string }) {
                                         changeBooking(
                                             {
                                                 ...booking,
-                                                room_booking:booking.room_booking.filter(item =>item.id_room!=el.id_room)
+                                                room_booking: booking.room_booking.filter(item => item.id_room != el.id_room)
                                             }
                                         )
                                     )}>
@@ -169,7 +176,7 @@ function Cart({ className = "" }: { className?: string }) {
             </div>
 
 
-            <Button color="blue" className="w-full mt-4">
+            <Button color="primary" className="w-full mt-4">
                 Fill in your details
             </Button>
         </div >

@@ -1,5 +1,5 @@
 
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query";
 import ApiConfig, { http } from "./config";
 
 const createFavHotel = async (id_hotel: number,id_user:string): Promise<any> => {
@@ -28,12 +28,12 @@ const removeFavHotel = async (id_hotel: number): Promise<any> => {
 
 const useReadAllFavHotels = (filter: string) => {
 
-    return useQuery({
-        queryFn: () => readAllFavHotels(filter),
-        queryKey: [ApiConfig.favHotelEndPoint, filter],
-        enabled: false,
-        staleTime: 2000
-    })
+    // return useQuery({
+    //     queryFn: () => readAllFavHotels(filter),
+    //     queryKey: [ApiConfig.favHotelEndPoint, filter],
+    //     enabled: false,
+    //     staleTime: 2000
+    // })
 }
 
 export const FavoritesApi = {
