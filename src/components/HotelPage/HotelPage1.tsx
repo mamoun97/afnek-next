@@ -29,7 +29,7 @@ export default function HotelPage1({
     useEffect(() => {
         setCount(count + 1)
     }, [isChoseRoom])
-    const content = <>
+    return<div key={"hotel"+data.id}>
         <HotelPageHeaderComponent data={data} />
         {stepsComponent}
         <div className="mb-6 grid grid-cols-5 max-[820px]:grid-cols-4 max-sm:grid-cols-2 gap-2 p-2 bg-gray-100 rounded-md">
@@ -108,8 +108,8 @@ export default function HotelPage1({
             </div>
 
         </div>
-    </>
-    return count % 2 == 0 ? content : <div>{content}</div>
+    </div>
+  
 }
 
 function Cart({ className = "" }: { className?: string }) {

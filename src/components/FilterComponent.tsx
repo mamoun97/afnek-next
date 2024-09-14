@@ -89,18 +89,19 @@ export default function FilterComponent(props: PropsType) {
                     />
                 </div>
                 <div className="flex items-center text-sm mt-3 mb-2" >
-                    <Radio checked={filter.price_order == "ASC"} name="asc"
+                    <Radio size="sm" variant="flat" className="text-primary" checked={filter.price_order == "ASC"} name="order"
                         onChange={(_: any) => {
                             dispatch(changeFilter({
                                 ...filter,
                                 price_order: "ASC"
                             }))
                         }} />
+                        
                     <div className="me-2"></div>
                     Ascending price
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
-                    <Radio size="sm" checked={filter.price_order == "DESC"} name="desk"
+                    <Radio size="sm" variant="flat" className="text-primary" checked={filter.price_order == "DESC"} name="order"
                         onChange={(_: any) => {
                             dispatch(changeFilter({
                                 ...filter,

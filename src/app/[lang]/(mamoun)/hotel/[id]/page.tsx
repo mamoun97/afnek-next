@@ -11,7 +11,8 @@ import Payment from "@/components/HotelPage/Payment"
 import Steps from "@/components/Steps"
 import { AppDispatch, RootState } from "@/store"
 import { changeBooking } from "@/store/bookingSlice"
-import { useState } from "react"
+import alertError from "@/utils/alertError"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 
@@ -55,23 +56,38 @@ export default function HotelPage({
             client_last_name: "",
             client_email: "",
             client_phone: "",
-            id_hotel: parseInt(id) ,
+            id_hotel: parseInt(id),
             from: filter.date_start,
             to: filter.date_end,
             room_booking: []
         }))
     }
 
-    const [activeStep, setActiveStep] = useState(1)
-    const { data: hotelInfo, isLoading, } = HotelApi.useRead(
-        parseInt(id),
-        "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale",
-        {
-            onSuccess: (res: HotelFull) => {
-                console.log(res)
-            }
+    const [activeStep, setActiveStep] = useState(0)
+    // const { data: hotelInfo, isLoading, } = HotelApi.useRead(
+    //     parseInt(id),
+    //     "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale",
+    //     {
+    //         onSuccess: (res: HotelFull) => {
+    //             console.log(res)
+    //         }
+    //     })
+    const [hotelInfo, setHotelInfo] = useState<HotelFull>()
+    const [isLoading, setIsLoading] = useState(false)
+    const getData = () => {
+        setIsLoading(true)
+        HotelApi.read(parseInt(id),"?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale").then(res => {
+            setHotelInfo(res)
+            setIsLoading(true)
+        }).catch((err: any) => {
+            alertError(err)
+            setIsLoading(true)
         })
-
+    }
+    useEffect(()=>{
+        getData()
+    },[])
+    
     const StepsComponent = () => {
         return <div className="mt-6 mb-6 ">
             <Steps

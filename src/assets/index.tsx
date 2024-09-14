@@ -45,6 +45,10 @@ import grid7 from "../../public/assets/grid7.png"
 
 import pay_dahabia from "../../public/assets/pay-dahabia.png"
 import pay_hotel from "../../public/assets/pay-hotel.png"
+
+import img_ar from "../../public/assets/img_ar.svg"
+import img_en from "../../public/assets/img_en.svg"
+import img_fr from "../../public/assets/img_fr.svg"
 const images = {
     c1,
     c2,
@@ -85,7 +89,10 @@ const images = {
     grid6,
     grid7,
     pay_dahabia,
-    pay_hotel
+    pay_hotel,
+    img_ar,
+    img_en,
+    img_fr
 }
 
 export default images

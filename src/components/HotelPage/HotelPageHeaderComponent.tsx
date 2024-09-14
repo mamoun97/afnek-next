@@ -25,6 +25,7 @@ export default function HotelPageHeaderComponent({
 }: {
     data: HotelFull
 }) {
+    console.log(data)
 
     return (
         <>
@@ -53,7 +54,7 @@ export default function HotelPageHeaderComponent({
                 {data.name_en}
             </h1>
             <div className="flex items-center text-sm mt-2">
-                <IoLocationSharp className="text-xl text-blue-600" />
+                <IoLocationSharp className="text-xl text-primary" />
                 <div className="me-2"></div>
                 <span>{data.address}</span>
                 <div className="me-2"></div>
@@ -69,13 +70,14 @@ export default function HotelPageHeaderComponent({
                     })
                 }
 
-                {/* <ImageH
-                    src={images.grid7.src}
+                {data.gallery_hotel.length>7&&<ImageH
+                    src={ApiConfig.awsUrl +data.gallery_hotel[7].path}
                     className="col-span-1 row-span-2"
                     child={<div className="flex w-full h-full absolute top-0 left-0 items-center justify-center bg-[#0006] text-white">
-                        +45 Photos
-                    </div>} /> */}
+                        +{data.gallery_hotel.length-7} Photos
+                    </div>} />}
             </div>
+            {data.gallery_hotel.length}
         </>
     )
 }

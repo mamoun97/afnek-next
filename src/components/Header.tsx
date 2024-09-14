@@ -12,11 +12,15 @@ import { IoIosArrowDown } from "react-icons/io";
 
 import ApiConfig from "@/api/config";
 import { useRouter } from "next/navigation";
+import useLang from "@/lang/useLang";
+import ButtonLang from "./ButtonLang";
 
 
 export default function Header({ showForm = false, isHome = false }: { showForm?: Boolean, isHome?: Boolean }) {
     const { user, logOut } = UserAuth();
     const router = useRouter()
+    const {t} = useLang()
+  
     return (
         <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary ps-6 pe-6 text-white"}>
 
@@ -30,12 +34,14 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                     <div className="grow"></div>
                     <span>DZD</span>
                     <div className="me-3"></div>
-                    <div className="w-8 h-8  rounded-full bg-cover bg-center" style={{
+                    {/* <div className="w-8 h-8  rounded-full bg-cover bg-center" style={{
                         backgroundImage: "url(" + images.len.src + ")"
                     }}>
 
 
-                    </div>
+
+                    </div> */}
+                    <ButtonLang/>
                     <div className="me-3"></div>
                     {
                         user ? <>

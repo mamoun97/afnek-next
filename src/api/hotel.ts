@@ -36,6 +36,7 @@ const useRead = (id: number, filter: string,op:any={}) => {
 const HotelApi = {
     useReadAll,
     useRead,
-    read
+    read,
+    readAll
 }
 export default HotelApi

@@ -1,5 +1,6 @@
 import React from 'react'
 import TipTap from '../Tiptap';
+import RitchTextEditor from './TextRichNew';
 
 
 export default function TextRich({
@@ -13,7 +14,7 @@ export default function TextRich({
     placeholder: string,
     value: string,
     className?: string,
-    onChange: React.ChangeEventHandler
+    onChange: any
 }) {
     console.log(placeholder)
     console.log(onChange)
@@ -25,16 +26,10 @@ export default function TextRich({
                 </span>
             </div>
             
-            <TipTap
-              content={value}
-              onUpdate={({ editor }) => {
-                console.log(editor)
-                // const html :string= editor.getHTML();
-                // setEditorContent(html);
-                // onChange((e)=>{
-                //     return html
-                // })
-              }}
+            <RitchTextEditor
+            
+            initialValue={value}
+            setValue={onChange}
             />
         </div>
     )
