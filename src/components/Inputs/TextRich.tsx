@@ -1,5 +1,4 @@
 import React from 'react'
-import TipTap from '../Tiptap';
 import RitchTextEditor from './TextRichNew';
 
 

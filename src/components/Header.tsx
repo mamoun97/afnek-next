@@ -50,7 +50,7 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                                     <div className="flex items-center gap-1 cursor-pointer">
                                         <Avatar
 
-                                            src={ApiConfig.awsUrl + user.image ?? ""}
+                                            src={ApiConfig.awsUrl + (user.image ?? "")}
                                             name={user.first_name + " " + user.last_name}
                                             className="ring-2 ring-primary ring-offset-background ring-offset-2"
                                         />

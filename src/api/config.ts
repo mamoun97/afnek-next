@@ -38,7 +38,7 @@ const http = () => {
             // cache: "no-cache",
             "Content-type": "application/json",
             // cache: "no-cache",
-            "Authorization": "Bearer " + localStorage.getItem("token") ?? ""
+            "Authorization": "Bearer " + (localStorage.getItem("token") ?? "")
         }
     })
 
@@ -70,7 +70,7 @@ const httpUpload = () => {
         headers: {
             cache: "no-cache",
             "Content-type": "multipart/form-data",
-            "Authorization": "Bearer " + localStorage.getItem("token") ?? ""
+            "Authorization": "Bearer " +( localStorage.getItem("token") ?? "")
         }
     })
     a.interceptors.response.use(
