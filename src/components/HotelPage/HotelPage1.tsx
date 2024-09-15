@@ -1,11 +1,10 @@
 
+"use client"
 import { MdPerson } from "react-icons/md";
 import { IoIosCalendar, IoIosPerson } from "react-icons/io";
 import HotelPageHeaderComponent from "./HotelPageHeaderComponent";
-import Taps from "../Taps";
 import Collapse from "../Collapse";
 import { MdOutlineClear } from "react-icons/md";
-import { useEffect, useState } from "react";
 import RoomCards from "../RoomCards";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
@@ -13,7 +12,7 @@ import { changeBooking } from "@/store/bookingSlice";
 import moment from "moment"
 import DatePicker from "../rizzui/DatePicker";
 import OptionInput from "../Global/OptionInput";
-import { Button } from "rizzui";
+import { Button, Tab } from "rizzui";
 export default function HotelPage1({
     stepsComponent,
     isChoseRoom = false,
@@ -25,11 +24,8 @@ export default function HotelPage1({
 }) {
 
     const filter = useSelector<RootState>(state => state.filter) as Filter
-    const [count, setCount] = useState(0)
-    useEffect(() => {
-        setCount(count + 1)
-    }, [isChoseRoom])
-    return<div key={"hotel"+data.id}>
+
+    return <div key={"hotel" + data.id}>
         <HotelPageHeaderComponent data={data} />
         {stepsComponent}
         <div className="mb-6 grid grid-cols-5 max-[820px]:grid-cols-4 max-sm:grid-cols-2 gap-2 p-2 bg-gray-100 rounded-md">
@@ -61,39 +57,33 @@ export default function HotelPage1({
                     })
                 }
 
-
-                <Taps
-                    className="col-span-1 mt-5"
-                    items={[
-                        {
-                            title: "Description",
-                            body: <div dangerouslySetInnerHTML={{ __html: data.discription?.en ?? "" }}>
-
-
+                <Tab>
+                    <Tab.List>
+                        <Tab.ListItem>Description</Tab.ListItem>
+                        <Tab.ListItem>Equipment</Tab.ListItem>
+                        <Tab.ListItem>Cancellation Policy</Tab.ListItem>
+                        <Tab.ListItem>Hotel Policies</Tab.ListItem>
+                    </Tab.List>
+                    <Tab.Panels>
+                        <Tab.Panel>
+                            <div dangerouslySetInnerHTML={{ __html: data.discription?.en ?? "" }}>
                             </div>
-                        },
-                        {
-                            title: "Equipment",
-                            body: <div >
-
-
+                        </Tab.Panel>
+                        <Tab.Panel>
+                            <div >
                             </div>
-                        },
-                        {
-                            title: "Cancellation Policy",
-                            body: <div dangerouslySetInnerHTML={{ __html: data?.cancelPolicy?.en ?? "" }}>
-
-
+                        </Tab.Panel>
+                        <Tab.Panel>
+                            <div dangerouslySetInnerHTML={{ __html: data?.cancelPolicy?.en ?? "" }}>
                             </div>
-                        },
-                        {
-                            title: "Hotel Policies",
-                            body: <div dangerouslySetInnerHTML={{ __html: data?.policies?.en ?? "" }}>
-
-
+                        </Tab.Panel>
+                        <Tab.Panel>
+                            <div dangerouslySetInnerHTML={{ __html: data?.policies?.en ?? "" }}>
                             </div>
-                        },
-                    ]} />
+                        </Tab.Panel>
+                    </Tab.Panels>
+                </Tab>
+                
             </div>
             <div className="col-span-1 relative">
                 {
@@ -109,7 +99,7 @@ export default function HotelPage1({
 
         </div>
     </div>
-  
+
 }
 
 function Cart({ className = "" }: { className?: string }) {

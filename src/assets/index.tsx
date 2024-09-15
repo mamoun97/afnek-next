@@ -49,6 +49,7 @@ import pay_hotel from "../../public/assets/pay-hotel.png"
 import img_ar from "../../public/assets/img_ar.svg"
 import img_en from "../../public/assets/img_en.svg"
 import img_fr from "../../public/assets/img_fr.svg"
+
 const images = {
     c1,
     c2,

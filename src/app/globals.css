@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +24,7 @@
     * primary colors
     */
     --primary-lighter: 227 227 227;
-    /* #e3e3e3 */
+    /* #e3e3e3   */
     --primary-default: 144 2 84;
     /* #222222 */
     --primary-dark: 164 20 104;

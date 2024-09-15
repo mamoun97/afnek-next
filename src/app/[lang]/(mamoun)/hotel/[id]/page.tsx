@@ -6,15 +6,17 @@ import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Details1 from "@/components/HotelPage/Details"
 import EnjoyYourTrip from "@/components/HotelPage/EnjoyYourTrip.tsx"
-import HotelPage1 from "@/components/HotelPage/HotelPage1"
+// import HotelPage1 from "@/components/HotelPage/HotelPage1"
 import Payment from "@/components/HotelPage/Payment"
 import Steps from "@/components/Steps"
 import { AppDispatch, RootState } from "@/store"
 import { changeBooking } from "@/store/bookingSlice"
 import alertError from "@/utils/alertError"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import dynamic from 'next/dynamic';
 
+const HotelPage1 = dynamic(() => import('@/components/HotelPage/HotelPage1'), { ssr: false });
 
 
 const steps = [
@@ -46,48 +48,50 @@ export default function HotelPage({
 }: {
     params: { id: string }
 }) {
+
+
     const booking = useSelector<RootState>(state => state.booking) as Booking
     const filter = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch()
-
-    if (booking.id_hotel == 0) {
-        dispatch(changeBooking({
-            client_first_name: "",
-            client_last_name: "",
-            client_email: "",
-            client_phone: "",
-            id_hotel: parseInt(id),
-            from: filter.date_start,
-            to: filter.date_end,
-            room_booking: []
-        }))
-    }
-
     const [activeStep, setActiveStep] = useState(0)
-    // const { data: hotelInfo, isLoading, } = HotelApi.useRead(
-    //     parseInt(id),
-    //     "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale",
-    //     {
-    //         onSuccess: (res: HotelFull) => {
-    //             console.log(res)
-    //         }
-    //     })
+
     const [hotelInfo, setHotelInfo] = useState<HotelFull>()
     const [isLoading, setIsLoading] = useState(false)
+
+
+
+
+    useEffect(() => {
+        if (booking.id_hotel === 0) {
+            dispatch(changeBooking({
+                client_first_name: "",
+                client_last_name: "",
+                client_email: "",
+                client_phone: "",
+                id_hotel: parseInt(id),
+                from: filter.date_start,
+                to: filter.date_end,
+                room_booking: []
+            }));
+        }
+    }, [booking, filter, id, dispatch]);
+
     const getData = () => {
         setIsLoading(true)
-        HotelApi.read(parseInt(id),"?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale").then(res => {
+        HotelApi.read(parseInt(id), "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale").then(res => {
             setHotelInfo(res)
-            setIsLoading(true)
+            setIsLoading(false)
         }).catch((err: any) => {
             alertError(err)
-            setIsLoading(true)
+            setIsLoading(false)
         })
     }
-    useEffect(()=>{
+    useEffect(() => {
         getData()
-    },[])
-    
+    }, [])
+
+
+
     const StepsComponent = () => {
         return <div className="mt-6 mb-6 ">
             <Steps
@@ -100,20 +104,22 @@ export default function HotelPage({
         </div>
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [activeStep])
     return (
         <div className={activeStep == 0 || activeStep == 1 ? "" : "bg-gray-100"}>
 
             <Header isHome={false} showForm={true} />
+            {
+                hotelInfo && <Container className="mt-8">
+                    {(activeStep == 0 || activeStep == 1) && <HotelPage1 data={hotelInfo} isChoseRoom={activeStep == 1} stepsComponent={<StepsComponent />} />}
+                    {activeStep == 2 && <Details1 stepsComponent={<StepsComponent />} />}
+                    {activeStep == 3 && <Payment stepsComponent={<StepsComponent />} />}
+                    {activeStep == 4 && <EnjoyYourTrip stepsComponent={<StepsComponent />} />}
+                </Container>
+            }
 
-            {hotelInfo && <Container className="mt-8">
-                {(activeStep == 0 || activeStep == 1) && <HotelPage1 data={hotelInfo} isChoseRoom={activeStep == 1} stepsComponent={<StepsComponent />} />}
-                {activeStep == 2 && <Details1 stepsComponent={<StepsComponent />} />}
-                {activeStep == 3 && <Payment stepsComponent={<StepsComponent />} />}
-                {activeStep == 4 && <EnjoyYourTrip stepsComponent={<StepsComponent />} />}
-
-
-
-            </Container>}
             {
                 isLoading && <div className="min-h-screen flex justify-center items-center">
                     <svg aria-hidden="true" role="status" className="inline w-20 h-20 me-3 text-primary animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

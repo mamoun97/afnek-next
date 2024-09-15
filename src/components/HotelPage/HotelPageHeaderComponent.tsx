@@ -25,7 +25,7 @@ export default function HotelPageHeaderComponent({
 }: {
     data: HotelFull
 }) {
-    console.log(data)
+   
 
     return (
         <>
@@ -60,7 +60,7 @@ export default function HotelPageHeaderComponent({
                 <div className="me-2"></div>
                 <Link href="#" className="text-blue-600 underline ">Show on map</Link>
             </div>
-            <div className="grid grid-cols-5 grid-rows-8 min-h-[400px] gap-2 mt-4 max-sm:flex flex-col mamoun">
+            <div className={"grid grid-cols-5 grid-rows-8 min-h-[400px] gap-2 mt-4 max-sm:flex flex-col "+(data.gallery_hotel.length?"":"bg-red-400")}>
 
                 {
                     data.gallery_hotel?.splice(0, 7).map((el, k) => {
@@ -77,7 +77,6 @@ export default function HotelPageHeaderComponent({
                         +{data.gallery_hotel.length-7} Photos
                     </div>} />}
             </div>
-            {data.gallery_hotel.length}
         </>
     )
 }

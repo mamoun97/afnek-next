@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { AuthContextProvider } from "@/firebase/firebase-provider";
 import ReduxProvider from "@/Providers/redux-provider";
 import { Toaster } from "react-hot-toast";
-
+import "@/lang/i18n"
 
 const NextProgress = dynamic(() => import('@/components/next-progress'), {
   ssr: false,
@@ -25,7 +25,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+      <link rel="icon" id="faveiconRiseCart" type="image/any" sizes="any" href="faveicon.ico"/>
+      </head>
+      <body className={inter.className+" font-afnek"}>
         <NextProgress />
         <ReduxProvider>
           <AuthContextProvider>

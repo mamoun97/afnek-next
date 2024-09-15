@@ -32,8 +32,8 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                     </Link>
 
                     <div className="grow"></div>
-                    <span>DZD</span>
-                    <div className="me-3"></div>
+                    <span>DZD </span>
+                    <div className="mx-2">/</div>
                     {/* <div className="w-8 h-8  rounded-full bg-cover bg-center" style={{
                         backgroundImage: "url(" + images.len.src + ")"
                     }}>
