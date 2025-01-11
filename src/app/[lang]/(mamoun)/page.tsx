@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import Banner from "@/components/Home/Banner";
 import DownloadApp from "@/components/Home/DownloadApp";
 import HeaderHome from "@/components/Home/HeaderHome";
 import ReferenceDis from "@/components/Home/ReferenceDis";
@@ -20,6 +21,7 @@ export default function Page({ params: { lang } }: {
       </div>
       <div className="relative z-0">
       <TopCitySection />
+      <Banner/>
       <ReferenceDis />
       <Section3 />
       <Section4 />
