@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { changeFilter } from "@/store/filterSlice";
 import { ActionIcon,  Input, InputProps } from "rizzui";
+import useLang from "@/lang/useLang";
 
 
 
@@ -21,18 +22,19 @@ const OptionInput: FC<InputProps> = (props) => {
             setOpen(false)
         }
     });
+    const {t}=useLang()
     return <div className="grow w-full relative z-40" ref={clickOutsideRef}>
         <Input 
         {...props}
-            placeholder={"2 Adult . 0 children . 1 room"}
-            value={filter.adult+" Adult . "+filter.children+" children . "+filter.room+" room"}
+            placeholder={`2 ${t.header.adult} . 0 ${t.header.children} . 1 ${t.header.room}`}
+            value={`${filter.adult} ${t.header.adult} . ${filter.children} ${t.header.children} . ${filter.room} ${t.header.room}`}
             
             // onF
             onFocus={() => setOpen(true)} 
             />
         {open && <div className="animate-appearance-in absolute gap-2 top-[110%] left-0 right-0 bg-white text-gray-700 shadow-large rounded-lg p-5 flex flex-col">
             <div className="flex items-center">
-                <span className="grow text-sm capitalize font-semibold">Adult</span>
+                <span className="grow text-sm capitalize font-semibold">{t.header.adult}</span>
                 <CustomButton value={filter.adult}
                     onAdd={() => {
                         dispatch(changeFilter({
@@ -49,7 +51,7 @@ const OptionInput: FC<InputProps> = (props) => {
                 />
             </div>
             <div className="flex items-center">
-                <span className="grow text-sm capitalize font-semibold">children</span>
+                <span className="grow text-sm capitalize font-semibold">{t.header.children}</span>
                 <CustomButton value={filter.children}
                     onAdd={() => {
                         dispatch(changeFilter({
@@ -66,7 +68,7 @@ const OptionInput: FC<InputProps> = (props) => {
                 />
             </div>
             <div className="flex items-center">
-                <span className="grow text-sm capitalize font-semibold">room</span>
+                <span className="grow text-sm capitalize font-semibold">{t.header.room}</span>
                 <CustomButton value={filter.room}
                     onAdd={() => {
                         dispatch(changeFilter({

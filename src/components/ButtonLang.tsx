@@ -16,9 +16,9 @@ export default function ButtonLang() {
             <Dropdown>
                 <Dropdown.Trigger>
                     <div className='flex items-center gap-2 cursor-pointer text-sm font-bold '>
-                        <Avatar src={langsicon(i18n?.language ?? "ar")}
+                        {/* <Avatar src={langsicon(i18n?.language ?? "ar")}
                             className="ring-1 ring-white font-afnek ring-offset-background ring-offset-1"
-                            name='' size='sm' />
+                            name='' size='sm' /> */}
                         {
                             i18n.language == "ar" && "العربية" ||
                             i18n.language == "fr" && "Français" ||
@@ -29,19 +29,22 @@ export default function ButtonLang() {
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={() => i18n.changeLanguage("ar")}>
                         <div className='flex items-center gap-2'>
-                            <img className='h-4' src={images.img_ar.src} alt="" />
+                            {/* <img className='h-4' src={images.img_ar.src} alt="" /> */}
+                            <span className='font-semibold'>AR</span>
                             العربية
                         </div>
                     </Dropdown.Item>
                     <Dropdown.Item onClick={() => i18n.changeLanguage("fr")}>
                         <div className='flex items-center gap-2'>
-                            <img className='h-4' src={images.img_fr.src} alt="" />
+                            {/* <img className='h-4' src={images.img_fr.src} alt="" /> */}
+                            <span className='font-semibold'>FR</span>
                             Français
                         </div>
                     </Dropdown.Item>
                     <Dropdown.Item onClick={() => i18n.changeLanguage("en")}>
                         <div className='flex items-center gap-2'>
-                            <img className='h-4' src={images.img_en.src} alt="" />
+                            {/* <img className='h-4' src={images.img_en.src} alt="" /> */}
+                            <span className='font-semibold'>EN</span>
                             English
                         </div>
                     </Dropdown.Item>

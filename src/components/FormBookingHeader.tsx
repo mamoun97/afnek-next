@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '@/store/filterSlice';
 import { Button, Input } from "rizzui";
 import DatePicker from "./rizzui/DatePicker";
+import useLang from "@/lang/useLang";
 export default function FormBookingHeader() {
     const filter = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
@@ -23,9 +24,10 @@ export default function FormBookingHeader() {
             }
         ))
     };
+    const { t } = useLang()
     return <div className="flex p-1 mt-8  w-full bg-white rounded-[10px] text-foreground  max-md:flex-col">
         <Input
-            placeholder="Chose where you want to stay"
+            placeholder={t.header.ph_distination}
             onChange={(e) => {
                 dispatch(changeFilter(
                     {
@@ -35,7 +37,7 @@ export default function FormBookingHeader() {
                 ))
             }}
             value={filter.address}
-            type="email"
+            type="text"
             prefix={<IoBed className="h-4 w-4 " />}
             required className="grow w-full" />
         <div className="me-2 mt-1"></div>
@@ -48,7 +50,7 @@ export default function FormBookingHeader() {
                 startDate={filter.date_start}
                 endDate={filter.date_end}
                 monthsShown={2}
-                placeholderText="Select Date in a Range"
+                placeholderText={t.header.ph_daterange}
                 selectsRange
                 inputProps={{
                     clearable: true,
@@ -77,7 +79,7 @@ export default function FormBookingHeader() {
 
         <div className="me-2 mt-1"></div>
         <Button color="primary">
-            Search
+            {t.header.search}
         </Button>
     </div>
 }

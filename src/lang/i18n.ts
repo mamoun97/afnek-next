@@ -6,7 +6,7 @@ import { contents } from './contents';
 
 const detect_lang=()=>{
   let l:string=navigator.language
-  return ["ar","fr","en"].find(el=>l.includes(el))??"ar"
+  return "ar"//["ar","fr","en"].find(el=>l.includes(el))??"ar"
 }
 i18next
   .use(initReactI18next)

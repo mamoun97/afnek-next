@@ -19,8 +19,8 @@ import ButtonLang from "./ButtonLang";
 export default function Header({ showForm = false, isHome = false }: { showForm?: Boolean, isHome?: Boolean }) {
     const { user, logOut } = UserAuth();
     const router = useRouter()
-    const {t} = useLang()
-  
+    const { t } = useLang()
+
     return (
         <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary ps-6 pe-6 text-white"}>
 
@@ -32,7 +32,7 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                     </Link>
 
                     <div className="grow"></div>
-                    <span>DZD </span>
+                    <span>{t.header.dzd} </span>
                     <div className="mx-2">/</div>
                     {/* <div className="w-8 h-8  rounded-full bg-cover bg-center" style={{
                         backgroundImage: "url(" + images.len.src + ")"
@@ -41,7 +41,7 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
 
 
                     </div> */}
-                    <ButtonLang/>
+                    <ButtonLang />
                     <div className="me-3"></div>
                     {
                         user ? <>
@@ -75,14 +75,14 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                         </> : <>
                             <Link href="/welcome-agency" >
                                 <Button color="secondary" variant="solid" className="  max-md:hidden">
-                                    Become A Partner
+                                    {t.header.become_part}
                                 </Button>
                             </Link>
 
                             <div className="me-3"></div>
                             <Link href="/auth/login">
                                 <Button color="secondary" variant="solid" className=" max-md:hidden">
-                                    Sign In / Register
+                                    {t.header.login_register}
                                 </Button>
                             </Link>
                         </>
@@ -92,10 +92,10 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                 </div>
                 {isHome ? <div className="mt-20">
                     <h1 className="text-5xl font-normal max-md:text-4xl">
-                        Find your next stay
+                        {t.header.title}
                     </h1>
                     <p className="text-xl max-md:text-base mt-2">
-                        Search low prices on hotels, in every corner on algeria...
+                        {t.header.subtitle}
                     </p>
                 </div> : ""}
                 {showForm ? <FormBookingHeader /> : ""}

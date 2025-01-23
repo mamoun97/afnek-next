@@ -1,58 +1,12 @@
+"use client"
 import images from "../assets";
 import Container from "./Container";
 import { RiFacebookFill } from "react-icons/ri";
 import { CiInstagram } from "react-icons/ci";
 import { IoLogoTwitter } from "react-icons/io5";
 import Image from "next/image";
-const items = [
-    {
-        title: "Company",
-        items: [
-            {
-                text: "About",
-                src: "#"
-            },
-            {
-                text: "Careers",
-                src: "#"
-            },
-            {
-                text: "Mobile",
-                src: "#"
-            }
-        ]
-    },
-    {
-        title: "Contact",
-        items: [
-            {
-                text: "Help/FAQ",
-                src: "#"
-            },
-            {
-                text: "Press",
-                src: "#"
-            },
-            {
-                text: "Affilates",
-                src: "#"
-            }
-        ]
-    },
-    {
-        title: "More",
-        items: [
-            {
-                text: "Hotels",
-                src: "#"
-            },
-            {
-                text: "Low fare tips",
-                src: "#"
-            }
-        ]
-    }
-]
+import useLang from "@/lang/useLang";
+
 const socialItems = [
     {
         src: "#",
@@ -68,6 +22,56 @@ const socialItems = [
     }
 ]
 export default function Footer() {
+    const {t}=useLang()
+    const items = [
+        {
+            title: t.footer.company,
+            items: [
+                {
+                    text: t.footer.about,
+                    src: "#"
+                },
+                {
+                    text: t.footer.careers,
+                    src: "#"
+                },
+                {
+                    text: t.footer.mobile,
+                    src: "#"
+                }
+            ]
+        },
+        {
+            title: t.footer.contact,
+            items: [
+                {
+                    text: t.footer.help_faq,
+                    src: "#"
+                },
+                {
+                    text: t.footer.press,
+                    src: "#"
+                },
+                {
+                    text: t.footer.affiliates,
+                    src: "#"
+                }
+            ]
+        },
+        {
+            title: t.footer.more,
+            items: [
+                {
+                    text: t.footer.hotels,
+                    src: "#"
+                },
+                {
+                    text: t.footer.low_fare_tips,
+                    src: "#"
+                }
+            ]
+        }
+    ]
     return (
         <Container className="mt-16 pb-16 pt-10">
             <div className="grid grid-cols-12 max-md:grid-cols-3 gap-2">
@@ -76,7 +80,7 @@ export default function Footer() {
                         <img src={images.logo_blue} height={40} alt="" />
                     </div>
                     <div className="text-sm/4 max-w-[200px] mt-5 text-gray-500 ">
-                        Copyright 2023 Afnek Hôtel Booking Tous droits réservés
+                    {t.footer.copyright}
                     </div>
 
                 </div>
@@ -93,7 +97,7 @@ export default function Footer() {
                             })
                         }
                     </div>
-                    <h1 className="mt-2">Discover our app</h1>
+                    <h1 className="mt-2">{t.footer.discover_app}</h1>
                     <div className="grid grid-cols-2 gap-2 mt-2">
 
                         <Image src={images.playstore} alt="" className="" />

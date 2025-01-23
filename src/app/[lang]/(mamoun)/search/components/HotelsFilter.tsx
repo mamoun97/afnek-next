@@ -13,31 +13,36 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 
-export default function HotelsFilter() {
+export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
     const filterStore = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
     const [filter, setFilter] = useState<PaginationFilter>({
-        relations:["room","room.room_type_hotel","gallery"],
+        relations: ["room","wilaya", "room.room_type_hotel", "gallery"],
         search: Object.keys(filterStore).map((el) => {
             return {
                 field: el,
                 value: filterStore[el as keyof Filter]
             }
         }),
-        filter:[]
-
+        filter: !!id_wilaya ? [{
+            field: "id_wilaya",
+            operation: "=",
+            value: id_wilaya
+        }] : []
     })
     const { data: hotels, isLoading } = HotelApi.useReadAll(transferDataGet(filter))
     useEffect(() => {
-        
+
         setFilter({
+            ...filter,
             search: Object.keys(filterStore).map((el) => {
                 return {
                     field: el,
                     value: filterStore[el as keyof Filter]
                 }
             }),
-            relations:["room","room.room_type_hotel","gallery"]
+            relations: ["room","wilaya", "room.room_type_hotel", "gallery"],
+           
         })
     }, [filterStore])
     return (
@@ -46,7 +51,7 @@ export default function HotelsFilter() {
             <Container className="mt-8">
                 <div className="grid grid-cols-4 gap-4 max-lg:grid-cols-1 grid-flow-row">
                     <div className="col-span-1">
-                        <FilterComponent {...{filter,setFilter}} />
+                        <FilterComponent {...{ filter, setFilter }} />
                     </div>
                     <div className="col-span-3 max-lg:col-span-1 ">
                         {
