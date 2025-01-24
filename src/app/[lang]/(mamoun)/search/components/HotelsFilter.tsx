@@ -64,7 +64,7 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
                             </div>
                         }
                         {
-                            !isLoading&&hotels&&hotels.count==0&&<div className="flex items-center flex-col justify-center gap-4 p-6">
+                            (!isLoading&&hotels&&hotels.count==0)&&<div className="flex items-center flex-col justify-center gap-4 p-6">
                                 <IoIosInformationCircleOutline className="w-40 h-40 min-h-40 min-w-40 text-gray-500" />
                                 <span className="text-2xl text-gray-500">No hotels</span>
 
