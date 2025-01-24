@@ -147,8 +147,8 @@ export function FilterToPaginationFilter(data: Filter): ReturnProps {
             //     value: data.rating
             // }] : [],
             // ...data.max_price ? [{
-            //     field: "max_price",
-            //     operation: "=",
+            //     field: "price",
+            //     operation: "<=",
             //     value: data.max_price
             // }] : [],
             // ...data.min_price ? [{

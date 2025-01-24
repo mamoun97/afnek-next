@@ -1,5 +1,5 @@
 
-
+"use client"
 import { MdCheck } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
 import Link from "next/link";
@@ -8,8 +8,13 @@ import {ApiConfig} from "@/api/config";
 import { routes } from "@/data/routes";
 import { Badge, Button } from "rizzui";
 import Rating from "./rizzui/Rating";
+import useLang from "@/lang/useLang";
+import { useMemo } from "react";
 export default function CardHotel({ data }: { data: HotelFull }) {
-    
+    const {lang}=useLang()
+    const name=useMemo(()=>{
+        return lang=="ar"&&"name_ar"||lang=="en"&&"name_en"||"name_fr"
+    },[lang])
     return (
         <div className="border border-gray-300 rounded-xl p-4 max-md:p-2 flex max-md:flex-col max-md:items-center">
 
@@ -32,7 +37,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                 <div className="flex max-sm:flex-col max-sm:mb-4 max-sm:items-center">
                     <div className="flex flex-col">
                         <div className="flex items-center max-sm:justify-center">
-                            <h1 className="text-lg font-bold text-primary">{data.name_fr}</h1>
+                            <h1 className="text-lg font-bold text-primary">{data[name]}</h1>
                             <div className="me-2"></div>
                             <Rating size={"sm"} totalStars={data?.rating ?? 0}/>
                             {/* <Rating size={"xs"}>
