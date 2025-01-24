@@ -76,8 +76,8 @@ export default {
     login: {
         login_or_create: "Connectez-vous ou créez un compte",
         contact_details: "Commençons par vos coordonnées",
-        email_label: "Adresse e-mail",
-        email_placeholder: "Entrez une adresse e-mail",
+        email: "Adresse e-mail",
+        email_ph: "Entrez une adresse e-mail",
         continue_with_email: "Continuer avec l'adresse e-mail",
         or_register_with: "Ou inscrivez-vous avec",
         sign_in_google: "Se connecter avec Google",

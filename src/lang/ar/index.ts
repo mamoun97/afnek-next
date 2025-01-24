@@ -76,8 +76,8 @@ export default {
     login: {
         login_or_create: "تسجيل الدخول أو إنشاء حساب",
         contact_details: "لنبدأ ببيانات الاتصال الخاصة بك",
-        email_label: "البريد الإلكتروني",
-        email_placeholder: "أدخل عنوان البريد الإلكتروني",
+        email: "البريد الإلكتروني",
+        email_ph: "أدخل عنوان البريد الإلكتروني",
         continue_with_email: "المتابعة باستخدام البريد الإلكتروني",
         or_register_with: "أو سجل باستخدام",
         sign_in_google: "تسجيل الدخول باستخدام جوجل",
