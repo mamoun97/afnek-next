@@ -137,7 +137,6 @@ export default function FilterComponent(props: PropsType) {
 
                     {
                         nearby.data.map((its, index) => {
-                            let name=getNameTr(lang,its)
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     size="sm"
@@ -149,7 +148,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                     className="rounded-sm" />
                                 <div className="me-2"></div>
-                                {its[name]}
+                                {getNameTr(lang,its)}
 
                             </div>
                         })
@@ -163,7 +162,6 @@ export default function FilterComponent(props: PropsType) {
 
                     {
                         tag.data.map((its, index) => {
-                            let name=getNameTr(lang,its)
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     className="rounded-sm"
@@ -176,7 +174,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                 />
                                 <div className="me-2"></div>
-                                {its[name]}
+                                {getNameTr(lang,its)}
 
                             </div>
                         })
@@ -190,7 +188,6 @@ export default function FilterComponent(props: PropsType) {
 
                     {
                         amenity.data.map((its, index) => {
-                            let name=getNameTr(lang,its)
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     size="sm"
@@ -202,7 +199,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                     className="rounded-sm" />
                                 <div className="me-2"></div>
-                                {its[name]}
+                                {getNameTr(lang,its)}
 
                             </div>
                         })

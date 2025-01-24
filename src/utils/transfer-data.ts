@@ -1,7 +1,7 @@
 
 export function transferDataGet(data?: PaginationFilter) {
     const dataReturn = {
-        page: 1,
+        page: 0,
         limit: 10,
         search: "",
         sort: "",
@@ -121,11 +121,11 @@ export function FilterToPaginationFilter(data: Filter): ReturnProps {
             //     operation: "=",
             //     value: data.adult
             // }] : [],
-            ...data.children ? [{
-                field: "children",
-                operation: "=",
-                value: data.children
-            }] : [],
+            // ...data.children ? [{
+            //     field: "children",
+            //     operation: "=",
+            //     value: data.children
+            // }] : [],
             ...data.room ? [{
                 field: "room_type_hotel.numberOfRooms",
                 operation: ">=",

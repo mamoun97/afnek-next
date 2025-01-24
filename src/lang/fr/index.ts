@@ -86,15 +86,39 @@ export default {
     },
     "search_page": {
         "filter": {
-        "filter_by": "Filtrer par",
-        "clear_all": "EFFACER TOUT",
-        "price": "Prix",
-        "ascending_price": "Prix croissant",
-        "descending_price": "Prix décroissant",
-        "rating": "Évaluation",
-        "nearby_filter": "Filtre à proximité",
-        "complementary_hospitality": "Complémentaire et hospitalité",
-        "equipment": "Équipement"
+            "filter_by": "Filtrer par",
+            "clear_all": "EFFACER TOUT",
+            "price": "Prix",
+            "ascending_price": "Prix croissant",
+            "descending_price": "Prix décroissant",
+            "rating": "Évaluation",
+            "nearby_filter": "Filtre à proximité",
+            "complementary_hospitality": "Complémentaire et hospitalité",
+            "equipment": "Équipement"
         }
+    },
+    hotel: {
+        "adult": "Adulte",
+        "bed": "Lit",
+        "children": "Enfants",
+        "extrabed": "Lit supplémentaire",
+        "infant": "Nourrisson",
+        "person": "Personne",
+        "good": "Bon",
+        "reviews": "Avis",
+        "show_on_map": "Afficher sur la carte",
+        "from_centre": "du centre",
+        "km": "Km",
+        "taxes_charges": "taxes et frais",
+        "free_cancel": "Annulation gratuite",
+        "no_prepayment_need": "Aucun prépaiement requis",
+        "large_double_bed": "grand lit double",
+        "standard_double_room": "Chambre Double Standard",
+        "total_nu_rooms": "Nombre total de chambres disponibles",
+        "check_room_av": "Vérifier la disponibilité des chambres",
+    },
+    global: {
+        dzd: "DZD",
+        "continue": "Continuer"
     }
 }

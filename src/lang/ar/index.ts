@@ -86,15 +86,39 @@ export default {
     },
     "search_page": {
         "filter": {
-        "filter_by": "تصفية حسب",
-        "clear_all": "مسح الكل",
-        "price": "السعر",
-        "ascending_price": "السعر تصاعديًا",
-        "descending_price": "السعر تنازليًا",
-        "rating": "التقييم",
-        "nearby_filter": "التصفية القريبة",
-        "complementary_hospitality": "الخدمات التكميلية والضيافة",
-        "equipment": "المعدات"
+            "filter_by": "تصفية حسب",
+            "clear_all": "مسح الكل",
+            "price": "السعر",
+            "ascending_price": "السعر تصاعديًا",
+            "descending_price": "السعر تنازليًا",
+            "rating": "التقييم",
+            "nearby_filter": "التصفية القريبة",
+            "complementary_hospitality": "الخدمات التكميلية والضيافة",
+            "equipment": "المعدات"
         }
+    },
+    hotel: {
+        "adult": "بالغ",
+        "bed": "سرير",
+        "children": "أطفال",
+        "extrabed": "سرير إضافي",
+        "infant": "رضيع",
+        "person": "شخص",
+        "good": "جيد",
+        "reviews": "التقييمات",
+        "show_on_map": "عرض على الخريطة",
+        "from_centre": "من المركز",
+        "km": "كم",
+        "taxes_charges": "الضرائب والرسوم",
+        "free_cancel": "إلغاء مجاني",
+        "no_prepayment_need": "لا حاجة للدفع المسبق",
+        "large_double_bed": "سرير مزدوج كبير",
+        "standard_double_room": "غرفة مزدوجة قياسية",
+        "total_nu_rooms": "العدد الإجمالي للغرف المتاحة",
+        "check_room_av": "تحقق من توافر الغرف",
+    },
+    global: {
+        dzd: "دج",
+        "continue": "متابعة"
     }
 }

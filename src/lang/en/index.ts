@@ -96,5 +96,29 @@ export default {
             "complementary_hospitality": "Complementary & hospitality",
             "equipment": "Equipment"
         }
+    },
+    hotel: {
+        adult: "Adult",
+        bed: "Bed",
+        children: "Children",
+        extrabed: "ExtraBed",
+        infant: "Infant",
+        person: "Person",
+        good:"Good",
+        reviews:"Reviews",
+        show_on_map:"Show on map",
+        from_centre:"from centre",
+        km:"Km",
+        taxes_charges:"taxes and charges",
+        free_cancel:"Free cancellation",
+        no_prepayment_need:"No prepayment needed",
+        large_double_bed:"large double bed",
+        standard_double_room:"Standard Double Room",
+        total_nu_rooms:"Total number of available rooms",
+        check_room_av:"Check room availability"
+    },
+    global:{
+        dzd:"DZD",
+        continue:"Continue"
     }
 }

@@ -9,8 +9,10 @@ type ItemType = {
 type ReturnTypeF = "name_ar" | "name_fr" | "name_en";
 
 const getNameTr = (lang: "ar" | "fr" | "en", item: ItemType): ReturnTypeF => {
-    return (lang == "ar" && item.name_ar) && "name_ar" ||
+    let name= (lang == "ar" && item.name_ar) && "name_ar" ||
         (lang == "fr" && item.name_fr) && "name_fr" ||
         "name_en";
+
+        return item[name]
 };
 export default getNameTr

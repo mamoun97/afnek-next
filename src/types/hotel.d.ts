@@ -70,6 +70,7 @@ interface HotelFull extends Hotel {
     id: number,
     name_fr: string|null,
     name_ar: string|null,
+    name_en: string,
     discription?: TextTraduction,
     lat?: number | null,
     lng?: number | null,
@@ -86,6 +87,7 @@ interface HotelFull extends Hotel {
     wilaya?: Wilaya ,
     commune?: Commune ,
     tag: Tag[],
+    room?:Room[],
     room_type_hotel: RoomTypeHotel[],
 }
 type HotelResponse = {

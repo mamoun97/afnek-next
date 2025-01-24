@@ -18,6 +18,7 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
     const filterStore = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
     const [filter, setFilter] = useState<PaginationFilter>({
+        
         relations: ["room", "wilaya", "room.room_type_hotel", "gallery"],
         search: [],
         filter: [
