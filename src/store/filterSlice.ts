@@ -1,10 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { loadData, saveData } from "./localStorage";
 
 
-type FilterS = Filter | null
 
-const initialState: FilterS = loadData("filter") ?? {
+
+const initialState: Filter = {
   limit: 5,
   page: 1,
   address: "",
@@ -14,23 +13,19 @@ const initialState: FilterS = loadData("filter") ?? {
   children: 0,
   room: 1,
   min_price: 4780,
-  max_price: 21145
-}
+  max_price: 21145,
+};
 
 const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    changeFilter: (state: FilterS, action: PayloadAction<FilterS>) => {
-      state = action.payload;
-      saveData("filter", action.payload)
-      return state
+    changeFilter: (state, action: PayloadAction<Partial<Filter>>) => {
+      // Use Object.assign to merge new filter values with the current state
+      Object.assign(state, action.payload);
     },
   },
-
 });
-
-
 
 export const { changeFilter } = filterSlice.actions;
 

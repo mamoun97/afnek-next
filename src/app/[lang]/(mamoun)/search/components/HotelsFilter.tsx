@@ -7,8 +7,9 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { HotelListLoading } from "@/components/Loading";
 import { AppDispatch, RootState } from "@/store";
-import transferDataGet from "@/utils/transfer-data";
+import { FilterToPaginationFilter, transferDataGet } from "@/utils/transfer-data";
 import { useEffect, useState } from "react";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -17,32 +18,30 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
     const filterStore = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
     const [filter, setFilter] = useState<PaginationFilter>({
-        relations: ["room","wilaya", "room.room_type_hotel", "gallery"],
-        search: Object.keys(filterStore).map((el) => {
-            return {
-                field: el,
-                value: filterStore[el as keyof Filter]
-            }
-        }),
-        filter: !!id_wilaya ? [{
-            field: "id_wilaya",
-            operation: "=",
-            value: id_wilaya
-        }] : []
+        relations: ["room", "wilaya", "room.room_type_hotel", "gallery"],
+        search: [],
+        filter: [
+            ...!!id_wilaya ? [{
+                field: "id_wilaya",
+                operation: "=",
+                value: id_wilaya
+            }] : [],
+            ...FilterToPaginationFilter(filterStore).filter
+        ]
     })
     const { data: hotels, isLoading } = HotelApi.useReadAll(transferDataGet(filter))
     useEffect(() => {
 
         setFilter({
             ...filter,
-            search: Object.keys(filterStore).map((el) => {
-                return {
-                    field: el,
-                    value: filterStore[el as keyof Filter]
-                }
-            }),
-            relations: ["room","wilaya", "room.room_type_hotel", "gallery"],
-           
+            filter: [
+                ...!!id_wilaya ? [{
+                    field: "id_wilaya",
+                    operation: "=",
+                    value: id_wilaya
+                }] : [],
+                ...FilterToPaginationFilter(filterStore).filter
+            ]
         })
     }, [filterStore])
     return (
@@ -62,6 +61,13 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
                                         return <CardHotel data={el} key={k} />
                                     })
                                 }
+                            </div>
+                        }
+                        {
+                            !isLoading&&hotels&&hotels.count==0&&<div className="flex items-center flex-col justify-center gap-4 p-6">
+                                <IoIosInformationCircleOutline className="w-40 h-40 min-h-40 min-w-40 text-gray-500" />
+                                <span className="text-2xl text-gray-500">No hotels</span>
+
                             </div>
                         }
 

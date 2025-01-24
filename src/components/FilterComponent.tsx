@@ -34,26 +34,26 @@ export default function FilterComponent(props: PropsType) {
         rating: []
     })
     useEffect(() => {
-        props.setFilter({
-            ...props.filter,
-            filter:[
-                ...data.amenity.length?[{
-                    field:"amenity",
-                    operation:"in",
-                    value:data.amenity
-                }]:[],
-                ...data.tag.length?[{
-                    field:"tag",
-                    operation:"in",
-                    value:data.tag
-                }]:[],
-                ...data.nearby?[{
-                    field:"nearby",
-                    operation:"in",
-                    value:data.nearby
-                }]:[],
-            ]
-        })
+        // props.setFilter({
+        //     ...props.filter,
+        //     filter: [
+        //         ...data.amenity.length ? [{
+        //             field: "amenity",
+        //             operation: "in",
+        //             value: data.amenity
+        //         }] : [],
+        //         ...data.tag.length ? [{
+        //             field: "tag",
+        //             operation: "in",
+        //             value: data.tag
+        //         }] : [],
+        //         ...data.nearby ? [{
+        //             field: "nearby",
+        //             operation: "in",
+        //             value: data.nearby
+        //         }] : [],
+        //     ]
+        // })
     }, [data])
     return (
         <div className="border border-gray-300 rounded-xl  flex flex-col ">
@@ -73,11 +73,11 @@ export default function FilterComponent(props: PropsType) {
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
                     <RangeSlider
-                    range
+                        range
                         step={50}
                         min={1000}
                         max={30000}
-                        value={ [filter?.min_price??4780, filter?.max_price??21145]}
+                        value={[filter?.min_price ?? 4780, filter?.max_price ?? 21145]}
                         onChange={(e: any) => {
                             dispatch(changeFilter({
                                 ...filter,
@@ -96,7 +96,7 @@ export default function FilterComponent(props: PropsType) {
                                 price_order: "ASC"
                             }))
                         }} />
-                        
+
                     <div className="me-2"></div>
                     Ascending price
                 </div>
@@ -121,7 +121,7 @@ export default function FilterComponent(props: PropsType) {
                                 size="sm"
                                 className="rounded-sm" />
                             <div className="me-2"></div>
-                            <Rating readonly initialRating={its}   />
+                            <Rating readonly initialRating={its} />
 
                         </div>
                     })
@@ -135,7 +135,7 @@ export default function FilterComponent(props: PropsType) {
                         nearby.data.map((its, index) => {
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
-                                size="sm"
+                                    size="sm"
                                     checked={!!data.nearby.find(el => el == its.id)}
                                     onChange={() => setData({
                                         ...data,
@@ -186,7 +186,7 @@ export default function FilterComponent(props: PropsType) {
                         amenity.data.map((its, index) => {
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
-                                size="sm"
+                                    size="sm"
                                     checked={!!data.amenity.find(el => el == its.id)}
                                     onChange={() => setData({
                                         ...data,
