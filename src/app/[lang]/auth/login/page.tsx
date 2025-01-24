@@ -12,9 +12,11 @@ import { useEffect, useState } from 'react';
 import { UserAuth } from '@/firebase/firebase-provider';
 import { useRouter } from 'next/navigation';
 import { Button, Input } from "rizzui";
+import useLang from "@/lang/useLang";
 
 
 export default function Login() {
+  const {t}=useLang()
   const { googleSignIn, user, isLoading,signWithEmailAndPassword } = UserAuth();
   const [email, setEmail] = useState("bilalfali60@gmail.com")
   const { push } = useRouter();
@@ -49,9 +51,9 @@ export default function Login() {
           </div>
           <div className='col-span-1 flex justify-center items-center px-4 py-8'>
             <div className=' w-full max-w-sm'>
-              <h1 className='text-2xl font-bold'>Login or create an account</h1>
+              <h1 className='text-2xl font-bold'>{t.login.login_or_create}</h1>
               <p className=' text-gray-500 mt-2'>
-                let's start with your contact details
+              {t.login.contact_details}
               </p>
               <form className="flex flex-col gap-4 mt-4" onSubmit={handelSubmit}>
                 <div>
@@ -63,8 +65,8 @@ export default function Login() {
                     onChange={(e) => {
                       setEmail(e.target.value)
                     }}
-                    placeholder="Enter emil address" 
-                    label="E-mail address"
+                    placeholder={t.login.email_ph}
+                    label={t.login.email}
                     required />
                 </div>
 
@@ -73,25 +75,25 @@ export default function Login() {
                   <Button type="submit" color='blue' className='w-full' >Continue with email address</Button>
                 </Link> */}
 
-                <Button isLoading={isLoading} type="submit" color='primary' className='w-full' >Continue with email address</Button>
+                <Button isLoading={isLoading} type="submit" color='primary' className='w-full' >{t.login.continue_with_email}</Button>
 
               </form>
               <div className="flex items-center mt-5 mb-5">
                 <div className="grow border-y border-gray-200"></div>
                 <div className="me-2"></div>
-                <span className='text-gray-400 text-sm'>Or Register with</span>
+                <span className='text-gray-400 text-sm'>{t.login.or_register_with}</span>
                 <div className="me-2"></div>
                 <div className="grow border-y border-gray-200"></div>
               </div>
 
               <Button type="submit" onClick={handleGoogleSignIn}
                 color='secondary' className='w-full text-foreground'>
-                <FcGoogle className="text-xl me-2" /> Sign in with Google
+                <FcGoogle className="text-xl me-2" /> {t.login.sign_in_google}
               </Button>
 
               <p className='text-center text-sm text-gray-800 mt-6'>
-                By logging in or creating an account, you agree to our
-                <Link href="#" className='ps-1 text-blue-600 font-semibold'>Terms of Service</Link>
+              {t.login.terms_agreement}
+                <Link href="#" className='ps-1 text-blue-600 font-semibold'> {t.login.terms_of_service}</Link>
               </p>
 
             </div>

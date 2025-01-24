@@ -42,6 +42,21 @@ export interface DatePickerProps<selectsRange extends boolean | undefined>
   selectsRange?: any;
   inputProps?: InputProps;
 }
+const arabicLocale = {
+  monthNames: [
+    "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
+    "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+  ],
+  dayNames: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+  shortDayNames: ["أحد", "إثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"],
+  dateFormat: "DD/MM/YYYY",
+  labels: {
+    selectDate: "اختر تاريخًا",
+    cancel: "إلغاء",
+    confirm: "تأكيد"
+  },
+  isRTL: true // Enable RTL layout
+};
 
 const DatePicker = ({
   customInput,
@@ -54,9 +69,11 @@ const DatePicker = ({
   calendarClassName,
   ...props
 }: DatePickerProps<boolean>) => {
+
   const [isCalenderOpen, setIsCalenderOpen] = useState(false);
   const handleCalenderOpen = () => setIsCalenderOpen(true);
   const handleCalenderClose = () => setIsCalenderOpen(false);
+  
   return (
     <ReactDatePicker
       customInput={

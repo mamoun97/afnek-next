@@ -52,6 +52,7 @@ export default function FormBookingHeader() {
                 monthsShown={2}
                 placeholderText={t.header.ph_daterange}
                 selectsRange
+                
                 inputProps={{
                     clearable: true,
                     onClear: () => {

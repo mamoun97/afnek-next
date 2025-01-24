@@ -72,5 +72,16 @@ export default {
         "low_fare_tips": "نصائح الأسعار المخفضة",
         "copyright": "حقوق النشر © 2023 Afnek لحجز الفنادق. جميع الحقوق محفوظة",
         "discover_app": "اكتشف تطبيقنا"
+    },
+    login: {
+        login_or_create: "تسجيل الدخول أو إنشاء حساب",
+        contact_details: "لنبدأ ببيانات الاتصال الخاصة بك",
+        email_label: "البريد الإلكتروني",
+        email_placeholder: "أدخل عنوان البريد الإلكتروني",
+        continue_with_email: "المتابعة باستخدام البريد الإلكتروني",
+        or_register_with: "أو سجل باستخدام",
+        sign_in_google: "تسجيل الدخول باستخدام جوجل",
+        terms_agreement: "بتسجيل الدخول أو إنشاء حساب، فإنك توافق على",
+        terms_of_service: "شروط الخدمة"
     }
 }

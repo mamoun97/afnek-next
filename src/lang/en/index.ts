@@ -72,5 +72,16 @@ export default {
         low_fare_tips: "Low fare tips",
         copyright: "Copyright 2023 Afnek Hôtel Booking Tous droits réservés",
         discover_app: "Discover our app"
+    },
+    login: {
+        login_or_create: "Login or create an account",
+        contact_details: "Let's start with your contact details",
+        email: "E-mail address",
+        email_ph: "Enter email address",
+        continue_with_email: "Continue with email address",
+        or_register_with: "Or Register with",
+        sign_in_google: "Sign in with Google",
+        terms_agreement: "By logging in or creating an account, you agree to our",
+        terms_of_service: "Terms of Service"
     }
 }
