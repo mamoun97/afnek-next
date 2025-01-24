@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { HotelListLoading } from "@/components/Loading";
 import { AppDispatch, RootState } from "@/store";
-import transferDataGet from "@/utils/transfer-data";
+import {transferDataGet} from "@/utils/transfer-data";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
