@@ -1,0 +1,16 @@
+type ItemType = {
+    name_ar: string | null,
+    name_fr: string | null,
+    name_en: string,
+    [key: string]: any;
+};
+
+// Define the return type for the function
+type ReturnTypeF = "name_ar" | "name_fr" | "name_en";
+
+const getNameTr = (lang: "ar" | "fr" | "en", item: ItemType): ReturnTypeF => {
+    return (lang == "ar" && item.name_ar) && "name_ar" ||
+        (lang == "fr" && item.name_fr) && "name_fr" ||
+        "name_en";
+};
+export default getNameTr

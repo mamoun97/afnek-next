@@ -83,5 +83,18 @@ export default {
         sign_in_google: "تسجيل الدخول باستخدام جوجل",
         terms_agreement: "بتسجيل الدخول أو إنشاء حساب، فإنك توافق على",
         terms_of_service: "شروط الخدمة"
+    },
+    "search_page": {
+        "filter": {
+        "filter_by": "تصفية حسب",
+        "clear_all": "مسح الكل",
+        "price": "السعر",
+        "ascending_price": "السعر تصاعديًا",
+        "descending_price": "السعر تنازليًا",
+        "rating": "التقييم",
+        "nearby_filter": "التصفية القريبة",
+        "complementary_hospitality": "الخدمات التكميلية والضيافة",
+        "equipment": "المعدات"
+        }
     }
 }

@@ -10,6 +10,8 @@ import { FilterApi } from "@/api/filter";
 import { Checkbox, cn, Radio } from "rizzui";
 import Rating from "./rizzui/Rating";
 import RangeSlider from "./rizzui/RangeSlider";
+import useLang from "@/lang/useLang";
+import getNameTr from "@/utils/get-name-tr";
 
 type FilterType = {
     amenity: number[],
@@ -55,17 +57,19 @@ export default function FilterComponent(props: PropsType) {
         //     ]
         // })
     }, [data])
+    const {t,lang}=useLang()
+    const tr=t.search_page.filter
     return (
         <div className="border border-gray-300 rounded-xl  flex flex-col ">
             <div className="p-3 ps-4 pe-4 text-lg font-semibold flex mb-3 items-center">
-                <span>Filter by</span>
+                <span>{tr.filter_by}</span>
                 <div className="grow"></div>
-                <span className=" text-primary text-sm font-bold cursor-pointer">CLEAR ALL</span>
+                <span className=" text-primary text-sm font-bold cursor-pointer">{tr.clear_all}</span>
 
             </div>
 
             {/* <App/> */}
-            <FilterItem text="Prix">
+            <FilterItem text={tr.price}>
                 <div className="flex items-center text-sm mt-2 mb-2" >
                     <span>{filter.min_price} DA</span>
                     <div className="grow"></div>
@@ -98,7 +102,7 @@ export default function FilterComponent(props: PropsType) {
                         }} />
 
                     <div className="me-2"></div>
-                    Ascending price
+                    {tr.ascending_price}
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
                     <Radio size="sm" variant="flat" className="text-primary" checked={filter.price_order == "DESC"} name="order"
@@ -109,11 +113,11 @@ export default function FilterComponent(props: PropsType) {
                             }))
                         }} />
                     <div className="me-2"></div>
-                    Descending price
+                    {tr.descending_price}
                 </div>
             </FilterItem>
             <div className="border-t border-gray-300"></div>
-            <FilterItem text={"Rating"} >
+            <FilterItem text={tr.rating} >
                 {
                     [5, 4, 3, 2, 1].map((its, index) => {
                         return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
@@ -129,10 +133,11 @@ export default function FilterComponent(props: PropsType) {
             </FilterItem>
             {nearby && <React.Fragment>
                 <div className="border-t border-gray-300"></div>
-                <FilterItem text={"Nearby filter"} >
+                <FilterItem text={tr.nearby_filter} >
 
                     {
                         nearby.data.map((its, index) => {
+                            let name=getNameTr(lang,its)
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     size="sm"
@@ -144,7 +149,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                     className="rounded-sm" />
                                 <div className="me-2"></div>
-                                {its.name_en}
+                                {its[name]}
 
                             </div>
                         })
@@ -154,10 +159,11 @@ export default function FilterComponent(props: PropsType) {
             </React.Fragment>}
             {tag && <React.Fragment>
                 <div className="border-t border-gray-300"></div>
-                <FilterItem text={"Complementary & hospitality"} >
+                <FilterItem text={tr.complementary_hospitality} >
 
                     {
                         tag.data.map((its, index) => {
+                            let name=getNameTr(lang,its)
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     className="rounded-sm"
@@ -170,7 +176,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                 />
                                 <div className="me-2"></div>
-                                {its.name_en}
+                                {its[name]}
 
                             </div>
                         })
@@ -180,10 +186,11 @@ export default function FilterComponent(props: PropsType) {
             </React.Fragment>}
             {amenity && <React.Fragment>
                 <div className="border-t border-gray-300"></div>
-                <FilterItem text={"Equipment"} >
+                <FilterItem text={tr.equipment} >
 
                     {
                         amenity.data.map((its, index) => {
+                            let name=getNameTr(lang,its)
                             return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                                 <Checkbox
                                     size="sm"
@@ -195,7 +202,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                     className="rounded-sm" />
                                 <div className="me-2"></div>
-                                {its.name_en}
+                                {its[name]}
 
                             </div>
                         })

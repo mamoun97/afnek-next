@@ -5,7 +5,9 @@
 
 
 @layer base {
-
+  .font-afnek{
+    font-family: "Tajawal","Noto Sans Arabic", "cursive";
+  }
   /* --------------------------------- */
   /* light theme */
   /* --------------------------------- */

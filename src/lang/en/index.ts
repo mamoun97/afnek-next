@@ -83,5 +83,18 @@ export default {
         sign_in_google: "Sign in with Google",
         terms_agreement: "By logging in or creating an account, you agree to our",
         terms_of_service: "Terms of Service"
+    },
+    search_page: {
+        filter: {
+            "filter_by": "Filter by",
+            "clear_all": "CLEAR ALL",
+            "price": "Prix",
+            "ascending_price": "Ascending price",
+            "descending_price": "Descending price",
+            "rating": "Rating",
+            "nearby_filter": "Nearby filter",
+            "complementary_hospitality": "Complementary & hospitality",
+            "equipment": "Equipment"
+        }
     }
 }

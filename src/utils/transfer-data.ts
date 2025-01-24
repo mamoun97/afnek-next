@@ -126,11 +126,11 @@ export function FilterToPaginationFilter(data: Filter): ReturnProps {
                 operation: "=",
                 value: data.children
             }] : [],
-            // ...data.room ? [{
-            //     field: "room",
-            //     operation: "=",
-            //     value: data.room
-            // }] : [],
+            ...data.room ? [{
+                field: "room_type_hotel.numberOfRooms",
+                operation: ">=",
+                value: data.room
+            }] : [],
             ...data.date_start ? [{
                 field: "date_start",
                 operation: "=",

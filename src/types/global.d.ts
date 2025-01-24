@@ -35,8 +35,8 @@ type Filter = {
 type Nearby = {
     id: number,
     name_ar: string | null,
-    name_fr: string,
-    name_en: string | null,
+    name_fr: string| null,
+    name_en: string ,
     icon: string,
     created_at: string
 }

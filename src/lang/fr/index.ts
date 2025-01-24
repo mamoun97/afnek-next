@@ -83,5 +83,18 @@ export default {
         sign_in_google: "Se connecter avec Google",
         terms_agreement: "En vous connectant ou en créant un compte, vous acceptez nos",
         terms_of_service: "Conditions d'utilisation"
+    },
+    "search_page": {
+        "filter": {
+        "filter_by": "Filtrer par",
+        "clear_all": "EFFACER TOUT",
+        "price": "Prix",
+        "ascending_price": "Prix croissant",
+        "descending_price": "Prix décroissant",
+        "rating": "Évaluation",
+        "nearby_filter": "Filtre à proximité",
+        "complementary_hospitality": "Complémentaire et hospitalité",
+        "equipment": "Équipement"
+        }
     }
 }

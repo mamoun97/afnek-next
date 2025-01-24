@@ -1,15 +1,12 @@
 "use client"
-import { Avatar, Dropdown } from 'rizzui'
+import {  Dropdown } from 'rizzui'
 import { useTranslation } from 'react-i18next'
-import images from '@/assets'
+
 
 export default function ButtonLang() {
     const { i18n } = useTranslation()
 
-    const langsicon = (l: any) =>
-        l == "fr" && images.img_fr.src ||
-        l == "en" && images.img_en.src ||
-        l == "dz" && images.img_ar.src || images.img_ar.src
+    
     return (
         <>
 
@@ -27,21 +24,21 @@ export default function ButtonLang() {
                     </div>
                 </Dropdown.Trigger>
                 <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => i18n.changeLanguage("ar")}>
+                    <Dropdown.Item onClick={() => {i18n.changeLanguage("ar");localStorage.setItem("local","ar")}}>
                         <div className='flex items-center gap-2'>
                             {/* <img className='h-4' src={images.img_ar.src} alt="" /> */}
                             <span className='font-semibold'>AR</span>
                             العربية
                         </div>
                     </Dropdown.Item>
-                    <Dropdown.Item onClick={() => i18n.changeLanguage("fr")}>
+                    <Dropdown.Item onClick={() => {i18n.changeLanguage("fr");localStorage.setItem("local","fr")}}>
                         <div className='flex items-center gap-2'>
                             {/* <img className='h-4' src={images.img_fr.src} alt="" /> */}
                             <span className='font-semibold'>FR</span>
                             Français
                         </div>
                     </Dropdown.Item>
-                    <Dropdown.Item onClick={() => i18n.changeLanguage("en")}>
+                    <Dropdown.Item onClick={() => {i18n.changeLanguage("en");localStorage.setItem("local","en")}}>
                         <div className='flex items-center gap-2'>
                             {/* <img className='h-4' src={images.img_en.src} alt="" /> */}
                             <span className='font-semibold'>EN</span>

@@ -31,12 +31,14 @@ export default function RootLayout({
       <head>
         <link rel="icon" id="faveiconRiseCart" type="image/any" sizes="any" href="faveicon.ico" />
       </head>
-      <body className={inter.className + " font-afnek"}>
+      <body className={" font-afnek " + inter.className}>
         <NextProgress />
         <ReduxProvider>
           <AuthContextProvider>
+            <div className="font-afnek">
 
-            {children}
+              {children}
+            </div>
 
             <Toaster position="bottom-center" />
           </AuthContextProvider>
