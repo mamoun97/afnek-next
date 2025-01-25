@@ -24,7 +24,7 @@ export default function HotelPage1({
 }) {
 
     const filter = useSelector<RootState>(state => state.filter) as Filter
-
+    
     return <div key={"hotel" + data.id}>
         <HotelPageHeaderComponent data={data} />
         {stepsComponent}

@@ -68,7 +68,7 @@ export default function HotelPage({
         "?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale",
         {
             onSuccess: (res: HotelFull) => {
-                console.log(res)
+                // console.log(res)
             }
         })
 

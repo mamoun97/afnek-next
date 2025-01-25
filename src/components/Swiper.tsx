@@ -1,14 +1,17 @@
 "use client"
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperProps, SwiperRef, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/navigation';
+import useLang from "@/lang/useLang";
 
 
 
 const cl=`
+h-full
+[&_.swiper-slide]:h-full
 [&_.swiper-button-prev]:w-[38px]
 [&_.swiper-button-prev]:h-[38px]
 [&_.swiper-button-prev]:bg-[#0002]
@@ -34,24 +37,34 @@ const cl=`
 
 `
 
-function SwiperF(props:any) {
+function SwiperF({ breakpoints = {}, className = "", autoPlay = false, items = [], swiperProps = {}, withPagination = false }: {
+    swiperProps?: React.RefAttributes<SwiperRef> & React.PropsWithChildren<SwiperProps>,
+    breakpoints?: any,
+    autoPlay?: boolean,
+    withPagination?: boolean,
+    items?: Array<any>,
+    className?: string
+}) {
+    const {lang}=useLang()
     return (
         <div className={cl}>
             <Swiper
                 // spaceBetween={30}
                 modules={[Navigation, Pagination]}
-
+                key={"swiper"+lang}
+                dir={lang == "ar" ? "rtl" : "ltr"}
                 autoplay
                 speed={200}
 
 
                 navigation={true}
                 pagination={{ clickable: true }}
-                breakpoints={props.breakpoints}
-                {...props}
+                breakpoints={breakpoints}
+
+                {...swiperProps}
             >
                 {
-                    props.items.map((el:any, index:number) => {
+                    items.map((el:any, index:number) => {
 
 
                         return <SwiperSlide key={index}>

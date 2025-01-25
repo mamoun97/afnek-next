@@ -16,12 +16,17 @@ const useReadAll = (filter: string) => {
     return data
 
 }
-const read = async (id: number, filter: string = ""): Promise<HotelFull> => {
-    const { data } = await http().get(ApiConfig.hotelEndPoint + "/" + id + filter);
 
-    // console.log(data)
+
+const read = async (id: number, filter: string = ""): Promise<HotelFull> => {
+    const {data} = await http().get(ApiConfig.hotelEndPoint + "/" + id + filter);
+
+    console.log(data.gallery_hotel)
     return data
 }
+
+
+
 const useRead = (id: number, filter: string,op:any={}) => {
     const data = useSWR(["hotel", id], async() =>  await read(id, filter), {
         ...swrOptions, ...{},...op

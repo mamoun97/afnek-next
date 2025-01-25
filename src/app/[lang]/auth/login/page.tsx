@@ -24,16 +24,16 @@ export default function Login() {
     try {
       await googleSignIn();
       push("/")
-    } catch (error) {
-      console.log(error);
+    } catch (_) {
+      
     }
   };
   const handleSignWithEmailAndPassword = async (email:string,password:string) => {
     try {
       await signWithEmailAndPassword(email,password);
      
-    } catch (error) {
-      console.log(error);
+    } catch (_) {
+      
     }
   };
   

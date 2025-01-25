@@ -9,7 +9,6 @@ import { routes } from "@/data/routes";
 import { Badge, Button } from "rizzui";
 import Rating from "./rizzui/Rating";
 import useLang from "@/lang/useLang";
-import { useMemo } from "react";
 import getNameTr from "@/utils/get-name-tr";
 export default function CardHotel({ data }: { data: HotelFull }) {
     const { t,lang } = useLang()

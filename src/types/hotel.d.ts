@@ -60,7 +60,7 @@ interface Hotel {
     policies: TextTraduction,
     id_user: number
 }
-interface HotelImage {
+type HotelImage ={
     id: number,
     path: string,
     id_hotel: number

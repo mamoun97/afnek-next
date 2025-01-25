@@ -15,8 +15,6 @@ export default function TextRich({
     className?: string,
     onChange: any
 }) {
-    console.log(placeholder)
-    console.log(onChange)
     return (
         <div className={className}>
             <div className="mb-2 block">
