@@ -22,14 +22,14 @@ export default function FormFlights() {
     };
     const { t } = useLang()
     return <div className="w-full bg-white p-2 mt-2 rounded-[10px]">
-        <div className="flex items-center gap-2">
-            <Button size='sm' color="primary" variant='solid'>
+        <div className="flex items-center gap-2 no-scrollbar overflow-auto">
+            <Button size='sm' color="primary" variant='solid' className=' whitespace-nowrap' rounded='pill'>
                 Aller simple
             </Button>
-            <Button size='sm' variant='flat' className='text-primary'>
+            <Button size='sm' variant='flat' className='text-primary whitespace-nowrap' rounded='pill'>
                 Aller-retour
             </Button>
-            <Button size='sm' variant='flat' className='text-primary'>
+            <Button size='sm' variant='flat' className='text-primary whitespace-nowrap' rounded='pill'>
                 Multi-destination
             </Button>
         </div>
@@ -41,7 +41,7 @@ export default function FormFlights() {
                 prefix={<PiAirplaneTakeoffFill className="h-4 w-4 rtl:scale-x-[-1]" />}
                 required className="grow w-full" />
             <ActionIcon variant="outline" rounded="full" className="min-w-7" size="sm">
-                <LiaExchangeAltSolid />
+                <LiaExchangeAltSolid className='max-md:rotate-90'/>
             </ActionIcon>
             <Input
                 placeholder={"Où allez-vous ?"}
@@ -78,8 +78,8 @@ export default function FormFlights() {
                 prefix={<MdFilterList className="h-4 w-4 rtl:scale-x-[-1]" />}
                 required className="grow w-full" />
 
-            <Link href="#">
-                <Button color="primary">
+            <Link href="#" className='w-full'>
+                <Button color="primary" className='w-full'>
                     {t.header.search}
                 </Button>
             </Link>

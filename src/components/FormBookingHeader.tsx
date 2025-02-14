@@ -83,8 +83,8 @@ export default function FormBookingHeader() {
 
 
             <div className="me-2 mt-1"></div>
-            <Link href="/search">
-                <Button color="primary">
+            <Link href="/search" className="w-full">
+                <Button color="primary" className="w-full">
                     {t.header.search}
                 </Button>
             </Link>

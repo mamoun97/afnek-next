@@ -2,8 +2,7 @@
 import images from "../assets";
 import Container from "./Container";
 import { RiFacebookFill } from "react-icons/ri";
-import { CiInstagram } from "react-icons/ci";
-import { IoLogoTwitter } from "react-icons/io5";
+
 import Image from "next/image";
 import useLang from "@/lang/useLang";
 import Link from "next/link";
@@ -30,12 +29,12 @@ export default function Footer() {
                     src: "#"
                 },
                 {
-                    text: t.footer.careers,
-                    src: "#"
+                    text: t.terms.privacy_policy.title,
+                    src: "/privacy-policy"
                 },
                 {
-                    text: t.footer.mobile,
-                    src: "#"
+                    text: t.terms.terms_conditions.title,
+                    src: "/terms-conditions"
                 }
             ]
         },

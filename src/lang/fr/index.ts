@@ -1,3 +1,5 @@
+import terms from "../terms";
+
 export default {
     "header": {
         "dzd": "DZD",
@@ -5,6 +7,10 @@ export default {
         "login_register": "Se connecter / S'inscrire",
         "title": "Trouvez votre prochain séjour",
         "subtitle": "Recherchez les meilleurs prix sur les hôtels, dans chaque coin de l'Algérie...",
+        "flights_title": "Voyagez partout avec Afnek",
+        "flights_subtitle": "Votre passerelle vers un voyage fluide et des aventures inoubliables",
+        "organized_trips_title": "Voyages sans effort, expériences inoubliables",
+        "organized_trips_subtitle": "Vols, hôtels et voyages organisés – Votre compagnon de voyage ultime",
         "ph_distination": "Choisissez où vous voulez séjourner",
         "ph_daterange": "Sélectionnez une plage de dates",
         "search": "Rechercher",
@@ -266,5 +272,6 @@ export default {
                 ]
             }
         ]
-    }
+    },
+    terms:terms.fr
 }

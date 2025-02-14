@@ -1,3 +1,5 @@
+import terms from "../terms";
+
 export default {
     header: {
         dzd: "DZD",
@@ -5,6 +7,10 @@ export default {
         login_register: "Sign In / Register",
         title: "Find your next stay",
         subtitle: "Search low prices on hotels, in every corner on algeria...",
+        flights_title: "Fly Anywhere With Afnek",
+        flights_subtitle: "Your Gateway to Seamless Travel and Unforgettable Adventures",
+        organized_trips_title: "Seamless Travel, Unforgettable Experiences",
+        organized_trips_subtitle: "Flights, Hotels & Organized Trips – Your Ultimate Travel Companion",
         ph_distination: "Chose where you want to stay",
         ph_daterange: "Select Date in a Range",
         search: "Search",
@@ -266,5 +272,6 @@ export default {
                 ]
             }
         ]
-    }
+    },
+    terms:terms.en
 }

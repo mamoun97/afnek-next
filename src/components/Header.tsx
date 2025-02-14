@@ -27,7 +27,7 @@ export default function Header({ showForm = false, isHome = false, type = "hotel
     const { t } = useLang()
 
     return (
-        <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary ps-6 pe-6 text-white relative z-50"}>
+        <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary  text-white relative z-50"}>
 
 
             <Container>
@@ -97,22 +97,22 @@ export default function Header({ showForm = false, isHome = false, type = "hotel
                             </h1>
                             <p className="text-xl max-md:text-base mt-2">
                                 {t.header.subtitle}
-                            </p>
+                            </p> 
                         </> ||
                         type == "flights" && <>
                             <h1 className="text-5xl font-normal max-md:text-4xl">
-                                Fly Anywhere With Afnek
+                                {t.header.flights_title}
                             </h1>
                             <p className="text-xl max-md:text-base mt-2">
-                                Your Gateway to Seamless Travel and Unforgettable Adventures
+                                {t.header.flights_subtitle}
                             </p>
                         </> ||
                         <>
                             <h1 className="text-5xl font-normal max-md:text-4xl">
-                                Seamless Travel, Unforgettable Experiences
+                                {t.header.organized_trips_title}
                             </h1>
                             <p className="text-xl max-md:text-base mt-2">
-                                Flights, Hotels & Organized Trips – Your Ultimate Travel Companion
+                                {t.header.organized_trips_subtitle}
                             </p>
                         </>
                     }

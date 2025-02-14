@@ -1,3 +1,5 @@
+import terms from "../terms";
+
 export default {
     "header": {
         "dzd": "دينار جزائري",
@@ -5,6 +7,10 @@ export default {
         "login_register": "تسجيل الدخول / التسجيل",
         "title": "ابحث عن إقامتك القادمة",
         "subtitle": "ابحث عن أفضل الأسعار للفنادق في كل زاوية من الجزائر...",
+        "flights_title": "سافر إلى أي مكان مع Afnek",
+        "flights_subtitle": "بوابتك للسفر السلس والمغامرات التي لا تُنسى",
+        "organized_trips_title": "رحلات سلسة وتجارب لا تُنسى",
+        "organized_trips_subtitle": "رحلات طيران، فنادق ورحلات منظمة – رفيقك المثالي في السفر",
         "ph_distination": "اختر وجهة الإقامة",
         "ph_daterange": "اختر التواريخ في نطاق",
         "search": "بحث",
@@ -266,5 +272,6 @@ export default {
                 ]
             }
         ]
-    }
+    },
+    terms:terms.ar
 }
