@@ -76,16 +76,16 @@ export default {
         "copyright": "Copyright 2025 Afnek Hôtel Booking Tous droits réservés",
         "discover_app": "Découvrez notre application"
     },
-    login: {
-        login_or_create: "Connectez-vous ou créez un compte",
-        contact_details: "Commençons par vos coordonnées",
-        email: "Adresse e-mail",
-        email_ph: "Entrez une adresse e-mail",
-        continue_with_email: "Continuer avec l'adresse e-mail",
-        or_register_with: "Ou inscrivez-vous avec",
-        sign_in_google: "Se connecter avec Google",
-        terms_agreement: "En vous connectant ou en créant un compte, vous acceptez nos",
-        terms_of_service: "Conditions d'utilisation"
+    "login": {
+        "login_or_create": "Connectez-vous ou créez un compte",
+        "contact_details": "Commençons par vos coordonnées",
+        "email": "Adresse e-mail",
+        "email_ph": "Entrez une adresse e-mail",
+        "continue_with_email": "Continuer avec l'adresse e-mail",
+        "or_register_with": "Ou inscrivez-vous avec",
+        "sign_in_google": "Se connecter avec Google",
+        "terms_agreement": "En vous connectant ou en créant un compte, vous acceptez nos",
+        "terms_of_service": "Conditions d'utilisation"
     },
     "search_page": {
         "filter": {
@@ -100,7 +100,7 @@ export default {
             "equipment": "Équipement"
         }
     },
-    hotel: {
+    "hotel": {
         "adult": "Adulte",
         "bed": "Lit",
         "children": "Enfants",
@@ -147,7 +147,6 @@ export default {
         "choose_a_room": "Choisissez une chambre",
         "placeholder_bedrooms": "-- chambres --",
         "taxes_and_charges": "+9% taxes et frais",
-
         "enter_your_details": "Entrez vos coordonnées",
         "booking_info_message": "Nous utiliserons ces informations pour partager votre réservation",
         "main_guest": "Oui, je suis le principal invité",
@@ -161,7 +160,6 @@ export default {
         "last_name": "Nom de famille",
         "email_address": "Adresse e-mail",
         "phone_number": "Numéro de téléphone",
-
         "check_in": "Arrivée",
         "check_out": "Départ",
         "taxes": "Taxes",
@@ -181,11 +179,11 @@ export default {
         "accept_booking_terms": "En cliquant sur réserver maintenant, j'accepte les conditions de réservation et les conditions générales d'utilisation et de services d'Afnek",
         "proceed_to_payment": "Procéder au paiement"
     },
-    global: {
-        dzd: "DZD",
+    "global": {
+        "dzd": "DZD",
         "continue": "Continuer"
     },
-    faqs: {
+    "faqs": {
         "title": "Foire Aux Questions (FAQ) - Afnek",
         "subtitle": "Bienvenue sur Afnek ! Vous trouverez ci-dessous les réponses aux questions courantes sur les réservations d'hôtels et de vols sur notre plateforme.",
         "end_text": "Pour plus d'informations, visitez notre Centre d'Aide ou contactez-nous directement. Bon voyage avec Afnek !",

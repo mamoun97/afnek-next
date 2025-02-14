@@ -13,12 +13,18 @@ import { IoIosArrowDown } from "react-icons/io";
 import ApiConfig from "@/api/config";
 import useLang from "@/lang/useLang";
 import ButtonLang from "./ButtonLang";
+import FormFlights from "./FormFlights";
 
-
-export default function Header({ showForm = false, isHome = false }: { showForm?: Boolean, isHome?: Boolean }) {
+type PageType = "flights" | "organized_trips" | "hotel_res";
+type PropsType = {
+    showForm?: Boolean,
+    isHome?: Boolean,
+    type?: PageType
+}
+export default function Header({ showForm = false, isHome = false, type = "hotel_res" }: PropsType) {
     const { user, logOut } = UserAuth();
- 
-    const { t } = useLang()   
+
+    const { t } = useLang()
 
     return (
         <div className={(!showForm && !isHome ? "pt-3 pb-3" : "pt-4 pb-8") + " bg-primary ps-6 pe-6 text-white relative z-50"}>
@@ -33,7 +39,7 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
                     <div className="grow"></div>
                     <span>{t.global.dzd} </span>
                     <div className="mx-2">/</div>
-                    
+
                     <ButtonLang />
                     <div className="me-3"></div>
                     {
@@ -84,14 +90,58 @@ export default function Header({ showForm = false, isHome = false }: { showForm?
 
                 </div>
                 {isHome ? <div className="mt-20">
-                    <h1 className="text-5xl font-normal max-md:text-4xl">
-                        {t.header.title}
-                    </h1>
-                    <p className="text-xl max-md:text-base mt-2">
-                        {t.header.subtitle}
-                    </p>
+                    {
+                        type == "hotel_res" && <>
+                            <h1 className="text-5xl font-normal max-md:text-4xl">
+                                {t.header.title}
+                            </h1>
+                            <p className="text-xl max-md:text-base mt-2">
+                                {t.header.subtitle}
+                            </p>
+                        </> ||
+                        type == "flights" && <>
+                            <h1 className="text-5xl font-normal max-md:text-4xl">
+                                Fly Anywhere With Afnek
+                            </h1>
+                            <p className="text-xl max-md:text-base mt-2">
+                                Your Gateway to Seamless Travel and Unforgettable Adventures
+                            </p>
+                        </> ||
+                        <>
+                            <h1 className="text-5xl font-normal max-md:text-4xl">
+                                Seamless Travel, Unforgettable Experiences
+                            </h1>
+                            <p className="text-xl max-md:text-base mt-2">
+                                Flights, Hotels & Organized Trips – Your Ultimate Travel Companion
+                            </p>
+                        </>
+                    }
                 </div> : ""}
-                {showForm ? <FormBookingHeader /> : ""}
+
+
+                {showForm && <>
+                    <div className="flex items-center no-scrollbar overflow-auto mt-8">
+                        <Link href="/">
+                            <Button variant="text" className={`px-2 rounded-none whitespace-nowrap !text-white ${type == "hotel_res" ? "border-b-2 border-white" : ""}`} >
+                                {t.header.hotel_res}
+                            </Button>
+                        </Link>
+                        <Link href="/flights">
+                            <Button variant="text" className={`px-2 rounded-none whitespace-nowrap !text-white ${type == "flights" ? "border-b-2 border-white" : ""}`}>
+                                {t.header.flights}
+                            </Button>
+                        </Link>
+                        <Link href="/organized-trips">
+                            <Button variant="text" className={`px-2 rounded-none whitespace-nowrap !text-white ${type == "organized_trips" ? "border-b-2 border-white" : ""}`}>
+                                {t.header.organized_trips}
+                            </Button>
+                        </Link>
+                    </div>
+                    {
+                        type == "hotel_res" && <FormBookingHeader /> ||
+                        type == "flights" && <FormFlights />
+                    }
+                </>}
             </Container>
 
         </div>

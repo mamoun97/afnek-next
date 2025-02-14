@@ -11,9 +11,9 @@ export default {
         adult: "Adult",
         children: "children",
         room: "room",
-        flights:"Flights",
-        organized_trips:"Organized trips",
-        hotel_res:"Hotel reservations"
+        flights: "Flights",
+        organized_trips: "Organized trips",
+        hotel_res: "Hotel reservations"
     },
     home: {
         top_dist: "Top Distination",
@@ -147,8 +147,6 @@ export default {
         choose_a_room: "Choose a room",
         placeholder_bedrooms: "-- bedrooms --",
         taxes_and_charges: "+9% taxes and charges",
-
-
         enter_your_details: "Enter Your Details",
         booking_info_message: "We will use these details to share your booking information",
         main_guest: "Yes, I'm the main guest",
@@ -162,25 +160,24 @@ export default {
         last_name: "Last name",
         email_address: "Email Address",
         phone_number: "Phone number",
-
-        "check_in": "Check in",
-        "check_out": "Check out",
-        "taxes": "Taxes",
-        "total_payment": "Total to pay",
-        "payment_method": "Payment method",
-        "select_payment": "Select payment method",
-        "total_amount": "Total amount",
-        "secure_transmission": "Secure transmission",
-        "data_protection": "We protect your data",
-        "pay_at_hotel": "Pay at hotel",
-        "pay_by_card": "Pay by CIB / DAHABIA",
-        "accept_terms": "I accept terms and conditions",
-        "bank_transfer_note": "Bank transfer possible up to 72h before stay",
-        "promo_code": "Promo Code",
-        "have_promo": "Do you have a promo code?",
-        "enter_promo": "Enter promo code",
-        "accept_booking_terms": "By clicking on book now, I accept the booking conditions & the general conditions of use and services of Afnek",
-        "proceed_to_payment": "Proceed to payment"
+        check_in: "Check in",
+        check_out: "Check out",
+        taxes: "Taxes",
+        total_payment: "Total to pay",
+        payment_method: "Payment method",
+        select_payment: "Select payment method",
+        total_amount: "Total amount",
+        secure_transmission: "Secure transmission",
+        data_protection: "We protect your data",
+        pay_at_hotel: "Pay at hotel",
+        pay_by_card: "Pay by CIB / DAHABIA",
+        accept_terms: "I accept terms and conditions",
+        bank_transfer_note: "Bank transfer possible up to 72h before stay",
+        promo_code: "Promo Code",
+        have_promo: "Do you have a promo code?",
+        enter_promo: "Enter promo code",
+        accept_booking_terms: "By clicking on book now, I accept the booking conditions & the general conditions of use and services of Afnek",
+        proceed_to_payment: "Proceed to payment"
     },
     global: {
         dzd: "DZD",
@@ -212,16 +209,16 @@ export default {
                 title: "Hotel Bookings",
                 items: [
                     {
-                        "question": "4. How do I book a hotel?",
-                        "answer": "Enter your destination, travel dates, and the number of guests, then browse through available hotels and make your selection."
+                        question: "4. How do I book a hotel?",
+                        answer: "Enter your destination, travel dates, and the number of guests, then browse through available hotels and make your selection."
                     },
                     {
-                        "question": "5. Can I modify or cancel my hotel booking?",
-                        "answer": "Yes, but modification and cancellation policies vary by hotel. Check the hotel’s terms before booking."
+                        question: "5. Can I modify or cancel my hotel booking?",
+                        answer: "Yes, but modification and cancellation policies vary by hotel. Check the hotel’s terms before booking."
                     },
                     {
-                        "question": "6. When will I receive my hotel booking confirmation?",
-                        "answer": "You will receive a confirmation email within minutes of completing your booking."
+                        question: "6. When will I receive my hotel booking confirmation?",
+                        answer: "You will receive a confirmation email within minutes of completing your booking."
                     }
                 ]
             },
@@ -229,16 +226,16 @@ export default {
                 title: "Flight Bookings",
                 items: [
                     {
-                        "question": "7. How do I book a flight?",
-                        "answer": "Enter your departure and arrival cities, travel dates, and number of passengers, then choose from the available options."
+                        question: "7. How do I book a flight?",
+                        answer: "Enter your departure and arrival cities, travel dates, and number of passengers, then choose from the available options."
                     },
                     {
-                        "question": "8. Can I change or cancel my flight?",
-                        "answer": "This depends on the airline's policy. Some airlines allow changes with a fee, while others may not permit modifications."
+                        question: "8. Can I change or cancel my flight?",
+                        answer: "This depends on the airline's policy. Some airlines allow changes with a fee, while others may not permit modifications."
                     },
                     {
-                        "question": "9. Do I need to print my flight ticket?",
-                        "answer": "Most airlines accept mobile tickets, but we recommend checking your airline’s policy."
+                        question: "9. Do I need to print my flight ticket?",
+                        answer: "Most airlines accept mobile tickets, but we recommend checking your airline’s policy."
                     }
                 ]
             },
@@ -246,12 +243,12 @@ export default {
                 title: "Payments & Refunds",
                 items: [
                     {
-                        "question": "10. What payment methods are accepted?",
-                        "answer": "We accept major credit/debit cards, PayPal, and other secure payment methods."
+                        question: "10. What payment methods are accepted?",
+                        answer: "We accept major credit/debit cards, PayPal, and other secure payment methods."
                     },
                     {
-                        "question": "11. How long does it take to receive a refund?",
-                        "answer": "Refund processing times depend on the hotel, airline, and your payment method. It can take from a few days to a few weeks."
+                        question: "11. How long does it take to receive a refund?",
+                        answer: "Refund processing times depend on the hotel, airline, and your payment method. It can take from a few days to a few weeks."
                     },
                 ]
             },
@@ -259,12 +256,12 @@ export default {
                 title: "Customer Support",
                 items: [
                     {
-                        "question": "12. How can I contact Afnek support?",
-                        "answer": "You can reach us via email, live chat, or our customer support hotline available 24/7."
+                        question: "12. How can I contact Afnek support?",
+                        answer: "You can reach us via email, live chat, or our customer support hotline available 24/7."
                     },
                     {
-                        "question": "13. What should I do if I have an issue with my booking?",
-                        "answer": "Contact our support team immediately with your booking details, and we will assist you as soon as possible."
+                        question: "13. What should I do if I have an issue with my booking?",
+                        answer: "Contact our support team immediately with your booking details, and we will assist you as soon as possible."
                     }
                 ]
             }

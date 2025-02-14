@@ -10,7 +10,7 @@ import { Button, Input } from "rizzui";
 import DatePicker from "./rizzui/DatePicker";
 import useLang from "@/lang/useLang";
 import Link from "next/link";
-import moment from "moment";
+
 export default function FormBookingHeader() {
     const filter = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
@@ -27,18 +27,8 @@ export default function FormBookingHeader() {
         ))
     };
     const { t } = useLang()
-    return <div className="w-full mt-8">
-        <div className="flex items-center no-scrollbar overflow-auto">
-            <Button variant="text" className="px-2 border-b-2 border-white rounded-none whitespace-nowrap" >
-                {t.header.hotel_res}
-            </Button>
-            <Button className="px-2 rounded-none whitespace-nowrap">
-                {t.header.flights}
-            </Button>
-            <Button className="px-2 rounded-none whitespace-nowrap">
-                {t.header.organized_trips}
-            </Button>
-        </div>
+    return <div className="w-full ">
+        
         <div className="flex p-1 mt-2  w-full bg-white rounded-[10px] text-foreground  max-md:flex-col">
             <Input
                 placeholder={t.header.ph_distination}
