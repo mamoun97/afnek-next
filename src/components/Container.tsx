@@ -1,9 +1,18 @@
+import { FC } from "react";
+import clsx from "clsx";
 
+interface ContainerProps extends React.ComponentProps<'div'> {}
 
-export default function Container(props:any) {
+const Container: FC<ContainerProps> = ({ className, children, ...rest }) => {
   return (
-    <div {...props} className={"container max-w-[1080px] m-auto p-2 "+(props.className??"") }>
-      {props.children}
+    <div 
+      {...rest} 
+      className={clsx("container max-w-[1080px] m-auto p-2", className)}
+    >
+      {children}
     </div>
-  )
-}
+  );
+};
+
+export default Container;
+

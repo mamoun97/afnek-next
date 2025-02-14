@@ -11,6 +11,9 @@ export default {
         adult: "Adult",
         children: "children",
         room: "room",
+        flights:"Flights",
+        organized_trips:"Organized trips",
+        hotel_res:"Hotel reservations"
     },
     home: {
         top_dist: "Top Distination",
@@ -70,7 +73,7 @@ export default {
         more: "More",
         hotels: "Hotels",
         low_fare_tips: "Low fare tips",
-        copyright: "Copyright 2023 Afnek Hôtel Booking Tous droits réservés",
+        copyright: "Copyright 2025 Afnek Hôtel Booking Tous droits réservés",
         discover_app: "Discover our app"
     },
     login: {
@@ -86,15 +89,15 @@ export default {
     },
     search_page: {
         filter: {
-            "filter_by": "Filter by",
-            "clear_all": "CLEAR ALL",
-            "price": "Prix",
-            "ascending_price": "Ascending price",
-            "descending_price": "Descending price",
-            "rating": "Rating",
-            "nearby_filter": "Nearby filter",
-            "complementary_hospitality": "Complementary & hospitality",
-            "equipment": "Equipment"
+            filter_by: "Filter by",
+            clear_all: "CLEAR ALL",
+            price: "Prix",
+            ascending_price: "Ascending price",
+            descending_price: "Descending price",
+            rating: "Rating",
+            nearby_filter: "Nearby filter",
+            complementary_hospitality: "Complementary & hospitality",
+            equipment: "Equipment"
         }
     },
     hotel: {
@@ -104,21 +107,167 @@ export default {
         extrabed: "ExtraBed",
         infant: "Infant",
         person: "Person",
-        good:"Good",
-        reviews:"Reviews",
-        show_on_map:"Show on map",
-        from_centre:"from centre",
-        km:"Km",
-        taxes_charges:"taxes and charges",
-        free_cancel:"Free cancellation",
-        no_prepayment_need:"No prepayment needed",
-        large_double_bed:"large double bed",
-        standard_double_room:"Standard Double Room",
-        total_nu_rooms:"Total number of available rooms",
-        check_room_av:"Check room availability"
+        good: "Good",
+        reviews: "Reviews",
+        show_on_map: "Show on map",
+        from_centre: "from centre",
+        km: "Km",
+        taxes_charges: "taxes and charges",
+        free_cancel: "Free cancellation",
+        no_prepayment_need: "No prepayment needed",
+        large_double_bed: "large double bed",
+        standard_double_room: "Standard Double Room",
+        total_nu_rooms: "Total number of available rooms",
+        check_room_av: "Check room availability",
+        photos: "Photos",
+        photo: "Photo",
+        steps: {
+            select_hotel: "Select a hotel",
+            chose_room: "Choose a room",
+            enter_details: "Enter your details",
+            make_pay: "Make your payment",
+            enjoy_trip: "Enjoy your trip"
+        },
+        room_types: "Room types",
+        description: "Description",
+        equipment: "Equipment",
+        cancellation_policy: "Cancellation Policy",
+        hotel_policies: "Hotel Policies",
+        select_room: "Please select your room type to continue",
+        adults: "adults",
+        room: "room",
+        all_taxes_included: "All taxes included",
+        fill_details: "Fill in your details",
+        total_number_of_available: "Total number of available",
+        rooms: "Rooms",
+        max_allowed: "Max allowed",
+        in_addition: "In addition",
+        recommended: "Recommended",
+        bedrooms: "Bedrooms",
+        choose_a_room: "Choose a room",
+        placeholder_bedrooms: "-- bedrooms --",
+        taxes_and_charges: "+9% taxes and charges",
+
+
+        enter_your_details: "Enter Your Details",
+        booking_info_message: "We will use these details to share your booking information",
+        main_guest: "Yes, I'm the main guest",
+        booking_for_someone: "I'm booking for someone else",
+        confirmation_email_message: "The confirmation email and booking voucher will be sent to the verified email address above.",
+        hotel_contact_message: "The hotel will contact you on the registered telephone number.",
+        add_guest: "Add a guest",
+        proceed_payment: "Proceed to select the payment method",
+        title: "Title",
+        first_name: "First name",
+        last_name: "Last name",
+        email_address: "Email Address",
+        phone_number: "Phone number",
+
+        "check_in": "Check in",
+        "check_out": "Check out",
+        "taxes": "Taxes",
+        "total_payment": "Total to pay",
+        "payment_method": "Payment method",
+        "select_payment": "Select payment method",
+        "total_amount": "Total amount",
+        "secure_transmission": "Secure transmission",
+        "data_protection": "We protect your data",
+        "pay_at_hotel": "Pay at hotel",
+        "pay_by_card": "Pay by CIB / DAHABIA",
+        "accept_terms": "I accept terms and conditions",
+        "bank_transfer_note": "Bank transfer possible up to 72h before stay",
+        "promo_code": "Promo Code",
+        "have_promo": "Do you have a promo code?",
+        "enter_promo": "Enter promo code",
+        "accept_booking_terms": "By clicking on book now, I accept the booking conditions & the general conditions of use and services of Afnek",
+        "proceed_to_payment": "Proceed to payment"
     },
-    global:{
-        dzd:"DZD",
-        continue:"Continue"
+    global: {
+        dzd: "DZD",
+        continue: "Continue"
+    },
+    faqs: {
+        title: "Frequently Asked Questions (FAQ) - Afnek",
+        subtitle: "Welcome to Afnek! Below are answers to common questions about hotel and flight bookings on our platform.",
+        end_text: "For more information, visit our Help Center or contact us directly. Happy travels with Afnek!",
+        subjects: [
+            {
+                title: "General Questions",
+                items: [
+                    {
+                        question: "1. What is Afnek?",
+                        answer: "Afnek is an online platform that allows you to book hotels and flights at the best prices worldwide."
+                    },
+                    {
+                        question: "2. How do I create an account?",
+                        answer: "You can sign up by clicking on the -Sign Up- button on our homepage and following the registration steps."
+                    },
+                    {
+                        question: "3. Is Afnek secure for online payments?",
+                        answer: "Yes, we use advanced encryption and secure payment gateways to protect your transactions."
+                    },
+                ]
+            },
+            {
+                title: "Hotel Bookings",
+                items: [
+                    {
+                        "question": "4. How do I book a hotel?",
+                        "answer": "Enter your destination, travel dates, and the number of guests, then browse through available hotels and make your selection."
+                    },
+                    {
+                        "question": "5. Can I modify or cancel my hotel booking?",
+                        "answer": "Yes, but modification and cancellation policies vary by hotel. Check the hotel’s terms before booking."
+                    },
+                    {
+                        "question": "6. When will I receive my hotel booking confirmation?",
+                        "answer": "You will receive a confirmation email within minutes of completing your booking."
+                    }
+                ]
+            },
+            {
+                title: "Flight Bookings",
+                items: [
+                    {
+                        "question": "7. How do I book a flight?",
+                        "answer": "Enter your departure and arrival cities, travel dates, and number of passengers, then choose from the available options."
+                    },
+                    {
+                        "question": "8. Can I change or cancel my flight?",
+                        "answer": "This depends on the airline's policy. Some airlines allow changes with a fee, while others may not permit modifications."
+                    },
+                    {
+                        "question": "9. Do I need to print my flight ticket?",
+                        "answer": "Most airlines accept mobile tickets, but we recommend checking your airline’s policy."
+                    }
+                ]
+            },
+            {
+                title: "Payments & Refunds",
+                items: [
+                    {
+                        "question": "10. What payment methods are accepted?",
+                        "answer": "We accept major credit/debit cards, PayPal, and other secure payment methods."
+                    },
+                    {
+                        "question": "11. How long does it take to receive a refund?",
+                        "answer": "Refund processing times depend on the hotel, airline, and your payment method. It can take from a few days to a few weeks."
+                    },
+                ]
+            },
+            {
+                title: "Customer Support",
+                items: [
+                    {
+                        "question": "12. How can I contact Afnek support?",
+                        "answer": "You can reach us via email, live chat, or our customer support hotline available 24/7."
+                    },
+                    {
+                        "question": "13. What should I do if I have an issue with my booking?",
+                        "answer": "Contact our support team immediately with your booking details, and we will assist you as soon as possible."
+                    }
+                ]
+            }
+        ]
     }
 }

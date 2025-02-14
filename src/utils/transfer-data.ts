@@ -1,14 +1,17 @@
+import moment from "moment";
 
-export function transferDataGet(data?: PaginationFilter) {
+export function transferDataGet(dt?: PaginationFilter) {
     const dataReturn = {
         page: 0,
-        limit: 10,
+        limit: 10, 
         search: "",
         sort: "",
         relations: "",
         filter: "",
         paranoid: true,
+        date:""
     };
+    const data={...dt}
     if (data) {
         if (data.search?.length) {
             data.search.map((x) => {
@@ -79,6 +82,13 @@ export function transferDataGet(data?: PaginationFilter) {
         } else {
             delete data.relations;
         }
+        if (data.date?.length) {
+            dataReturn.date =data.date
+        } else {
+            delete data.relations;
+        }
+
+
     }
 
     return convertToQueryString(dataReturn);
@@ -131,16 +141,16 @@ export function FilterToPaginationFilter(data: Filter): ReturnProps {
                 operation: ">=",
                 value: data.room
             }] : [],
-            ...data.date_start ? [{
-                field: "date_start",
-                operation: "=",
-                value: data.date_start
-            }] : [],
-            ...data.date_end ? [{
-                field: "date_end",
-                operation: "=",
-                value: data.date_end
-            }] : [],
+            // ...data.date_start ? [{
+            //     field: "date_start",
+            //     operation: ">=",
+            //     value: moment(data.date_start).format("yyyy-MM-DD HH:mm")
+            // }] : [],
+            // ...data.date_end ? [{
+            //     field: "date_end",
+            //     operation: "<=",
+            //     value: moment(data.date_end).format("yyyy-MM-DD HH:mm")
+            // }] : [],
             // ...data.rating ? [{
             //     field: "rating",
             //     operation: "=",

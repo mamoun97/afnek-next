@@ -12,6 +12,7 @@ interface PaginationFilter {
     search?: { field: string; value?: string }[];
     filter?: { field: string; operation: string; value: string | string[] | number | number[] }[];
     relations?: string[];
+    date?:string,
     paranoid?:boolean
 }
 
@@ -67,4 +68,13 @@ type Tag = {
 type TagResponse = {
     count: number,
     data: Tag[]
+}
+type Wilaya={
+    id: number,
+    name_ar: string,
+    name_fr: string,
+    name_en: string,
+    code: number,
+    lat: number,
+    lng: number
 }

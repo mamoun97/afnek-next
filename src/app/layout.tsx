@@ -1,4 +1,5 @@
 
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -33,16 +34,19 @@ export default function RootLayout({
       </head>
       <body className={" font-afnek " + inter.className}>
         <NextProgress />
-        <ReduxProvider>
-          <AuthContextProvider>
-            <div className="font-afnek">
+       
+          <ReduxProvider>
+            <AuthContextProvider>
+              <div className="font-afnek">
 
-              {children}
-            </div>
+                {children}
+              </div>
 
-            <Toaster position="bottom-center" />
-          </AuthContextProvider>
-        </ReduxProvider>
+              <Toaster position="bottom-center" />
+            </AuthContextProvider>
+          </ReduxProvider>
+       
+
         <LangView />
 
       </body>

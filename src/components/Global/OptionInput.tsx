@@ -28,8 +28,7 @@ const OptionInput: FC<InputProps> = (props) => {
         {...props}
             placeholder={`2 ${t.header.adult} . 0 ${t.header.children} . 1 ${t.header.room}`}
             value={`${filter.adult} ${t.header.adult} . ${filter.children} ${t.header.children} . ${filter.room} ${t.header.room}`}
-            
-            // onF
+            onChange={() =>{}} 
             onFocus={() => setOpen(true)} 
             />
         {open && <div className="animate-appearance-in absolute gap-2 top-[110%] left-0 right-0 bg-white text-gray-700 shadow-large rounded-lg p-5 flex flex-col">

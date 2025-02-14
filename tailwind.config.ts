@@ -35,7 +35,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        afnek: ["Tajawal","Noto Sans Arabic", "cursive"],
+        afnek: ["Geist","Noto Kufi Arabic","Noto Sans Arabic", "cursive"],
       },
       colors: {
        

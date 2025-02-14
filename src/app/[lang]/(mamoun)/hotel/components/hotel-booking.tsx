@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,27 +11,27 @@ import Payment from "@/components/HotelPage/Payment";
 import HotelPage from "@/components/HotelPage/HotelPage1";
 import { AppDispatch, RootState } from "@/store";
 import { changeBooking } from "@/store/bookingSlice";
-import alertError from "@/utils/alertError";
-import ApiConfig, { http } from "@/api/config"
 import EnjoyYourTrip from "@/components/HotelPage/EnjoyYourTrip.tsx";
 import HotelApi from "@/api/hotel";
+import useLang from "@/lang/useLang";
 
-const steps = [
-    { icon: 1, name: "Select a hotel" },
-    { icon: 2, name: "Choose a room" },
-    { icon: 3, name: "Enter your details" },
-    { icon: 4, name: "Make your payment" },
-    { icon: 5, name: "Enjoy your trip" },
-];
+
 
 export default function HotelBooking({ id }: { id: string }) {
-
+    const { t } = useLang()
+    const steps = [
+        { icon: 1, name: t.hotel.steps.select_hotel },
+        { icon: 2, name: t.hotel.steps.chose_room },
+        { icon: 3, name: t.hotel.steps.enter_details },
+        { icon: 4, name: t.hotel.steps.make_pay },
+        { icon: 5, name: t.hotel.steps.enjoy_trip },
+    ];
     const booking = useSelector<RootState>((state) => state.booking) as Booking;
     const filter = useSelector<RootState>((state) => state.filter) as Filter;
     const dispatch: AppDispatch = useDispatch();
-    const [activeStep, setActiveStep] = useState(0);
-    const {data:hotelInfo,isLoading}=HotelApi.useRead(parseInt(id),`?relations=amenity,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale`)
-  
+    const [activeStep, setActiveStep] = useState(1);
+    const { data: hotelInfo, isLoading } = HotelApi.useRead(parseInt(id), `?relations=amenity,wilaya,gallery_hotel,tag,room_type_hotel,room_type_hotel.room,room_type_hotel.gallery_type,room_type_hotel.room_type_globale`)
+
 
     useEffect(() => {
         if (booking.id_hotel === 0) {
@@ -50,16 +50,12 @@ export default function HotelBooking({ id }: { id: string }) {
         }
     }, [booking.id_hotel, dispatch, filter.date_start, filter.date_end, id]);
 
-    
-
-    
-    
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [activeStep]);
     console.log(hotelInfo)
-    
+
 
     const StepsComponent = useMemo(() => {
         return () => (
@@ -73,7 +69,7 @@ export default function HotelBooking({ id }: { id: string }) {
                     isNumber
                     steps={steps.map((step, index) => ({
                         ...step,
-                        onClick: () => setActiveStep(index),
+                        onClick: () => setActiveStep(index != 0 ? index : activeStep),
                     }))}
                 />
             </div>
@@ -87,13 +83,14 @@ export default function HotelBooking({ id }: { id: string }) {
                 <Container className="mt-8">
                     {(activeStep === 0 || activeStep === 1) && (
                         <HotelPage
+                            setActiveStep={setActiveStep}
                             data={hotelInfo}
                             isChoseRoom={activeStep === 1}
                             stepsComponent={<StepsComponent />}
                         />
                     )}
-                    {activeStep === 2 && <Details stepsComponent={<StepsComponent />} />}
-                    {activeStep === 3 && <Payment stepsComponent={<StepsComponent />} />}
+                    {activeStep === 2 && <Details setActiveStep={setActiveStep} hotel={hotelInfo} stepsComponent={<StepsComponent />} />}
+                    {activeStep === 3 && <Payment hotel={hotelInfo} stepsComponent={<StepsComponent />} />}
                     {activeStep === 4 && <EnjoyYourTrip stepsComponent={<StepsComponent />} />}
                 </Container>
             )}

@@ -11,6 +11,8 @@ import Rating from "../rizzui/Rating";
 import { Button } from "rizzui";
 import GalleryModal from "../gallery-modal";
 import { useState } from "react";
+import useLang from "@/lang/useLang";
+import getNameTr from "@/utils/get-name-tr";
 
 
 const imageClass = [
@@ -30,19 +32,20 @@ export default function HotelPageHeaderComponent({
    const dt:HotelFull={...data,gallery_hotel:[...data.gallery_hotel]}
    const dm:HotelFull={...data,gallery_hotel:[...data.gallery_hotel]}
    const [open,setOpen]=useState<false|number>(false)
+   const {lang,t}=useLang()
     return (
         <>
             <div className=" flex ">
                 <div className="p-3 bg-gray-100 rounded-md flex items-center text-sm">
-                    <Link href={"#"}>Home</Link>
+                    <Link href={"#"}>{t.header.search}</Link>
                     <div className="me-2"></div>
-                    <IoIosArrowForward />
+                    <IoIosArrowForward className={lang=="ar"?"rotate-180":""}/>
                     <div className="me-2"></div>
-                    <Link href={"#"}>hotel for Algiers </Link>
+                    <Link href={"#"}>{data.wilaya?getNameTr(lang, data.wilaya):""} </Link>
                     <div className="me-2"></div>
-                    <IoIosArrowForward />
+                    <IoIosArrowForward className={lang=="ar"?"rotate-180":""}/>
                     <div className="me-2"></div>
-                    <Link href={"#"}>{dt.name_en}</Link>
+                    <Link href={"#"}>{getNameTr(lang, dt)}</Link>
                 </div>
             </div>
             <div className="flex items-center mt-5">
@@ -51,17 +54,17 @@ export default function HotelPageHeaderComponent({
                 <div className="grow"></div>
                 <IoMdHeartEmpty className="text-2xl text-primary cursor-pointer" />
                 <div className="me-2"></div>
-                <Button color="primary" variant="outline" size={"sm"} >Check room availability</Button>
+                <Button color="primary" variant="outline" size={"sm"} >{t.hotel.check_room_av}</Button>
             </div>
             <h1 className="text-2xl font-bold mt-4">
-                {dt.name_en}
+                {getNameTr(lang, dt)}
             </h1>
             <div className="flex items-center text-sm mt-2">
                 <IoLocationSharp className="text-xl text-primary" />
                 <div className="me-2"></div>
                 <span>{dt.address}</span>
                 <div className="me-2"></div>
-                <Link href="#" className="text-blue-600 underline ">Show on map</Link>
+                <Link href="#" className="text-blue-600 underline ">{t.hotel.show_on_map}</Link>
             </div>
             <div className={"grid grid-cols-5 grid-rows-8 h-[540px] max-sm:h-auto gap-2 mt-4 max-sm:flex flex-col "+(dt.gallery_hotel.length?"":"bg-red-400")}>
 
@@ -78,7 +81,7 @@ export default function HotelPageHeaderComponent({
                     onClick={()=>setOpen(7)}
                     className="col-span-1 row-span-2"
                     child={<div className="flex w-full h-full font-semibold absolute top-0 left-0 items-center justify-center bg-[#0009] text-white">
-                        +{dm.gallery_hotel.length-7} Photos
+                        +{dm.gallery_hotel.length-7} {t.hotel.photos}
                     </div>} />}
             </div>
             <GalleryModal title={data.name_en} open={open} setOpen={setOpen} images={data.gallery_hotel.map(el=>ApiConfig.awsUrl +el.path)} />

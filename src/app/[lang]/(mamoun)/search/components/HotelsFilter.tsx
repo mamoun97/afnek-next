@@ -8,6 +8,8 @@ import Header from "@/components/Header";
 import { HotelListLoading } from "@/components/Loading";
 import { AppDispatch, RootState } from "@/store";
 import { FilterToPaginationFilter, transferDataGet } from "@/utils/transfer-data";
+import moment from "moment";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,25 +19,10 @@ import { useDispatch, useSelector } from "react-redux";
 export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
     const filterStore = useSelector<RootState>(state => state.filter) as Filter
     const dispatch: AppDispatch = useDispatch();
-    
-    const [filter, setFilter] = useState<PaginationFilter>({
-        
-        relations: ["room", "wilaya", "room.room_type_hotel", "gallery"],
-        search: [],
-        filter: [
-            ...!!id_wilaya ? [{
-                field: "id_wilaya",
-                operation: "=",
-                value: id_wilaya
-            }] : [],
-            ...FilterToPaginationFilter(filterStore).filter
-        ]
-    })
-    const { data: hotels, isLoading } = HotelApi.useReadAll(transferDataGet(filter))
-    useEffect(() => {
-
-        setFilter({
-            ...filter,
+    const getFilter = () => {
+        return {
+            relations: ["room", "wilaya", "room.room_type_hotel", "gallery"],
+            search: [],
             filter: [
                 ...!!id_wilaya ? [{
                     field: "id_wilaya",
@@ -43,8 +30,17 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
                     value: id_wilaya
                 }] : [],
                 ...FilterToPaginationFilter(filterStore).filter
-            ]
-        })
+            ],
+            date: filterStore.date_start && filterStore.date_end ?
+                moment(filterStore.date_start).format("yyyy-MM-DD") + "," + moment(filterStore.date_end).format("yyyy-MM-DD")
+                : undefined
+        }
+    }
+    const [filter, setFilter] = useState<PaginationFilter>(getFilter())
+    const { data: hotels, isLoading } = HotelApi.useReadAll(transferDataGet(filter))
+    // var hotels:HotelResponse|undefined,isLoading=false
+    useEffect(() => {
+        setFilter(getFilter())
     }, [filterStore])
     return (
         <div>
@@ -60,13 +56,17 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
 
                                 {
                                     hotels?.data?.map((el, k) => {
-                                        return <CardHotel data={el} key={k} />
+                                        return <div key={k}>
+                                            <Link href={"/hotel/" + el.id} className="w-full bg-red-300">
+                                                <CardHotel data={el} />
+                                            </Link>
+                                        </div>
                                     })
                                 }
                             </div>
                         }
                         {
-                            (!isLoading&&hotels&&hotels.count==0)&&<div className="flex items-center flex-col justify-center gap-4 p-6">
+                            (!isLoading && hotels && hotels.count == 0) && <div className="flex items-center flex-col justify-center gap-4 p-6">
                                 <IoIosInformationCircleOutline className="w-40 h-40 min-h-40 min-w-40 text-gray-500" />
                                 <span className="text-2xl text-gray-500">No hotels</span>
 

@@ -19,7 +19,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
     return (
         <div className="border border-gray-300 rounded-xl p-4 max-md:p-2 flex max-md:flex-col max-md:items-center">
 
-            <div className="w-1/4 max-md:min-w-[320px] max-sm:min-w-full max-sm:w-full max-w-xs">
+            <div className="w-1/4 max-md:min-w-[320px] max-sm:min-w-full max-sm:w-full max-sm:max-w-full max-w-xs">
                 <div className="relative pt-[100%] bg-cover overflow-hidden bg-no-repeat bg-center rounded-lg" style={{
                     backgroundImage: "url(" + ApiConfig.rootImagesUrl + data.image + ")"
                 }}>

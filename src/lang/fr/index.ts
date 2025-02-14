@@ -10,7 +10,10 @@ export default {
         "search": "Rechercher",
         "adult": "Adulte",
         "children": "Enfants",
-        "room": "Chambre"
+        "room": "Chambre",
+        "flights": "Vols",
+        "organized_trips": "Voyages organisés",
+        "hotel_res": "Réservations d'hôtels"
     },
     "home": {
         "top_dist": "Meilleures destinations",
@@ -70,7 +73,7 @@ export default {
         "more": "Plus",
         "hotels": "Hôtels",
         "low_fare_tips": "Conseils pour tarifs réduits",
-        "copyright": "Copyright 2023 Afnek Hôtel Booking Tous droits réservés",
+        "copyright": "Copyright 2025 Afnek Hôtel Booking Tous droits réservés",
         "discover_app": "Découvrez notre application"
     },
     login: {
@@ -116,9 +119,154 @@ export default {
         "standard_double_room": "Chambre Double Standard",
         "total_nu_rooms": "Nombre total de chambres disponibles",
         "check_room_av": "Vérifier la disponibilité des chambres",
+        "photos": "Photos",
+        "photo": "Photo",
+        "steps": {
+            "select_hotel": "Sélectionner un hôtel",
+            "chose_room": "Choisissez une chambre",
+            "enter_details": "Entrez vos informations",
+            "make_pay": "Effectuez votre paiement",
+            "enjoy_trip": "Profitez de votre voyage"
+        },
+        "room_types": "Types de chambres",
+        "description": "Description",
+        "equipment": "Équipement",
+        "cancellation_policy": "Politique d'annulation",
+        "hotel_policies": "Politiques de l'hôtel",
+        "select_room": "Veuillez sélectionner votre type de chambre pour continuer",
+        "adults": "adultes",
+        "room": "chambre",
+        "all_taxes_included": "Toutes taxes comprises",
+        "fill_details": "Remplissez vos informations",
+        "total_number_of_available": "Nombre total disponible",
+        "rooms": "Chambres",
+        "max_allowed": "Maximum autorisé",
+        "in_addition": "En plus",
+        "recommended": "Recommandé",
+        "bedrooms": "Chambres",
+        "choose_a_room": "Choisissez une chambre",
+        "placeholder_bedrooms": "-- chambres --",
+        "taxes_and_charges": "+9% taxes et frais",
+
+        "enter_your_details": "Entrez vos coordonnées",
+        "booking_info_message": "Nous utiliserons ces informations pour partager votre réservation",
+        "main_guest": "Oui, je suis le principal invité",
+        "booking_for_someone": "Je réserve pour quelqu'un d'autre",
+        "confirmation_email_message": "L'email de confirmation et le bon de réservation seront envoyés à l'adresse email vérifiée ci-dessus.",
+        "hotel_contact_message": "L'hôtel vous contactera sur le numéro de téléphone enregistré.",
+        "add_guest": "Ajouter un invité",
+        "proceed_payment": "Procéder à la sélection du mode de paiement",
+        "title": "Titre",
+        "first_name": "Prénom",
+        "last_name": "Nom de famille",
+        "email_address": "Adresse e-mail",
+        "phone_number": "Numéro de téléphone",
+
+        "check_in": "Arrivée",
+        "check_out": "Départ",
+        "taxes": "Taxes",
+        "total_payment": "Montant à payer",
+        "payment_method": "Mode de paiement",
+        "select_payment": "Sélectionnez un mode de paiement",
+        "total_amount": "Montant total",
+        "secure_transmission": "Transmission sécurisée",
+        "data_protection": "Nous protégeons vos données",
+        "pay_at_hotel": "Payer à l'hôtel",
+        "pay_by_card": "Payer par CIB / DAHABIA",
+        "accept_terms": "J'accepte les conditions générales",
+        "bank_transfer_note": "Virement bancaire possible jusqu'à 72h avant",
+        "promo_code": "Code promo",
+        "have_promo": "Avez-vous un code promo ?",
+        "enter_promo": "Entrez le code promo",
+        "accept_booking_terms": "En cliquant sur réserver maintenant, j'accepte les conditions de réservation et les conditions générales d'utilisation et de services d'Afnek",
+        "proceed_to_payment": "Procéder au paiement"
     },
     global: {
         dzd: "DZD",
         "continue": "Continuer"
+    },
+    faqs: {
+        "title": "Foire Aux Questions (FAQ) - Afnek",
+        "subtitle": "Bienvenue sur Afnek ! Vous trouverez ci-dessous les réponses aux questions courantes sur les réservations d'hôtels et de vols sur notre plateforme.",
+        "end_text": "Pour plus d'informations, visitez notre Centre d'Aide ou contactez-nous directement. Bon voyage avec Afnek !",
+        "subjects": [
+            {
+                "title": "Questions Générales",
+                "items": [
+                    {
+                        "question": "1. Qu'est-ce qu'Afnek ?",
+                        "answer": "Afnek est une plateforme en ligne qui vous permet de réserver des hôtels et des vols aux meilleurs prix dans le monde entier."
+                    },
+                    {
+                        "question": "2. Comment créer un compte ?",
+                        "answer": "Vous pouvez vous inscrire en cliquant sur le bouton -S'inscrire- sur notre page d'accueil et en suivant les étapes d'inscription."
+                    },
+                    {
+                        "question": "3. Afnek est-il sécurisé pour les paiements en ligne ?",
+                        "answer": "Oui, nous utilisons un cryptage avancé et des passerelles de paiement sécurisées pour protéger vos transactions."
+                    }
+                ]
+            },
+            {
+                "title": "Réservations d'Hôtels",
+                "items": [
+                    {
+                        "question": "4. Comment réserver un hôtel ?",
+                        "answer": "Entrez votre destination, vos dates de voyage et le nombre de personnes, puis parcourez les hôtels disponibles et faites votre sélection."
+                    },
+                    {
+                        "question": "5. Puis-je modifier ou annuler ma réservation d'hôtel ?",
+                        "answer": "Oui, mais les politiques de modification et d'annulation varient selon l'hôtel. Vérifiez les conditions de l'hôtel avant de réserver."
+                    },
+                    {
+                        "question": "6. Quand vais-je recevoir ma confirmation de réservation d'hôtel ?",
+                        "answer": "Vous recevrez un e-mail de confirmation dans les minutes suivant la finalisation de votre réservation."
+                    }
+                ]
+            },
+            {
+                "title": "Réservations de Vols",
+                "items": [
+                    {
+                        "question": "7. Comment réserver un vol ?",
+                        "answer": "Entrez vos villes de départ et d'arrivée, vos dates de voyage et le nombre de passagers, puis choisissez parmi les options disponibles."
+                    },
+                    {
+                        "question": "8. Puis-je modifier ou annuler mon vol ?",
+                        "answer": "Cela dépend de la politique de la compagnie aérienne. Certaines compagnies autorisent des modifications moyennant des frais, tandis que d'autres peuvent ne pas permettre de modifications."
+                    },
+                    {
+                        "question": "9. Dois-je imprimer mon billet d'avion ?",
+                        "answer": "La plupart des compagnies aériennes acceptent les billets électroniques, mais nous vous recommandons de vérifier la politique de votre compagnie aérienne."
+                    }
+                ]
+            },
+            {
+                "title": "Paiements & Remboursements",
+                "items": [
+                    {
+                        "question": "10. Quels sont les modes de paiement acceptés ?",
+                        "answer": "Nous acceptons les principales cartes de crédit/débit, PayPal et d'autres méthodes de paiement sécurisées."
+                    },
+                    {
+                        "question": "11. Combien de temps faut-il pour recevoir un remboursement ?",
+                        "answer": "Les délais de traitement des remboursements dépendent de l'hôtel, de la compagnie aérienne et de votre mode de paiement. Cela peut prendre de quelques jours à quelques semaines."
+                    }
+                ]
+            },
+            {
+                "title": "Support Client",
+                "items": [
+                    {
+                        "question": "12. Comment puis-je contacter le support Afnek ?",
+                        "answer": "Vous pouvez nous joindre par e-mail, chat en direct ou via notre hotline d'assistance disponible 24h/24 et 7j/7."
+                    },
+                    {
+                        "question": "13. Que faire si j'ai un problème avec ma réservation ?",
+                        "answer": "Contactez immédiatement notre équipe d'assistance avec les détails de votre réservation, et nous vous aiderons dès que possible."
+                    }
+                ]
+            }
+        ]
     }
 }

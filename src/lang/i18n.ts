@@ -5,7 +5,7 @@ import { contents } from './contents';
 
 
 const detect_lang = () => {
-  var k = localStorage.getItem("local")
+  var k = localStorage?.getItem("local")
   var d = k == "fr" && "fr" || k == "ar" && "ar" || "en"
   return d
 }
@@ -20,3 +20,4 @@ i18next
       escapeValue: false,
     },
   });
+  export default i18next;
