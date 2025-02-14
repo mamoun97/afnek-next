@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CityView({ data }: { data: City }) {
     return (<Link href={routes.search.id(data.code)}>
-        <div className="m-2 grow cursor-pointer">
+        <div className=" grow cursor-pointer">
             <div className="pt-[120%] relative  bg-center bg-cover bg-no-repeat rounded-xl overflow-hidden"
                 style={{ backgroundImage: "url(" + data.image + ")" }}>
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-b from-transparent via-transparent to-black/65 p-2">

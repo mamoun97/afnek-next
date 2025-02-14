@@ -7,7 +7,7 @@ const Container: FC<ContainerProps> = ({ className, children, ...rest }) => {
   return (
     <div 
       {...rest} 
-      className={clsx("container max-w-[1080px] m-auto p-2", className)}
+      className={clsx("container max-w-[1080px] lg:max-w-[90%]  m-auto p-2", className)}
     >
       {children}
     </div>

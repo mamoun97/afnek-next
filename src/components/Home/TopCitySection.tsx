@@ -25,28 +25,28 @@ export default function TopCitySection() {
                     breakpoints={{
                         0: {
                             slidesPerView: 2,
-                            spaceBetween: 0
+                            spaceBetween: 10
                         },
                         740: {
                             slidesPerView: 2,
-                            spaceBetween: 0
+                            spaceBetween: 10
                         },
                         830: {
                             slidesPerView: 4,
-                            spaceBetween: 0
+                            spaceBetween: 10
                         },
 
                         900: {
                             slidesPerView: 5,
-                            spaceBetween: 0
+                            spaceBetween: 10
                         },
                         1200: {
                             slidesPerView: 6,
-                            spaceBetween: 0
+                            spaceBetween: 10
                         },
                         8000: {
                             slidesPerView: 6,
-                            spaceBetween: 0
+                            spaceBetween: 10
                         }
                     }}
                     items={

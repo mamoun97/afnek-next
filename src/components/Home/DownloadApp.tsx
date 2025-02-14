@@ -17,8 +17,8 @@ export default function DownloadApp() {
                         <p className='text-gray-500  mt-4 text-lg font-semibold'>
                         {t.home.download_app_subtitle}</p>
                         <div className="grid grid-cols-2  gap-4 mt-8 max-w-[400px]">
-                            <Image src={images.playstore} height={"28"} alt="" />
-                            <Image src={images.appstore} height={"28"} alt="" />
+                            <Image src={images.playstore} height={"54"} alt="" />
+                            <Image src={images.appstore} height={"54"} alt="" />
                         </div>
                     </div>
                     <div className="col-span-1 flex justify-center">
