@@ -118,6 +118,42 @@ export default {
                     "content": "If you have any questions about this Privacy Policy, please contact our support team through our website."
                 }
             ]
+        },
+        "about_us": {
+            "title": "About Us ",
+            "sections": [
+                {
+                    "title": "Who We Are",
+                    "content": "Afnek is a leading online platform dedicated to providing seamless hotel and flight booking services to travelers worldwide. Our mission is to make travel planning easy, affordable, and hassle-free by offering a wide range of options tailored to every traveler's needs."
+                },
+                {
+                    "title": "Our Vision",
+                    "content": "We aim to be the go-to travel booking platform, ensuring our users get the best deals, top-tier customer service, and a stress-free travel experience."
+                },
+                {
+                    "title": "What We Offer",
+                    "content": [
+                        "Hotel Bookings %SPACE% A vast selection of accommodations ranging from budget-friendly hotels to luxury resorts.",
+                        "Flight Reservations %SPACE% Competitive pricing on domestic and international flights.",
+                        "Secure Payments %SPACE% Trusted and encrypted payment options for safe transactions.",
+                        "24/7 Customer Support %SPACE% Dedicated support to assist with bookings, changes, and inquiries."
+                    ]
+                },
+                {
+                    "title": "Why Choose Afnek?",
+                    "content": [
+                        "User-Friendly Platform %SPACE% Easy navigation and booking process.",
+                        "Best Price Guarantee %SPACE% Competitive rates with exclusive discounts.",
+                        "Global Reach %SPACE% Access to a vast network of hotels and airlines worldwide.",
+                        "Reliable Customer Service %SPACE% Our team is always ready to assist with your travel needs."
+                    ]
+                },
+                {
+                    "title": "Contact Us",
+                    "content": "For any inquiries, support, or partnership opportunities, feel free to reach out to our customer service team through our website."
+                }
+            ],
+            "conclusion": "Thank you for choosing Afnek – your trusted travel partner!"
         }
     },
     fr: {
@@ -239,6 +275,42 @@ export default {
                     "content": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez contacter notre équipe de support via notre site web."
                 }
             ]
+        },
+        "about_us": {
+            "title": "À propos de nous",
+            "sections": [
+                {
+                    "title": "Qui sommes-nous",
+                    "content": "Afnek est une plateforme en ligne leader dédiée à la réservation d'hôtels et de vols en toute simplicité pour les voyageurs du monde entier. Notre mission est de rendre la planification des voyages facile, abordable et sans tracas en offrant une large gamme d'options adaptées aux besoins de chaque voyageur."
+                },
+                {
+                    "title": "Notre vision",
+                    "content": "Nous visons à devenir la plateforme de réservation de voyage de référence, garantissant à nos utilisateurs les meilleures offres, un service client de premier ordre et une expérience de voyage sans stress."
+                },
+                {
+                    "title": "Ce que nous offrons",
+                    "content": [
+                        "Réservations d'hôtels %SPACE% Une vaste sélection d'hébergements, allant des hôtels économiques aux complexes de luxe.",
+                        "Réservations de vols %SPACE% Tarifs compétitifs sur les vols domestiques et internationaux.",
+                        "Paiements sécurisés %SPACE% Options de paiement fiables et cryptées pour des transactions sûres.",
+                        "Support client 24/7 %SPACE% Assistance dédiée pour les réservations, modifications et demandes d'informations."
+                    ]
+                },
+                {
+                    "title": "Pourquoi choisir Afnek ?",
+                    "content": [
+                        "Plateforme conviviale %SPACE% Navigation facile et processus de réservation simplifié.",
+                        "Garantie du meilleur prix %SPACE% Tarifs compétitifs avec des réductions exclusives.",
+                        "Présence mondiale %SPACE% Accès à un vaste réseau d'hôtels et de compagnies aériennes dans le monde entier.",
+                        "Service client fiable %SPACE% Notre équipe est toujours prête à vous aider dans vos besoins de voyage."
+                    ]
+                },
+                {
+                    "title": "Contactez-nous",
+                    "content": "Pour toute question, assistance ou opportunité de partenariat, n'hésitez pas à contacter notre équipe du service client via notre site web."
+                }
+            ],
+            "conclusion": "Merci d'avoir choisi Afnek – votre partenaire de voyage de confiance !"
         }
     },
     ar: {
@@ -360,6 +432,42 @@ export default {
                     "content": "إذا كان لديك أي أسئلة حول سياسة الخصوصية، يُرجى التواصل مع فريق الدعم عبر موقعنا الإلكتروني."
                 }
             ]
+        },
+        "about_us": {
+            "title": "من نحن",
+            "sections": [
+                {
+                    "title": "من نحن",
+                    "content": "أفنك هو منصة إلكترونية رائدة مكرسة لتقديم خدمات حجز الفنادق والرحلات الجوية بسلاسة للمسافرين حول العالم. مهمتنا هي جعل تخطيط السفر سهلاً وميسور التكلفة وخاليًا من المتاعب من خلال تقديم مجموعة واسعة من الخيارات التي تناسب احتياجات كل مسافر."
+                },
+                {
+                    "title": "رؤيتنا",
+                    "content": "نهدف إلى أن نكون المنصة المفضلة لحجوزات السفر، مما يضمن لمستخدمينا الحصول على أفضل العروض وخدمة عملاء متميزة وتجربة سفر خالية من القلق."
+                },
+                {
+                    "title": "ماذا نقدم",
+                    "content": [
+                        "حجوزات الفنادق %SPACE% مجموعة واسعة من أماكن الإقامة، بدءًا من الفنادق الاقتصادية إلى المنتجعات الفاخرة.",
+                        "حجوزات الرحلات الجوية %SPACE% أسعار تنافسية على الرحلات الداخلية والدولية.",
+                        "مدفوعات آمنة %SPACE% خيارات دفع موثوقة ومشفرة لضمان معاملات آمنة.",
+                        "دعم العملاء 24/7 %SPACE% دعم مخصص للمساعدة في الحجوزات والتعديلات والاستفسارات."
+                    ]
+                },
+                {
+                    "title": "لماذا تختار أفنك؟",
+                    "content": [
+                        "منصة سهلة الاستخدام %SPACE% تنقل سهل وعملية حجز بسيطة.",
+                        "ضمان أفضل الأسعار %SPACE% أسعار تنافسية مع خصومات حصرية.",
+                        "تغطية عالمية %SPACE% الوصول إلى شبكة واسعة من الفنادق وشركات الطيران حول العالم.",
+                        "خدمة عملاء موثوقة %SPACE% فريقنا جاهز دائمًا لمساعدتك في احتياجات السفر الخاصة بك."
+                    ]
+                },
+                {
+                    "title": "اتصل بنا",
+                    "content": "لأي استفسارات أو دعم أو فرص شراكة، لا تتردد في التواصل مع فريق خدمة العملاء لدينا عبر موقعنا الإلكتروني."
+                }
+            ],
+            "conclusion": "شكرًا لاختيارك أفنك – شريكك الموثوق في السفر!"
         }
     }
 }

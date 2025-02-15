@@ -26,7 +26,7 @@ export default function Footer() {
             items: [
                 {
                     text: t.footer.about,
-                    src: "#"
+                    src: "/about-us"
                 },
                 {
                     text: t.terms.privacy_policy.title,
