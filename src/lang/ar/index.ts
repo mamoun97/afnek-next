@@ -19,7 +19,31 @@ export default {
         "room": "غرفة",
         "flights": "الرحلات الجوية",
         "organized_trips": "الرحلات المنظمة",
-        "hotel_res": "حجز الفنادق"
+        "hotel_res": "حجز الفنادق",
+
+        "one_way": "اتجاه واحد",
+        "round_trip": "ذهاب وعودة",
+        "multi_city": "وجهات متعددة",
+        "where_from": "من اين تغادر؟",
+        "where_to": "ما هي وجهتك؟",
+        "select_date": "اختر التاريخ",
+        "travelers": "المسافرون",
+        "who_are_pass": "من هم الركاب؟",
+        "adults": "البالغون",
+        "adults_old": "+12 سنة",
+        "children_old": "بين 2 و 11 سنة شامل",
+        "held_infants": "رضّع محمولون",
+        "held_infants_old": "-2 سنة",
+        "validate": "تأكيد",
+        "cabin": "درجة السفر",
+        "economy": "اقتصادي",
+        "premium_economy": "اقتصادي متميز",
+        "business": "رجال الأعمال",
+        "first": "الدرجة الأولى",
+        "direct": "رحلة مباشرة",
+        "luggage": "الأمتعة مشمولة",
+        "refundable": "قابل للاسترداد",
+        "add_flight": "إضافة رحلة"
     },
     "home": {
         "top_dist": "أفضل الوجهات",
@@ -273,5 +297,5 @@ export default {
             }
         ]
     },
-    terms:terms.ar
+    terms: terms.ar
 }

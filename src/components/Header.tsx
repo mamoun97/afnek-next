@@ -95,7 +95,7 @@ export default function Header({ showForm = false, isHome = false, type = "hotel
                             <h1 className="text-5xl font-normal max-md:text-4xl">
                                 {t.header.title}
                             </h1>
-                            <p className="text-xl max-md:text-base mt-2">
+                            <p className="text-xl max-md:text-base mt-3">
                                 {t.header.subtitle}
                             </p> 
                         </> ||
@@ -103,7 +103,7 @@ export default function Header({ showForm = false, isHome = false, type = "hotel
                             <h1 className="text-5xl font-normal max-md:text-4xl">
                                 {t.header.flights_title}
                             </h1>
-                            <p className="text-xl max-md:text-base mt-2">
+                            <p className="text-xl max-md:text-base mt-3">
                                 {t.header.flights_subtitle}
                             </p>
                         </> ||
@@ -111,7 +111,7 @@ export default function Header({ showForm = false, isHome = false, type = "hotel
                             <h1 className="text-5xl font-normal max-md:text-4xl">
                                 {t.header.organized_trips_title}
                             </h1>
-                            <p className="text-xl max-md:text-base mt-2">
+                            <p className="text-xl max-md:text-base mt-3">
                                 {t.header.organized_trips_subtitle}
                             </p>
                         </>

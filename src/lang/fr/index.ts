@@ -19,7 +19,31 @@ export default {
         "room": "Chambre",
         "flights": "Vols",
         "organized_trips": "Voyages organisés",
-        "hotel_res": "Réservations d'hôtels"
+        "hotel_res": "Réservations d'hôtels",
+
+        "one_way": "Aller simple",
+        "round_trip": "Aller-retour",
+        "multi_city": "Multi-villes",
+        "where_from": "D'où partez-vous ?",
+        "where_to": "Où allez-vous ?",
+        "select_date": "Sélectionner la date",
+        "travelers": "Voyageurs",
+        "who_are_pass": "Qui sont les passagers ?",
+        "adults": "Adultes",
+        "adults_old": "+12 ans",
+        "children_old": "Entre 2 et 11 ans inclus",
+        "held_infants": "Bébés sur les genoux",
+        "held_infants_old": "-2 ans",
+        "validate": "Valider",
+        "cabin": "Cabine",
+        "economy": "Économie",
+        "premium_economy": "Économie premium",
+        "business": "Affaires",
+        "first": "Première",
+        "direct": "Vol direct",
+        "luggage": "Bagages inclus",
+        "refundable": "Remboursable",
+        "add_flight": "Ajouter un vol"
     },
     "home": {
         "top_dist": "Meilleures destinations",
@@ -273,5 +297,5 @@ export default {
             }
         ]
     },
-    terms:terms.fr
+    terms: terms.fr
 }

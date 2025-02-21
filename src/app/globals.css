@@ -164,7 +164,12 @@
 
     /* here you can customize other colors for dark theme if design required */
   }
-
+  .rizzui-dropdown-menu{
+    background-color: #FFF!important;
+  }
+  .rizzui-radio-field:checked{
+    background-color: aqua!important;
+  }
   /* ................................................... */
   /* React Datepicker Styling */
   /* ................................................... */

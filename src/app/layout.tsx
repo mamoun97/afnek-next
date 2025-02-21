@@ -9,6 +9,7 @@ import ReduxProvider from "@/Providers/redux-provider";
 import { Toaster } from "react-hot-toast";
 import "@/lang/i18n"
 import LangView from "@/lang/lang-view";
+import { ThemeProvider } from "@/Providers/theme-provider";
 
 const NextProgress = dynamic(() => import('@/components/next-progress'), {
   ssr: false,
@@ -28,13 +29,13 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en">
+    <html lang="en" className="light" suppressHydrationWarning>
       <head>
         <link rel="icon" id="faveiconRiseCart" type="image/any" sizes="any" href="faveicon.ico" />
       </head>
-      <body className={" font-afnek " + inter.className}>
+      <body className={" font-afnek light " + inter.className} suppressHydrationWarning>
         <NextProgress />
-       
+        <ThemeProvider>
           <ReduxProvider>
             <AuthContextProvider>
               <div className="font-afnek">
@@ -45,7 +46,9 @@ export default function RootLayout({
               <Toaster position="bottom-center" />
             </AuthContextProvider>
           </ReduxProvider>
-       
+        </ThemeProvider>
+
+
 
         <LangView />
 

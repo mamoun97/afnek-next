@@ -132,6 +132,7 @@ const config: Config = {
     
   
   },
+  darkMode: ["class", '[data-theme="dark"]'], 
   plugins: [
     require("@tailwindcss/forms")
   ],

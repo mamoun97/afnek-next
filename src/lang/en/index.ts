@@ -19,7 +19,32 @@ export default {
         room: "room",
         flights: "Flights",
         organized_trips: "Organized trips",
-        hotel_res: "Hotel reservations"
+        hotel_res: "Hotel reservations",
+
+        one_way: "One way",
+        round_trip: "Round trip",
+        multi_city: "Multi-city",
+        where_from: "Where from ?",
+        where_to: "Where to ?",
+        select_date: "Select date",
+        travelers: "Travelers",
+        who_are_pass: "Who Are the passengers ?",
+        adults: "Adults",
+        adults_old: "+12 Years old",
+        children_old: "Between 2 and 11 years old included",
+        held_infants: "Held-Infants",
+        held_infants_old: "-2 Years old",
+        validate: "Validate",
+        cabin: "Cabin",
+        economy: "Economy",
+        premium_economy: "Premium economy",
+        business: "Business",
+        first: "First",
+        direct: "Direct flight",
+        luggage: "Luggage included",
+        refundable: "Refundable",
+        add_flight:"Add a flight",
+
     },
     home: {
         top_dist: "Top Distination",
@@ -273,5 +298,5 @@ export default {
             }
         ]
     },
-    terms:terms.en
+    terms: terms.en
 }

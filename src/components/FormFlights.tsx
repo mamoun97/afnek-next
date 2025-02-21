@@ -18,33 +18,55 @@ export default function FormFlights() {
 
     const handleRangeChange = (dates: [Date | null, Date | null]) => {
         const [start, end] = dates;
-
     };
     const { t } = useLang()
+    const [data, setData] = useState({
+        dir: 1,
+        option: 1
+    })
     return <div className="w-full bg-white p-2 mt-2 rounded-[10px]">
         <div className="flex items-center gap-2 no-scrollbar overflow-auto">
-            <Button size='sm' color="primary" variant='solid' className=' whitespace-nowrap' rounded='pill'>
-                Aller simple
+
+            <Button
+                onClick={() => setData({ ...data, dir: 1 })}
+                size='sm' 
+                color={data.dir==1?"primary":undefined}
+                variant={data.dir==1?"solid":"flat"}
+                className={' whitespace-nowrap '+(data.dir!=1?"text-primary":"")}
+                rounded='pill'>
+                {t.header.one_way}
             </Button>
-            <Button size='sm' variant='flat' className='text-primary whitespace-nowrap' rounded='pill'>
-                Aller-retour
+            <Button
+                onClick={() => setData({ ...data, dir: 2 })}
+                size='sm'
+                color={data.dir==2?"primary":undefined}
+                variant={data.dir==2?"solid":"flat"}
+                className={'whitespace-nowrap '+(data.dir!=2?"text-primary":"")}
+                rounded='pill'>
+                {t.header.round_trip}
             </Button>
-            <Button size='sm' variant='flat' className='text-primary whitespace-nowrap' rounded='pill'>
-                Multi-destination
+            <Button
+                onClick={() => setData({ ...data, dir: 3 })}
+                size='sm'
+                color={data.dir==3?"primary":undefined}
+                variant={data.dir==3?"solid":"flat"}
+                className={'whitespace-nowrap '+(data.dir!=3?"text-primary":"")}
+                rounded='pill'>
+                {t.header.multi_city}
             </Button>
         </div>
         <div className="flex items-center p-1 mt-2  w-full   gap-2 text-foreground  max-md:flex-col">
 
             <Input
-                placeholder={"D’où partez-vous ?"}
+                placeholder={t.header.where_from}
                 type="text"
                 prefix={<PiAirplaneTakeoffFill className="h-4 w-4 rtl:scale-x-[-1]" />}
                 required className="grow w-full" />
             <ActionIcon variant="outline" rounded="full" className="min-w-7" size="sm">
-                <LiaExchangeAltSolid className='max-md:rotate-90'/>
+                <LiaExchangeAltSolid className='max-md:rotate-90' />
             </ActionIcon>
             <Input
-                placeholder={"Où allez-vous ?"}
+                placeholder={t.header.where_to}
                 type="text"
                 prefix={<PiAirplaneLandingFill className="h-4 w-4 rtl:scale-x-[-1]" />}
                 required className="grow w-full" />
@@ -55,7 +77,7 @@ export default function FormFlights() {
                 <DatePicker
                     calendarClassName="w-full"
                     onChange={handleRangeChange}
-                    placeholderText={"Date"}
+                    placeholderText={t.header.select_date}
                     inputProps={{
                         clearable: true,
                         onClear: () => {
@@ -67,13 +89,13 @@ export default function FormFlights() {
             </div>
 
             <Input
-                placeholder={"Passagers"}
+                placeholder={t.header.travelers}
                 type="text"
                 prefix={<IoPerson className="h-4 w-4 rtl:scale-x-[-1]" />}
                 required className="grow w-full" />
 
             <Input
-                placeholder={"Class"}
+                placeholder={t.header.cabin}
                 type="text"
                 prefix={<MdFilterList className="h-4 w-4 rtl:scale-x-[-1]" />}
                 required className="grow w-full" />
@@ -86,26 +108,26 @@ export default function FormFlights() {
         </div>
         <div className="mt-2 p-1">
             <RadioGroup
-                value={"1"}
+                value={data.option + ""}
 
-                setValue={() => { }}
+                setValue={(v) => setData({ ...data, option: Number(v) })}
                 className="flex gap-4 max-sm:flex-col "
             >
                 <Radio
-                    label="Vol direct"
-                    value="1"
+                    label={t.header.direct}
+                    value={"1"}
                     size='sm'
                     labelClassName='text-foreground'
                 />
                 <Radio
-                    label="Avec bagages"
-                    value="2"
+                    label={t.header.luggage}
+                    value={"2"}
                     size='sm'
                     labelClassName='text-foreground'
                 />
                 <Radio
-                    label="Remboursable"
-                    value="3"
+                    label={t.header.refundable}
+                    value={"3"}
                     size='sm'
                     labelClassName='text-foreground'
                 />
