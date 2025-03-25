@@ -21,7 +21,8 @@ export const ApiConfig = {
     favHotelEndPoint: '/favorite/hotel',
     //booking
     bookingEndPoint: '/booking',
-
+    countries:"/location/country",
+    flightCreate:"/mailer/flight ",
     //filter
     amenityEndPoint: '/amenity',
     tagesEndPoint: '/tag',

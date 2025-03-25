@@ -21,8 +21,13 @@ export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
     const dispatch: AppDispatch = useDispatch();
     const getFilter = () => {
         return {
-            relations: ["room", "wilaya", "room.room_type_hotel", "gallery"],
-            search: [],
+            relations: ["room", "wilaya", "room.room_type_hotel", "gallery","nearby","amenity","tag"],
+            search: [
+                {
+                    field: "address",
+                    value: filterStore.address
+                }
+            ],
             filter: [
                 ...!!id_wilaya ? [{
                     field: "id_wilaya",

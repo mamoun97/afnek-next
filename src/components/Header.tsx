@@ -139,7 +139,7 @@ export default function Header({ showForm = false, isHome = false, type = "hotel
                     </div>
                     {
                         type == "hotel_res" && <FormBookingHeader /> ||
-                        type == "flights" && <FormFlights />
+                        type == "flights" && null
                     }
                 </>}
             </Container>

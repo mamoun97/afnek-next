@@ -53,18 +53,20 @@ export function transferDataGet(dt?: PaginationFilter) {
         }
 
         if (data.filter?.length) {
+            console.log(data)
             data.filter.map((x) => {
                 if (dataReturn.filter == "") {
-                    dataReturn.filter = x.field + ":" + x.operation + ":" + x.value;
+                    dataReturn.filter = x.field + ":" + x.operation + ":" + (typeof x.value=="object"?"["+x.value.join(",")+"]":x.value);
                 } else {
                     dataReturn.filter =
-                        dataReturn.filter +
-                        "|" +
-                        x.field +
-                        ":" +
-                        x.operation +
-                        ":" +
-                        x.value;
+                    dataReturn.filter +
+                    "|" +
+                    x.field +
+                    ":" +
+                    x.operation +
+                    ":" +
+                    (typeof x.value=="object"?"["+x.value.join(",")+"]":x.value)
+                    ;
                 }
             });
         } else {
@@ -126,17 +128,17 @@ export function FilterToPaginationFilter(data: Filter): ReturnProps {
     return {
         search: [],
         filter: [
-            // ...data.adult ? [{
-            //     field: "adult",
-            //     operation: "=",
-            //     value: data.adult
-            // }] : [],
-            // ...data.children ? [{
-            //     field: "children",
-            //     operation: "=",
-            //     value: data.children
-            // }] : [],
-            ...data.room ? [{
+            ...data.adult&&data.adult>1 ? [{
+                field: "room.noAdult",
+                operation: ">=",
+                value: data.adult
+            }] : [],
+            ...data.children &&data.children>1? [{
+                field: "room.noChildren",
+                operation: ">=",
+                value: data.children
+            }] : [],
+            ...data.room&&data.room>1 ? [{
                 field: "room_type_hotel.numberOfRooms",
                 operation: ">=",
                 value: data.room

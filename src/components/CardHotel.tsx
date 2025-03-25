@@ -10,12 +10,21 @@ import { Badge, Button } from "rizzui";
 import Rating from "./rizzui/Rating";
 import useLang from "@/lang/useLang";
 import getNameTr from "@/utils/get-name-tr";
+import { useMemo } from "react";
 export default function CardHotel({ data }: { data: HotelFull }) {
-    const { t,lang } = useLang()
-    
-    const minRoom = data.room?.reduce((minItem, currentItem) =>
-        currentItem.price < minItem.price ? currentItem : minItem
-    )
+    const { t, lang } = useLang()
+
+    const minRoom = useMemo(() => {
+        try {
+            return data.room?.reduce((minItem, currentItem) =>
+                currentItem.price < minItem.price ? currentItem : minItem
+            )
+        } catch (_) {
+            return undefined
+        }
+
+
+    }, [data])
     return (
         <div className="border border-gray-300 rounded-xl p-4 max-md:p-2 flex max-md:flex-col max-md:items-center">
 
@@ -77,7 +86,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                 <div className="flex items-center max-sm:flex-col max-sm:mb-4 max-sm:w-full">
                     <div className="flex flex-col max-sm:items-center max-sm:mb-3">
                         <span className="text-sm">
-                        {t.hotel.standard_double_room}
+                            {t.hotel.standard_double_room}
                         </span>
                         <span className="text-sm">
                             1 {t.hotel.large_double_bed}
@@ -97,12 +106,12 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                     <div className="flex flex-col items-end max-sm:items-center">
                         <span className="text-sm max-w-[60%]">
                             {/* 4 nights, 2 adults {minRoom.} */}
-                            {!!minRoom?.noAdult&&t.hotel.adult+" "+minRoom.noAdult+" , "}
-                            {!!minRoom?.noBed&&t.hotel.bed+" "+minRoom.noBed+" , "}
-                            {!!minRoom?.noChildren&&t.hotel.children+" "+minRoom.noChildren+" , "}
-                            {!!minRoom?.noExtraBed&&t.hotel.extrabed+" "+minRoom.noExtraBed+" , "}
-                            {!!minRoom?.noInfant&&t.hotel.infant+" "+minRoom.noInfant+" , "}
-                            {!!minRoom?.noPerson&&t.hotel.person+" "+minRoom.noPerson+" , "}
+                            {!!minRoom?.noAdult && t.hotel.adult + " " + minRoom.noAdult + " , "}
+                            {!!minRoom?.noBed && t.hotel.bed + " " + minRoom.noBed + " , "}
+                            {!!minRoom?.noChildren && t.hotel.children + " " + minRoom.noChildren + " , "}
+                            {!!minRoom?.noExtraBed && t.hotel.extrabed + " " + minRoom.noExtraBed + " , "}
+                            {!!minRoom?.noInfant && t.hotel.infant + " " + minRoom.noInfant + " , "}
+                            {!!minRoom?.noPerson && t.hotel.person + " " + minRoom.noPerson + " , "}
                         </span>
                         <span className="text-lg font-bold">
                             {
@@ -117,7 +126,7 @@ export default function CardHotel({ data }: { data: HotelFull }) {
                 <div className="grow"></div>
                 <div className="flex items-center max-sm:grid max-sm:grid-cols-1 max-sm:gap-1 max-sm:w-full">
                     <span className="text-green-600 text-sm max-sm:col-span-1">
-                    {t.hotel.total_nu_rooms} {data.room?.length ?? 0}
+                        {t.hotel.total_nu_rooms} {data.room?.length ?? 0}
                     </span>
                     <div className="grow max-sm:hidden"></div>
                     <Button color="primary" variant="outline" size={"sm"}>{t.hotel.check_room_av}</Button>

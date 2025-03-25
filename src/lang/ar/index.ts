@@ -43,7 +43,17 @@ export default {
         "direct": "رحلة مباشرة",
         "luggage": "الأمتعة مشمولة",
         "refundable": "قابل للاسترداد",
-        "add_flight": "إضافة رحلة"
+        "add_flight": "إضافة رحلة",
+        "passagers_p": "المسافرون (%DATA%)",
+        "book_now": "احجز الآن",
+        "fullname": "الاسم الكامل",
+
+        "fullname_req": "الاسم الكامل مطلوب",
+        "invalid_email": "تنسيق البريد الإلكتروني غير صالح",
+        "phone_req": "رقم الهاتف مطلوب",
+        "book_success": "تم إكمال حجزك بنجاح.",
+        "will_contact_u": "سنتواصل معك لاحقًا"
+
     },
     "home": {
         "top_dist": "أفضل الوجهات",

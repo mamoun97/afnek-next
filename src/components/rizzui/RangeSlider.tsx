@@ -35,6 +35,7 @@ export default function RangeSlider({
 }: RangeSliderProps) {
   return (
     <Slider
+  
       className={cn(
         rangeStyles.base,
         rangeStyles.size[size],

@@ -1,8 +1,10 @@
 "use client"
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
+import FormFlights from "@/components/FormFlights";
 import Header from "@/components/Header";
 import useLang from "@/lang/useLang";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -12,7 +14,7 @@ export default function Page({ params: { lang } }: {
         lang: string;
     };
 }) {
-    const {lang:l}=useLang()
+    const { lang: l } = useLang()
     const text = {
         en: {
             title: "Who we are?",
@@ -33,9 +35,13 @@ export default function Page({ params: { lang } }: {
             <div className=" relative z-30">
                 <Header isHome={true} showForm={true} type="flights" />
             </div>
-            <div className="relative z-0">
-                <Container className="griwd gridw-cols-3 my-8">
-                    <div>
+            <div className="relative z-50">
+
+                <Container className="grid grid-cols-5 gap-4 mb-8 max-md:grid-cols-2">
+                    <div className="col-span-3">
+                        <FormFlights />
+                    </div>
+                    <div className="flex col-span-2 items-center pt-24 max-md:pt-6 flex-col gap-2">
                         <h1 className="text-xl text-center font-semibold">{text[l].title}</h1>
                         <p className="text-sm text-center mt-4 opacity-80">
                             {text[l].desc}
@@ -44,6 +50,7 @@ export default function Page({ params: { lang } }: {
                 </Container>
                 <Footer />
             </div>
+            <Toaster position="bottom-center" />
         </div>
 
     </>

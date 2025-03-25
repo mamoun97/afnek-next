@@ -43,7 +43,17 @@ export default {
         "direct": "Vol direct",
         "luggage": "Bagages inclus",
         "refundable": "Remboursable",
-        "add_flight": "Ajouter un vol"
+        "add_flight": "Ajouter un vol",
+        "passagers_p": "Voyageurs (%DATA%)",
+        "book_now": "Réservez maintenant",
+        "fullname": "Nom complet",
+
+        "fullname_req": "Le nom complet est requis",
+        "invalid_email": "Format d'email invalide",
+        "phone_req": "Le numéro de téléphone est requis",
+        "book_success": "Votre réservation a été complétée avec succès.",
+        "will_contact_u": "Nous vous contacterons plus tard"
+
     },
     "home": {
         "top_dist": "Meilleures destinations",

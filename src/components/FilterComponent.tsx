@@ -17,7 +17,8 @@ type FilterType = {
     amenity: number[],
     tag: number[],
     nearby: number[],
-    rating: number[]
+    rating: number[],
+    room: number[],
 }
 type PropsType = {
     filter: PaginationFilter,
@@ -33,32 +34,52 @@ export default function FilterComponent(props: PropsType) {
         amenity: [],
         tag: [],
         nearby: [],
-        rating: []
+        rating: [],
+        room: [0,40000]
     })
+    const [range, setRange] = useState( [0,40000])
+
     useEffect(() => {
-        // props.setFilter({
-        //     ...props.filter,
-        //     filter: [
-        //         ...data.amenity.length ? [{
-        //             field: "amenity",
-        //             operation: "in",
-        //             value: data.amenity
-        //         }] : [],
-        //         ...data.tag.length ? [{
-        //             field: "tag",
-        //             operation: "in",
-        //             value: data.tag
-        //         }] : [],
-        //         ...data.nearby ? [{
-        //             field: "nearby",
-        //             operation: "in",
-        //             value: data.nearby
-        //         }] : [],
-        //     ]
-        // })
+        props.setFilter({
+            ...props.filter,
+            filter: [
+                ...data.amenity.length ? [{
+                    field: "amenity.id",
+                    operation: "in",
+                    value: data.amenity
+                }] : [],
+                ...data.tag.length ? [{
+                    field: "tag.id",
+                    operation: "in",
+                    value: data.tag
+                }] : [],
+                ...data.rating.length ? [{
+                    field: "rating",
+                    operation: "in",
+                    value: data.rating
+                }] : [],
+                ...data.nearby ? [{
+                    field: "nearby.id",
+                    operation: "in",
+                    value: data.nearby
+                }] : [],
+                ...data.room ? [
+                    {
+                        field: "room.price",
+                        operation: ">=",
+                        value: data.room[0]
+                    },
+                    {
+                        field: "room.price",
+                        operation: "<=",
+                        value: data.room[1]
+                    }
+                ] : [],
+            ]
+        })
     }, [data])
-    const {t,lang}=useLang()
-    const tr=t.search_page.filter
+    const { t, lang } = useLang()
+    const tr = t.search_page.filter
     return (
         <div className="border border-gray-300 rounded-xl  flex flex-col ">
             <div className="p-3 ps-4 pe-4 text-lg font-semibold flex mb-3 items-center">
@@ -71,24 +92,24 @@ export default function FilterComponent(props: PropsType) {
             {/* <App/> */}
             <FilterItem text={tr.price}>
                 <div className="flex items-center text-sm mt-2 mb-2" >
-                    <span>{filter.min_price} DA</span>
+                    <span>{data.room[0]} DA</span>
                     <div className="grow"></div>
-                    <span>{filter.max_price} DA</span>
+                    <span>{data.room[1]} DA</span>
                 </div>
                 <div className="flex items-center text-sm mt-2 mb-2" >
                     <RangeSlider
                         range
                         step={50}
-                        min={1000}
-                        max={30000}
-                        value={[filter?.min_price ?? 4780, filter?.max_price ?? 21145]}
-                        onChange={(e: any) => {
-                            dispatch(changeFilter({
-                                ...filter,
-                                min_price: e[0],
-                                max_price: e[1]
-                            }))
-                        }}
+                        min={0}
+                        max={40000}
+                        value={[range[0],range[1]]}
+                        
+                        onChange={
+                            (e: any) => {
+                           
+                                setRange([e[0],e[1]])
+                            }
+                        }
                         className="w-full"
                     />
                 </div>
@@ -123,7 +144,13 @@ export default function FilterComponent(props: PropsType) {
                         return <div className="flex items-center text-sm mt-2 mb-2" key={index}>
                             <Checkbox
                                 size="sm"
-                                className="rounded-sm" />
+                                className="rounded-sm"
+                                onChange={() => setData({
+                                    ...data,
+                                    rating: !!data.rating.find(el => el == its) ? data.rating.filter(el => el != its) :
+                                        [...data.rating, its]
+                                })}
+                            />
                             <div className="me-2"></div>
                             <Rating readonly initialRating={its} />
 
@@ -148,7 +175,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                     className="rounded-sm" />
                                 <div className="me-2"></div>
-                                {getNameTr(lang,its)}
+                                {getNameTr(lang, its)}
 
                             </div>
                         })
@@ -174,7 +201,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                 />
                                 <div className="me-2"></div>
-                                {getNameTr(lang,its)}
+                                {getNameTr(lang, its)}
 
                             </div>
                         })
@@ -199,7 +226,7 @@ export default function FilterComponent(props: PropsType) {
                                     })}
                                     className="rounded-sm" />
                                 <div className="me-2"></div>
-                                {getNameTr(lang,its)}
+                                {getNameTr(lang, its)}
 
                             </div>
                         })

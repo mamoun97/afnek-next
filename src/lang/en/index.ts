@@ -43,7 +43,16 @@ export default {
         direct: "Direct flight",
         luggage: "Luggage included",
         refundable: "Refundable",
-        add_flight:"Add a flight",
+        add_flight: "Add a flight",
+        passagers_p: "Travelers (%DATA%)",
+        book_now: "Book now",
+        fullname: "Fullname",
+
+        fullname_req: "Full name is required",
+        invalid_email: "Invalid email format",
+        phone_req: "Phone number is required",
+        book_success: "Your reservation has been successfully completed.",
+        will_contact_u: "We will contact you later"
 
     },
     home: {
@@ -212,7 +221,7 @@ export default {
     },
     global: {
         dzd: "DZD",
-        continue: "Continue"
+        continue: "Continue",
     },
     faqs: {
         title: "Frequently Asked Questions (FAQ) - Afnek",
