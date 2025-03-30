@@ -92,6 +92,7 @@ const DatePicker = ({
           />
         )
       }
+      
       showPopperArrow={showPopperArrow}
       dateFormat={dateFormat}
       selectsRange={selectsRange}

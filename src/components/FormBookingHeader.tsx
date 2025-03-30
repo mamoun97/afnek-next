@@ -53,10 +53,10 @@ export default function FormBookingHeader() {
                     onChange={handleRangeChange}
                     startDate={filter.date_start}
                     endDate={filter.date_end}
-                    monthsShown={2}
+                    monthsShown={1}
                     placeholderText={t.header.ph_daterange}
                     selectsRange
-
+                    minDate={new Date()}
                     inputProps={{
                         clearable: true,
                         onClear: () => {

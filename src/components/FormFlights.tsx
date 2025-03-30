@@ -181,13 +181,13 @@ export default function FormFlights() {
                         placeholder: t.hotel.phone_number,
                         key: "phone",
                         className: "",
-                        icon: MdEmail
+                        icon: FaPhoneAlt
                     },
                     {
                         placeholder: t.hotel.email_address,
                         key: "email",
                         className: "",
-                        icon: FaPhoneAlt
+                        icon: MdEmail
                     },
                 ].map(el => (
                     <Input
@@ -239,7 +239,7 @@ export default function FormFlights() {
                                 <DatePicker
                                     key={formik.values.type}
                                     calendarClassName="w-full grow"
-
+                                    minDate={new Date()}
                                     monthsShown={1}
                                     {
                                     ...formik.values.type == "round_trip" ?
