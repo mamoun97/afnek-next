@@ -52,8 +52,8 @@ export default {
         "invalid_email": "تنسيق البريد الإلكتروني غير صالح",
         "phone_req": "رقم الهاتف مطلوب",
         "book_success": "تم إكمال حجزك بنجاح.",
-        "will_contact_u": "سنتواصل معك لاحقًا"
-
+        "will_contact_u": "سنتواصل معك لاحقًا",
+        "select_wilaya": "اختر الولاية"
     },
     "home": {
         "top_dist": "أفضل الوجهات",

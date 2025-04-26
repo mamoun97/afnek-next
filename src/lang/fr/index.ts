@@ -52,7 +52,8 @@ export default {
         "invalid_email": "Format d'email invalide",
         "phone_req": "Le numéro de téléphone est requis",
         "book_success": "Votre réservation a été complétée avec succès.",
-        "will_contact_u": "Nous vous contacterons plus tard"
+        "will_contact_u": "Nous vous contacterons plus tard",
+        "select_wilaya": "Sélectionnez un wilaya"
 
     },
     "home": {

@@ -78,3 +78,7 @@ type Wilaya={
     lat: number,
     lng: number
 }
+type WilayaResponse={
+    data:Wilaya[],
+    count:number
+}

@@ -52,7 +52,9 @@ export default {
         invalid_email: "Invalid email format",
         phone_req: "Phone number is required",
         book_success: "Your reservation has been successfully completed.",
-        will_contact_u: "We will contact you later"
+        will_contact_u: "We will contact you later",
+        select_wilaya:"Select wilaya"
+        
 
     },
     home: {
