@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { HotelListLoading } from "@/components/Loading";
 import { AppDispatch, RootState } from "@/store";
+import getFilter from "@/utils/getFilter";
 import { FilterToPaginationFilter, transferDataGet } from "@/utils/transfer-data";
 import moment from "moment";
 import Link from "next/link";
@@ -18,34 +19,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function HotelsFilter({ id_wilaya }: { id_wilaya?: string }) {
     const filterStore = useSelector<RootState>(state => state.filter) as Filter
-    const dispatch: AppDispatch = useDispatch();
-    const getFilter = () => {
-        return {
-            relations: ["room", "wilaya", "room.room_type_hotel", "gallery","nearby","amenity","tag"],
-            search: [
-                {
-                    field: "address",
-                    value: filterStore.address
-                }
-            ],
-            filter: [
-                ...!!id_wilaya ? [{
-                    field: "id_wilaya",
-                    operation: "=",
-                    value: id_wilaya
-                }] : [],
-                ...FilterToPaginationFilter(filterStore).filter
-            ],
-            date: filterStore.date_start && filterStore.date_end ?
-                moment(filterStore.date_start).format("yyyy-MM-DD") + "," + moment(filterStore.date_end).format("yyyy-MM-DD")
-                : undefined
-        }
-    }
-    const [filter, setFilter] = useState<PaginationFilter>(getFilter())
+    
+    const [filter, setFilter] = useState<PaginationFilter>(getFilter(filterStore,id_wilaya))
     const { data: hotels, isLoading } = HotelApi.useReadAll(transferDataGet(filter))
-    // var hotels:HotelResponse|undefined,isLoading=false
+    
     useEffect(() => {
-        setFilter(getFilter())
+        setFilter(getFilter(filterStore,id_wilaya))
     }, [filterStore])
     return (
         <div>

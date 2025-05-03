@@ -103,6 +103,6 @@ const swrOptions = {
 
 }
 
-export { http, httpUpload, swrOptions };
+export { http, httpUpload, swrOptions ,axios};
 
 export default ApiConfig;

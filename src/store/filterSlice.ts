@@ -12,8 +12,10 @@ const initialState: Filter = {
   adult: 2,
   children: 0,
   room: 1,
+
   min_price: 4780,
   max_price: 21145,
+  name:""
 };
 
 const filterSlice = createSlice({

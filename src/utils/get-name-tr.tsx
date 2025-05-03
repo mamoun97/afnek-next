@@ -14,10 +14,10 @@ type ReturnTypeF = "name_ar" | "name_fr" | "name_en";
 const getNameTr = (lang: "ar" | "fr" | "en", item: ItemType): ReturnTypeF => {
 
     let name= (lang == "ar" && item.name_ar) && "name_ar" ||
-    (lang == "ar" && item.ar) && "ar" ||
-        (lang == "fr" && item.name_fr) && "name_fr" ||
-        (lang == "fr" && item.fr) && "fr" ||
-        item.en&&"en"||
+              (lang == "ar" && item.ar) && "ar" ||
+              (lang == "fr" && item.name_fr) && "name_fr" ||
+              (lang == "fr" && item.fr) && "fr" ||
+               item.en&&"en"||
         "name_en";
 
         return item[name]

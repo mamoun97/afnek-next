@@ -12,8 +12,8 @@ interface PaginationFilter {
     search?: { field: string; value?: string }[];
     filter?: { field: string; operation: string; value: string | string[] | number | number[] }[];
     relations?: string[];
-    date?:string,
-    paranoid?:boolean
+    date?: string,
+    paranoid?: boolean
 }
 
 
@@ -22,6 +22,7 @@ type RatingNumber = 1 | 2 | 3 | 4 | 5
 type Filter = {
     limit: number,
     page: number,
+    id?:number,
     address: string,
     date_start: string | date | null,
     date_end: string | date | null,
@@ -30,14 +31,15 @@ type Filter = {
     price_order?: "ASC" | "DESC",
     rating?: RatingNumber[],
     adult: number,
+    name?:string,
     children: number,
     room: number
 }
 type Nearby = {
     id: number,
     name_ar: string | null,
-    name_fr: string| null,
-    name_en: string ,
+    name_fr: string | null,
+    name_en: string,
     icon: string,
     created_at: string
 }
@@ -69,7 +71,7 @@ type TagResponse = {
     count: number,
     data: Tag[]
 }
-type Wilaya={
+type Wilaya = {
     id: number,
     name_ar: string,
     name_fr: string,
@@ -78,7 +80,33 @@ type Wilaya={
     lat: number,
     lng: number
 }
-type WilayaResponse={
-    data:Wilaya[],
-    count:number
+type WilayaResponse = {
+    data: Wilaya[],
+    count: number
 }
+
+type CountriesGeo = {
+    adminCode1: string,
+    lng: string,
+    geonameId: number,
+    toponymName: string,
+    countryId: string,
+    fcl: string,
+    population: number,
+    countryCode: string,
+    name: string,
+    fclName: string,
+    countryName: string,
+    fcodeName: string,
+    adminName1: string,
+    lat: string,
+    fcode: string,u
+    adminCodes1?: {
+        ISO3166_2: string
+    },
+}
+type CountriesGeoResponse = {
+    totalResultsCount: number,
+    geonames: CountriesGeo[]
+}
+

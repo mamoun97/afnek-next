@@ -20,7 +20,7 @@ export function transferDataGet(dt?: PaginationFilter) {
                         dataReturn.search = x.field + ":" + x.value;
                     } else {
                         dataReturn.search =
-                            dataReturn.search + "," + x.field + ":" + x.value;
+                            dataReturn.search + "|" + x.field + ":" + x.value;
                     }
                 }
             });
@@ -53,7 +53,7 @@ export function transferDataGet(dt?: PaginationFilter) {
         }
 
         if (data.filter?.length) {
-            console.log(data)
+            // console.log(data)
             data.filter.map((x) => {
                 if (dataReturn.filter == "") {
                     dataReturn.filter = x.field + ":" + x.operation + ":" + (typeof x.value=="object"?"["+x.value.join(",")+"]":x.value);

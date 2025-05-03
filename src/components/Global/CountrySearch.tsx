@@ -1,5 +1,7 @@
 import { FlightApi } from '@/api/flight';
+import { LocationApi } from '@/api/location';
 import useClickOutside from '@/hooks/click-out-side';
+import useLang from '@/lang/useLang';
 import { transferDataGet } from '@/utils/transfer-data';
 import React, { useEffect, useState } from 'react'
 // import { Input, Loader } from "rizzui";
@@ -18,7 +20,7 @@ export default function CountrySearch({ setValue, containerClassName = "", value
 
 
 
-
+const {lang}=useLang()
     const [name, setName] = useState(valueC);
     const [open, setOpen] = useState(false);
     const clickOutsideRef = useClickOutside({
@@ -31,7 +33,8 @@ export default function CountrySearch({ setValue, containerClassName = "", value
     }, [valueC])
 
 
-    const { data, isLoading } = FlightApi.useReadAllCountries(`?search=name_en:${name}`);
+    // const { data, isLoading } = FlightApi.useReadAllCountries(`?search=name_en:${name}`);
+    const {data,isLoading}=LocationApi.useGetCountriesGeo(!!name?`name=${name}&lang=${lang}&maxRows=10`:undefined)
     return (
         <div className={`w-full relative ${open ? "z-50" : ""}  containerClassName`} ref={clickOutsideRef}>
 
@@ -54,23 +57,29 @@ export default function CountrySearch({ setValue, containerClassName = "", value
                 {...props}
             />
             {
-                open && <div className='relative z-50'>
+                open&&!!name && <div className='relative z-50'>
                     <div
                         className="border bg-background rounded-lg  p-2 max-h-60 overflow-auto absolute top-1 left-0 right-0"
                     >
 
                         {
-                            data?.data.map((el, k: number) => {
+                            data?.geonames.filter((item, index, self) =>
+                                index === self.findIndex(
+                                  (t) =>
+                                    t.countryName === item.countryName &&
+                                    t.name === item.name
+                                )
+                              ).map((el, k: number) => {
                                 return <React.Fragment key={k}>
 
                                     <div className="flex items-center gap-3 cursor-pointer p-2 px-3 rounded-md hover:bg-muted" onClick={() => {
                                         setOpen(false)
-                                        setValue(el.name_fr ?? "")
+                                        setValue(el.countryName+", "+el.name )
                                     }}>
 
 
 
-                                        <h1 className='text-sm whitespace-nowrap '>{el.name_fr}</h1>
+                                        <h1 className='text-sm whitespace-nowrap '>{el.countryName+", "+el.name}</h1>
                                     </div>
 
                                 </React.Fragment>
@@ -78,7 +87,7 @@ export default function CountrySearch({ setValue, containerClassName = "", value
                             })
                         }
                         {
-                            data?.data.length === 0 && <div className='flex justify-center items-center h-24'>
+                            data?.geonames.length === 0 && <div className='flex justify-center items-center h-24'>
                                 No Data found
                             </div>
                         }

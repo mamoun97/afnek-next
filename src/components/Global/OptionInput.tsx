@@ -25,6 +25,7 @@ const OptionInput: FC<InputProps> = (props) => {
     const {t}=useLang()
     return <div className="grow w-full relative z-40" ref={clickOutsideRef}>
         <Input 
+        className="cursor-default"
         {...props}
             placeholder={`2 ${t.header.adult} . 0 ${t.header.children} . 1 ${t.header.room}`}
             value={`${filter.adult} ${t.header.adult} . ${filter.children} ${t.header.children} . ${filter.room} ${t.header.room}`}
