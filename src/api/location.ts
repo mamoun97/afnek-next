@@ -11,9 +11,9 @@ const getWilayas = async (query?: string): Promise<WilayaResponse> => {
 }
 const getCountriesGeo = async (query: string): Promise<CountriesGeoResponse> => {
    
-    const protocol = await getProtocol("https://api.geonames.org");
+    // const protocol = await getProtocol("https://api.geonames.org");
     const { data } = await axios.create({
-        baseURL: `${protocol}://api.geonames.org`,
+        baseURL: `https://api.geonames.org`,
         headers: {
             "Content-type": "application/json",
         }
