@@ -31,6 +31,19 @@ export const ApiConfig = {
     settingsEndPoint: '/setting',
     displaySettingsEndPoint: '/display',
 };
+
+const getProtocol = async (url:string): Promise<'https' | 'http'> => {
+    const domain = url.replace(/^https?:\/\//, '').split('/')[0];
+
+    try {
+        await axios.get(`https://${domain}`, { timeout: 3000 });
+        return 'https';
+    } catch {
+        return 'http';
+    }
+};
+
+
 const http = () => {
     let a = axios.create({
         baseURL: ApiConfig.rootUrl,
@@ -103,6 +116,6 @@ const swrOptions = {
 
 }
 
-export { http, httpUpload, swrOptions ,axios};
+export { http, httpUpload, swrOptions ,axios,getProtocol};
 
 export default ApiConfig;
