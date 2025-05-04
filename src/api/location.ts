@@ -1,6 +1,6 @@
 
 
-import ApiConfig, { axios, getProtocol, http, swrOptions } from "./config";
+import ApiConfig, {  http, swrOptions } from "./config";
 import useSWR from "swr";
 
 const getWilayas = async (query?: string): Promise<WilayaResponse> => {
@@ -10,7 +10,7 @@ const getWilayas = async (query?: string): Promise<WilayaResponse> => {
 
 }
 const getCountriesGeo = async (query: string): Promise<CountriesGeoResponse> => {
-    const response = await fetch(`http://api.geonames.org/searchJSON?username=bilalfali&${query}`, {
+    const response = await fetch(`/api/geo?${query}`, {
         method: 'GET',
         headers: {
             "Content-type": "application/json",
@@ -23,7 +23,6 @@ const getCountriesGeo = async (query: string): Promise<CountriesGeoResponse> => 
 
     const data = await response.json();
     return data
-
 }
 
 

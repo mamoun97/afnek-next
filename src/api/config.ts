@@ -32,16 +32,7 @@ export const ApiConfig = {
     displaySettingsEndPoint: '/display',
 };
 
-const getProtocol = async (url:string): Promise<'https' | 'http'> => {
-    const domain = url.replace(/^https?:\/\//, '').split('/')[0];
 
-    try {
-        await axios.get(`https://${domain}`, { timeout: 3000 });
-        return 'https';
-    } catch {
-        return 'http';
-    }
-};
 
 
 const http = () => {
@@ -116,6 +107,6 @@ const swrOptions = {
 
 }
 
-export { http, httpUpload, swrOptions ,axios,getProtocol};
+export { http, httpUpload, swrOptions ,axios};
 
 export default ApiConfig;
