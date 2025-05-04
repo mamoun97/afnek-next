@@ -10,17 +10,22 @@ const getWilayas = async (query?: string): Promise<WilayaResponse> => {
 
 }
 const getCountriesGeo = async (query: string): Promise<CountriesGeoResponse> => {
-   
-    // const protocol = await getProtocol("https://api.geonames.org");
-    const { data } = await axios.create({
-        baseURL: `https://api.geonames.org`,
+    const response = await fetch(`http://api.geonames.org/searchJSON?username=bilalfali&${query}`, {
+        method: 'GET',
         headers: {
             "Content-type": "application/json",
-        }
-    }).get("searchJSON?username=bilalfali&"+query);
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
     return data
 
 }
+
 
 
 const useGetWilayas = (query?: string) => {
@@ -28,11 +33,11 @@ const useGetWilayas = (query?: string) => {
     return data
 }
 const useGetCountriesGeo = (query?: string) => {
-    const data = useSWR(query ? "Bilal-" + query : null, () => getCountriesGeo(query??""), { ...swrOptions, ...{} })
+    const data = useSWR(query ? "Bilal-" + query : null, () => getCountriesGeo(query ?? ""), { ...swrOptions, ...{} })
     return data
 }
 
 export const LocationApi = {
-    useGetWilayas,useGetCountriesGeo
+    useGetWilayas, useGetCountriesGeo
 
 }
