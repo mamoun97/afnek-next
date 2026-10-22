@@ -2,6 +2,11 @@
 
 Afnek is a hotel booking web application built with Next.js. The project focuses on providing users with a convenient way to explore hotel accommodations and interact with a hotel booking platform.
 
+![Udemy Clone Preview](./screenshots/afnek1.png)
+
+![Udemy Clone Preview](./screenshots/afnek2.png)
+
+
 ## 🔗 Project Repository
 
 Explore the source code on GitHub:
